@@ -311,7 +311,7 @@ class GameSimulator {
   applyMana(type, value) {
     const firstAliveHeroCouldReceiveMana = this.state
       .getCurrentPlayer()
-      .firstAliveHeroCouldReceiveMana(type);
+      .firstAliveHeroCouldReceiveMana(+type);
     if (firstAliveHeroCouldReceiveMana) {
       const maxManaHeroCannCeceive =
         firstAliveHeroCouldReceiveMana.getMaxManaCouldTake();
@@ -636,8 +636,8 @@ class AoTStrategy {
   }
 
   possibleCastOnHero(hero, state) {
-    // const casts = [new AotCastSkill(hero)];
-    const casts = [];
+    const casts = [new AotCastSkill(hero)];
+    // const casts = [];
     return casts;
   }
 
