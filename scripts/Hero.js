@@ -4,7 +4,7 @@ const HeroIdEnum = {
     AIR_SPIRIT : 2, // Nefia deal damge and remove selected gem type 
     SEA_GOD : 3, // Magni + attack and health to 1
     MERMAID : 4, // Poko
-    SEA_SPIRIT : 5, // Terra 
+    SEA_SPIRIT : 'SEA_SPIRIT', // Terra 
     FIRE_SPIRIT : 6, // Sigmund  deal damge base on enemy attack + red gems
     CERBERUS : 7, //Cerberus deal dame = attack + increase self attack
     DISPATER : 8, //Fate
