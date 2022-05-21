@@ -112,12 +112,12 @@ class Visualizer {
     snapShot() {
         this.snapshots = this.snapshots || [];
         const snapshot = {
-            gameGrid: this.gameGrid,
-            botPlayer: this.botPlayer,
-            enemyPlayer: this.enemyPlayer,
+            gameGrid: this.gameGrid.clone(),
+            botPlayer: this.botPlayer.clone(),
+            enemyPlayer: this.enemyPlayer.clone(),
             logText: this.logText
         };
-        const clone = JSON.parse(JSON.stringify(snapshot));
+        const clone = snapshot;
         this.snapshots.push(clone);
         this.sliderEl.max = this.snapshots.length;
         this.sliderEl.value = this.snapshots.length;

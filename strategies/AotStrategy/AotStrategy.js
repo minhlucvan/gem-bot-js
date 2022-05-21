@@ -6,12 +6,27 @@ class AotGameState {
     this.enemyPlayer = enemyPlayer;
     this.currentPlayer = botPlayer;
     this.distinctions = [];
+    this.turnEffects = [];
   }
 
-  calcScore() {
-    const bot = this.getCurrentPlayer();
-    const enemy = this.getCurrentEnemyPlayer();
-    bot.metrics.calc(bot, enemy);
+  calcScoreOf(playerId) {
+    const player = this.getPlayerById(playerId);
+    const enemy = this.getEnemyPlayerById(playerId);
+    return player.metrics.calc(player, enemy, this); 
+  }
+
+  getPlayerById(id) {
+    if(this.botPlayer.playerId == id){
+      return this.botPlayer;
+    }
+    return this.enemyPlayer;
+  }
+
+  getEnemyPlayerById(id) {
+    if(this.botPlayer.playerId == id){
+      return this.enemyPlayer;
+    }
+    return this.botPlayer;
   }
 
   isGameOver() {
@@ -57,12 +72,19 @@ class AotGameState {
     this.distinctions.push(result);
   }
 
+  addTurnEffect(result) {
+    this.turnEffects.push(result);
+  }
+
   clone() {
     const game = this.game;
     const grid = this.grid.clone();
     const botPlayer = this.botPlayer.clone();
     const enemyPlayer = this.enemyPlayer.clone();
-    return new AotGameState({ game, grid, botPlayer, enemyPlayer });
+    const state = new AotGameState({ game, grid, botPlayer, enemyPlayer });
+    state.distinctions = [...this.distinctions];
+    state.turnEffects = [...this.turnEffects];
+    return state;
   }
 }
 
@@ -224,13 +246,14 @@ class GameSimulator {
   }
 
   applyDistinctionResult(result) {
+    this.state.addDistinction(result);
     const turnEffect = TurnEfect.fromDistinction(result);
     this.applyTurnEffect(turnEffect);
-    this.state.addDistinction(result);
+    this.state.addTurnEffect(turnEffect);
   }
 
   applyTurnEffect(turn) {
-    this.turnEffect = this.turnEffect;
+    this.turnEffect = turn;
     this.applyAttack(turn.attackGem);
     for (const [type, value] of Object.entries(turn.manaGem)) {
       this.applyMana(type, value);
@@ -330,7 +353,7 @@ class AotLineUpSetup {
   }
 }
 
-class AotGeneralLineup extends AotGeneralLineup {
+class AotGeneralLineup extends AotLineUpSetup {
 
 }
 
@@ -370,7 +393,7 @@ class AotHeroMetrics {
     return false;
   }
 
-  calcScore(player, enemyPlayer) {
+  calcScore(hero, player, enemyPlayer, state) {
     const hpScore = this.hpMetric.exec(hero.hp);
     const manaScore = this.maxManaMetric.exec(hero.mana);
     const overManaScore = this.overManaMetric.exec(0);
@@ -391,8 +414,8 @@ class AotScoreMetric {
   sumMetric = new SumScale();
 
   constructor(lineup) {
-    for(const hero of lineup.player.heros) {
-      const heroMetrics = this.createHeroMetric(hero, player, enemy);
+    for(const hero of lineup.player.heroes) {
+      const heroMetrics = this.createHeroMetric(hero, lineup.player, lineup.enemy);
       hero.metrics = heroMetrics;
     }
   }
@@ -401,21 +424,20 @@ class AotScoreMetric {
     return new AotGeneralHeroMetrics(hero, player, enemy);
   }
 
-  caclcHeroScore(hero, player, enemyPlayer) {
-    const score = hero.metrics.calcScore(hero, player, enemyPlayer);
+  calcHeroScore(hero, player, enemyPlayer, state) {
+    const score = hero.metrics.calcScore(hero, player, enemyPlayer, state);
     return score;
   }
 
-  calcScoreOfPlayer(player, enemyPlayer) {
+  calcScoreOfPlayer(player, enemyPlayer, state) {
     const heros = player.getHerosAlive();
-    const heroScores = heros.map((hero) => this.caclcHeroScore(hero, player, enemyPlayer));
+    const heroScores = heros.map((hero) => this.calcHeroScore(hero, player, enemyPlayer, state));
     const totalHeroScore = this.sumMetric.exec(...heroScores);
     return totalHeroScore;
   }
 
   calc(player, enemy, state) {
-    const myScore = this.calcScoreOfPlayer(player, enemy, state);
-    const score = myScore;
+    const score = this.calcScoreOfPlayer(player, enemy, state);
     return score;
   }
 }
@@ -431,6 +453,23 @@ class AotTerraHeroMetric extends AotHeroMetrics {
 class AotMagniHeroMetric extends AotHeroMetrics {
 
 }
+
+class AotOrthurHeroMetric extends AotHeroMetrics {
+
+}
+
+class AotCerberusHeroMetric extends AotHeroMetrics {
+
+} 
+
+class AotZeusHeroMetric extends AotHeroMetrics {
+
+} 
+
+class AotFateHeroMetric extends AotHeroMetrics {
+
+} 
+
 
 class AotMagniTerraSigmudScoreMetric extends AotScoreMetric {
   constructor(lineup) {
@@ -475,21 +514,21 @@ class AoTStrategy {
   setGame({ game, grid, botPlayer, enemyPlayer }) {
     this.game = game;
 
-    this.initPlayer(botPlayer);
-    this.initPlayer(enemyPlayer);
+    this.initPlayer(botPlayer, enemyPlayer);
+    this.initPlayer(enemyPlayer, botPlayer);
     
     this.state = new AotGameState({ grid, botPlayer, enemyPlayer });
     this.snapshots = [];
   }
 
-  initPlayer(player) {
+  initPlayer(player, enemy) {
     player.lineup = AotLineUpFactory.ofPlayer(player, enemy);
-    player.metrics = lineup.metrics;
+    player.metrics = player.lineup.metrics;
   }
 
   playTurn() {
     console.log(`${AoTStrategy.name}: playTurn`);
-    const action = this.chooseBestPosibleMove(this.state, 1);
+    const action = this.chooseBestPossibleMove(this.state, 1);
     if(!action) {
       console.log("Cannot choose");
       return;
@@ -507,17 +546,20 @@ class AoTStrategy {
     return this.state.clone();
   }
 
-  chooseBestPosibleMove(state, deep = 2) {
+  chooseBestPossibleMove(state, deep = 2) {
     console.log(`${AoTStrategy.name}: chooseBestPosibleMove`);
-    const posibleMoves = this.getAllPosibleMove(state);
-    if(!posibleMoves || posibleMoves.length == 0) {
+    const possibleMoves = this.getAllPossibleMove(state);
+    const currentPlayer = state.getCurrentPlayer();
+
+    if(!possibleMoves || possibleMoves.length == 0) {
       return null;
     }
-    let currentBestMove = posibleMoves[0];
+    let currentBestMove = possibleMoves[0];
     let currentBestMoveScore = Number.NEGATIVE_INFINITY;
-    for (const move of posibleMoves) {
+    for (const move of possibleMoves) {
       const futureState = this.seeFutureState(move, state, deep);
-      const simulateMoveScore = this.compareScoreOnStates(state, futureState);
+      console.log(state, futureState);
+      const simulateMoveScore = this.compareScoreOnStates(state, futureState, currentPlayer);
       console.log(
         `${AoTStrategy.name}: simulateMoveScore  ${simulateMoveScore}`
       );
@@ -545,32 +587,25 @@ class AoTStrategy {
 
     const futureState = this.applyMoveOnState(move, clonedState);
     if (futureState.isExtraturn()) {
-      const newMove = this.chooseBestPosibleMove(futureState, deep);
+      const newMove = this.chooseBestPossibleMove(futureState, deep);
       return this.seeFutureState(newMove, futureState, deep);
     }
 
     futureState.switchTurn();
-    const newMove = this.chooseBestPosibleMove(futureState, deep - 1);
+    const newMove = this.chooseBestPossibleMove(futureState, deep - 1);
     const afterState = this.seeFutureState(newMove, futureState, deep - 1);
     return afterState;
   }
 
-  compareScoreOnStates(state1, state2) {
-    console.log(`${AoTStrategy.name}: compareScoreOnState`);
-    const score1 = this.caculateScoreOnState(state1);
-    
-    const state2Cloned = state2.clone();
-    if(!state2Cloned.getCurrentPlayer().sameOne(state1.getCurrentPlayer())) {
-      state2Cloned.switchTurn();
-    }
-
-    const score2 = this.caculateScoreOnState(state2Cloned);
-
-    return score2 - score1;
+  compareScoreOnStates(state1, state2, player) {
+    const score1 = this.calculateScoreOnStateOf(state1, player);
+    const score2 = this.calculateScoreOnStateOf(state2, player);
+    console.log(`${AoTStrategy.name}: compareScoreOnState`, score1, score2);
+    return score2;
   }
 
-  caculateScoreOnState(state) {
-    const score = state.calcScore();
+  calculateScoreOnStateOf(state, player) {
+    const score = state.calcScoreOf(player.playerId);
     return score;
   }
 
@@ -582,31 +617,31 @@ class AoTStrategy {
     return newState;
   }
 
-  getAllPosibleMove(state) {
-    const posibleSkillCasts = this.getAllPosibleSkillCast(state);
-    const posibleGemSwaps = this.getAllPosibleGemSwap(state);
-    return [...posibleSkillCasts, ...posibleGemSwaps];
+  getAllPossibleMove(state) {
+    const possibleSkillCasts = this.getAllPossibleSkillCast(state);
+    const possibleGemSwaps = this.getAllPossibleGemSwap(state);
+    return [...possibleGemSwaps, ...possibleSkillCasts];
   }
 
-  getAllPosibleSkillCast(state) {
+  getAllPossibleSkillCast(state) {
     const currentPlayer = state.getCurrentPlayer();
-    const castableHeros = currentPlayer.getCastableHeros();
+    const castableHeroes = currentPlayer.getCastableHeros();
 
-    const posibleCastOnHeros = castableHeros.map((hero) =>
-      this.posibleCastOnHero(hero, state)
+    const possibleCastOnHeros = castableHeroes.map((hero) =>
+      this.possibleCastOnHero(hero, state)
     );
-    const allPosibleCasts = [].concat(...posibleCastOnHeros);
+    const allPossibleCasts = [].concat(...possibleCastOnHeros);
 
-    return allPosibleCasts;
+    return allPossibleCasts;
   }
 
-  posibleCastOnHero(hero, state) {
+  possibleCastOnHero(hero, state) {
     // const casts = [new AotCastSkill(hero)];
     const casts = [];
     return casts;
   }
 
-  getAllPosibleGemSwap(state) {
+  getAllPossibleGemSwap(state) {
     const allPosibleSwaps = state.grid.suggestMatch();
     const allSwapMove = allPosibleSwaps.map((swap) => new AotSwapGem(swap));
 
