@@ -45,6 +45,30 @@ const ONE_SWAP_GEMS = [
     8, 1, 2, 3, 4, 5, 6, 7,
 ];
 
+
+const FIVE_SWAP_GEMS = [
+  9, 2, 9, 9, 5, 6, 7, 8,
+  2, 9, 4, 5, 6, 7, 8, 1,
+  3, 9, 5, 6, 7, 8, 1, 2,
+  4, 5, 6, 7, 8, 1, 2, 3,
+  5, 6, 7, 8, 1, 2, 3, 4,
+  6, 7, 8, 1, 2, 3, 4, 5,
+  7, 8, 1, 2, 3, 4, 5, 6,
+  8, 1, 2, 3, 4, 5, 6, 7,
+];
+
+const THREE_THREE_SWAP_GEMS = [
+  9, 2, 3, 4, 5, 6, 7, 8,
+  4, 9, 4, 5, 6, 7, 8, 1,
+  3, 9, 5, 6, 7, 8, 1, 2,
+  4, 5, 6, 7, 8, 1, 2, 3,
+  5, 4, 7, 8, 1, 2, 3, 4,
+  6, 7, 8, 1, 2, 3, 4, 5,
+  7, 8, 1, 2, 3, 4, 5, 6,
+  8, 1, 2, 3, 4, 5, 6, 7,
+];
+
+
 function consrtuctGrid(value) {
     const grid = new Grid({ size: () => 0 }, new Set());
     grid.gems = value.map((type, index) => new Gem(index, type));
@@ -123,7 +147,7 @@ describe("Grid.js", () => {
 
     grid.performReshape();
     
-    console.log(grid.gemAt(0, 0));
+    console.log(grid.toString());
 
     expect(grid.gemAt(0, 0)).to.have.property('type', 2);
     expect(grid.gemAt(1, 0)).to.have.property('type', 3);
@@ -167,6 +191,23 @@ describe("Grid.js", () => {
 
     const result = grid.performSwap(2, 3);
     console.log(result);
+  })
+
+  it("should perform swap correctly with five match",  () => {
+    grid = consrtuctGrid(FIVE_SWAP_GEMS);
+
+    const result = grid.performSwap(0, 1);
+    console.log('FIVE_SWAP_GEMS', result);
+  })
+
+  it("should perform swap correctly with five three match",  () => {
+    grid = consrtuctGrid(THREE_THREE_SWAP_GEMS);
+    console.log(grid.toString());
+
+    const result = grid.performSwap(0, 1);
+    console.log('FIVE_THREE_SWAP_GEMS', result);
+
+    console.log(grid.toString());
   })
 });
 

@@ -313,9 +313,9 @@ class GameSimulator {
       .getCurrentPlayer()
       .firstAliveHeroCouldReceiveMana(+type);
     if (firstAliveHeroCouldReceiveMana) {
-      const maxManaHeroCannCeceive =
+      const maxManaHeroCanReceive =
         firstAliveHeroCouldReceiveMana.getMaxManaCouldTake();
-      const manaToSend = Math.max(value, maxManaHeroCannCeceive);
+      const manaToSend = Math.min(value, maxManaHeroCanReceive);
       firstAliveHeroCouldReceiveMana.takeMana(manaToSend);
 
       const manaRemains = value - manaToSend;
@@ -326,7 +326,9 @@ class GameSimulator {
     return value;
   }
 
-  applyCastSkill(move) {}
+  applyCastSkill(move) {
+    const { hero } = move;
+  }
 }
 
 class AttackDamgeScoreMetric {
@@ -410,7 +412,7 @@ class AotHeroMetrics {
   });
 
   maxManaMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
-    return hero.mana;
+    return hero.maxMana;
   });
 
   skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
@@ -433,12 +435,13 @@ class AotHeroMetrics {
       return hero.power;
     }
 
+    const attackPower = this.attackMetric.exec(hero, player, enemyPlayer, state);
     const hpPower = this.hpMetric.exec(hero, player, enemyPlayer, state);
     const manaPower = this.manaMetric.exec(hero, player, enemyPlayer, state);
-    const attackPower = this.attackMetric.exec(hero, player, enemyPlayer, state);
     const maxManaPower = this.maxManaMetric.exec(hero, player, enemyPlayer, state);
     const skillPower = this.skillMetric.exec(hero, player, enemyPlayer, state);
-    const heroPower = attackPower + hpPower + (manaPower/maxManaPower + 1) * skillPower;
+    const heroPower = attackPower + hpPower + (manaPower/maxManaPower) * skillPower;
+    console.log(`calcScore ${player.playerId} ${hero.id} attackPower, hpPower, manaPower, maxManaPower, skillPower, heroPower`, attackPower, hpPower, manaPower, maxManaPower, skillPower, heroPower);
     hero.power = heroPower;
     return heroPower;
   }
@@ -467,6 +470,7 @@ class AotScoreMetric {
 
   calcHeroScore(hero, player, enemyPlayer, state) {
     const score = hero.metrics.calcScore(hero, player, enemyPlayer, state);
+    console.log(`aot: ${player.playerId} ${hero.id} ${score}`);
     return score;
   }
 
@@ -491,8 +495,16 @@ class AotScoreMetric {
       hero.skillPower = undefined;
     }
 
-    const score = this.calcScoreOfPlayer(player, enemy, state);
-    return score;
+    const playerScore = this.calcScoreOfPlayer(player, enemy, state);
+    
+    for(const hero of [].concat(player.heroes, enemy.heroes)) {
+      hero.power = undefined;
+      hero.skillPower = undefined;
+    }
+
+    const enemyScore =  this.calcScoreOfPlayer(enemy, player, state);
+
+    return playerScore / enemyScore;
   }
 }
 
@@ -567,7 +579,7 @@ class AotOrthurHeroMetric extends AotHeroMetrics {
       }
 
       const cloned = curr.clone();
-      curr.attack += 8;
+      cloned.attack += 8;
       const originalPower = curr.metrics.calcScore(curr, player, enemyPlayer, state, true);
       const clonedPower = cloned.metrics.calcScore(cloned, player, enemyPlayer, state, true);
       const powerGap = clonedPower - originalPower;
@@ -778,6 +790,11 @@ class AoTStrategy {
 
   seeFutureState(move, state, deep) {
     console.log("See the future", deep);
+
+    if(!move) {
+      return state;
+    }
+    
     if (deep === 0 || !move) {
       return state;
     }

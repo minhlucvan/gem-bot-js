@@ -397,4 +397,16 @@ class Grid {
         cloned.myHeroGemType = new Set(Array.from(this.myHeroGemType));
         return cloned;
     }
+
+    toString() {
+        let str = '';
+        for(let y = 0; y < 8; y++) {
+            for(let x = 0; x < 8; x++) {
+                const gem = this.gemAt(x, y);
+                str += `${gem.type} `;
+            }
+            str += '\n';
+        }
+        return str;
+    }
 }
