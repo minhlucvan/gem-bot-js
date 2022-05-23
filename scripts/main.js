@@ -304,7 +304,9 @@ function AssignPlayers(room) {
 
 	let user1 = users[0];
 
-	let playerId1 = Array.from(user1._playerIdByRoomId).map(([name, value]) => (value))[1];
+	let arrPlayerId1 = Array.from(user1._playerIdByRoomId).map(([name, value]) => (value));
+	let playerId1 = arrPlayerId1.length > 1 ? arrPlayerId1[1] : arrPlayerId1[0];
+
 
 	log("id user1: " + playerId1);
 
@@ -325,7 +327,8 @@ function AssignPlayers(room) {
 
 	let user2 = users[1];
 
-	let playerId2 = Array.from(user2._playerIdByRoomId).map(([name, value]) => (value))[1];
+	let arrPlayerId2 = Array.from(user2._playerIdByRoomId).map(([name, value]) => (value));
+	let playerId2 = arrPlayerId2.length > 1 ? arrPlayerId2[1] : arrPlayerId2[0];
 
 
 	log("id user2: " + playerId2);
