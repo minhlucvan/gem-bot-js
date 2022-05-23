@@ -18,10 +18,6 @@ class Player
         return this.heroes.filter(hero => hero.isAlive());
     }
 
-    getTotalHeroAlive() {
-        return this.getHerosAlive().length;
-    }
-
     isAlive() {
         return this.getTotalHeroAlive() > 0;
     }
@@ -87,6 +83,7 @@ class Player
         cloned.heroGemType = new Set(Array.from(this.heroGemType));
         cloned.signature = this.signature;
         cloned.metrics = this.metrics;
+        cloned.power = this.power;
         return cloned;
     }
 }

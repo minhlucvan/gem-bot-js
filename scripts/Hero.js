@@ -117,6 +117,8 @@ class Hero {
         cloned.gems = this.gems;
         cloned.metrics = this.metrics;
         cloned.signature = this.signature;
+        cloned.power = this.power;
+        cloned.skillPower = this.skillPower;
         return cloned;
     }
 }

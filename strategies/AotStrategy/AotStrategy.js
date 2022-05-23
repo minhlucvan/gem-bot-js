@@ -406,7 +406,7 @@ class AotHeroMetrics {
   });
 
   attackMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
-    return hero.attackl;
+    return hero.attack;
   });
 
   maxManaMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
@@ -428,12 +428,18 @@ class AotHeroMetrics {
     if(!hero.isAlive()) {
       return 0;
     }
+
+    if(hero.power != undefined) {
+      return hero.power;
+    }
+
     const hpPower = this.hpMetric.exec(hero, player, enemyPlayer, state);
     const manaPower = this.manaMetric.exec(hero, player, enemyPlayer, state);
     const attackPower = this.attackMetric.exec(hero, player, enemyPlayer, state);
     const maxManaPower = this.maxManaMetric.exec(hero, player, enemyPlayer, state);
     const skillPower = this.skillMetric.exec(hero, player, enemyPlayer, state);
     const heroPower = attackPower + hpPower + (manaPower/maxManaPower + 1) * skillPower;
+    hero.power = heroPower;
     return heroPower;
   }
 }
@@ -480,6 +486,11 @@ class AotScoreMetric {
   }
 
   calc(player, enemy, state) {
+    for(const hero of [].concat(player.heroes, enemy.heroes)) {
+      hero.power = undefined;
+      hero.skillPower = undefined;
+    }
+
     const score = this.calcScoreOfPlayer(player, enemy, state);
     return score;
   }
@@ -490,34 +501,21 @@ class AotSigmudHeroMetric extends AotHeroMetrics {
     const totalRedGems = state.grid.countGemByType(GemType.RED);
     const heroTarget = this.bestHeroToSkillTarget(hero, player, enemyPlayer, state);
     const skillPower = heroTarget.attack + totalRedGems;
+    this.skillPower = skillPower;
     return skillPower;
   });
 
   bestHeroToSkillTarget(hero, player, enemyPlayer, state) {
     const heroesAlive = enemyPlayer.getHerosAlive();
     const totalRedGems = state.grid.countGemByType(GemType.RED);
-    const heroesCankill = heroesAlive.filter(hero => (hero.attack + totalRedGems) >= hero.hp);
-    if(heroesCankill.length > 0) {
-      const heroMaxPower = heroesCankill.reduce((acc, curr) => {
-        const accPower = acc.metrics.calcScore(acc, enemyPlayer, player, state);
-        const currPower = curr.metrics.calcScore(curr, enemyPlayer, player, state);
-        if(accPower > currPower) {
-          return acc;
-        }
-        return curr;
-      }, heroesCankill[0]);
-      return heroMaxPower;
-    } 
 
-    const heroMaxPower = heroesAlive.reduce((acc, curr) => {
-      const accPower = acc.metrics.calcScore(acc, enemyPlayer, player, state);
-      const currPower = curr.metrics.calcScore(curr, enemyPlayer, player, state);
-      if(accPower > currPower) {
+    const heroMaxAttack = heroesAlive.reduce((acc, curr) => {
+      if(acc.attack >= curr.attack) {
         return acc;
       }
       return curr;
     }, heroesAlive[0]);
-    return heroMaxPower;
+    return heroMaxAttack;
   }
 
   static isMatched(hero) {
@@ -534,8 +532,8 @@ class AotTerraHeroMetric extends AotHeroMetrics {
       const cloned = curr.clone();
       curr.hp += 5;
       curr.attack += 5;
-      const clonedPower = cloned.metrics.calcScore(cloned, player, enemyPlayer, state);
-      const originalPower = curr.metrics.calcScore(curr, player, enemyPlayer, state);
+      const clonedPower = cloned.metrics.calcScore(cloned, player, enemyPlayer, state, true);
+      const originalPower = curr.metrics.calcScore(curr, player, enemyPlayer, state, true);
       const powerGap = clonedPower - originalPower;
       if(powerGap > acc) {
         return powerGap;
@@ -570,8 +568,8 @@ class AotOrthurHeroMetric extends AotHeroMetrics {
 
       const cloned = curr.clone();
       curr.attack += 8;
-      const originalPower = curr.metrics.calcScore(curr, player, enemyPlayer, state);
-      const clonedPower = cloned.metrics.calcScore(cloned, player, enemyPlayer, state);
+      const originalPower = curr.metrics.calcScore(curr, player, enemyPlayer, state, true);
+      const clonedPower = cloned.metrics.calcScore(cloned, player, enemyPlayer, state, true);
       const powerGap = clonedPower - originalPower;
       return acc + powerGap;
     }, 0);
@@ -612,7 +610,7 @@ class AotZeusHeroMetric extends AotHeroMetrics {
 class AotFateHeroMetric extends AotHeroMetrics {
   skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
     const heroTarget = this.bestHeroToSkillTarget(hero, player, enemyPlayer, state);
-    const powerTarget = heroTarget.metrics.calcScore(heroTarget, enemyPlayer, player, state);
+    const powerTarget = heroTarget.metrics.calcScore(heroTarget, enemyPlayer, player, state, true);
     const skillPower = powerTarget;
     return skillPower;
   });
@@ -620,8 +618,8 @@ class AotFateHeroMetric extends AotHeroMetrics {
   bestHeroToSkillTarget(hero, player, enemyPlayer, state) {
     const heroesAlive = enemyPlayer.getHerosAlive();
     const heroMaxPower = heroesAlive.reduce((acc, curr) => {
-      const accPower = acc.metrics.calcScore(acc, enemyPlayer, player, state);
-      const currPower = curr.metrics.calcScore(curr, enemyPlayer, player, state);
+      const accPower = acc.metrics.calcScore(acc, enemyPlayer, player, state, true);
+      const currPower = curr.metrics.calcScore(curr, enemyPlayer, player, state, true);
       if(accPower > currPower) {
         return acc;
       }

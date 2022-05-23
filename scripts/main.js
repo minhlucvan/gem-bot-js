@@ -35,7 +35,7 @@ var currentPlayerId;
 var grid;
 
 const username = "";
-const token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaW5oLmx1Y3ZhbiIsImF1dGgiOiJST0xFX1VTRVIiLCJMQVNUX0xPR0lOX1RJTUUiOjE2NTMxMDQzMDAzMDMsImV4cCI6MTY1NDkwNDMwMH0.vHFTy8uY5TeoCo6V-UWMuHkMCHfRxxwptZ2M7HKQIfKxbwnIKyL2_sVvqIPaGO9zIcpJweU9hFtPWFRTwJ3LgA";
+const token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaW5oLmx1Y3ZhbiIsImF1dGgiOiJST0xFX1VTRVIiLCJMQVNUX0xPR0lOX1RJTUUiOjE2NTMyNzk1ODgwMTAsImV4cCI6MTY1NTA3OTU4OH0.1K4jBJHEVy9DqmHF8rqBnrxsRseYzgyqRTFcj0FPsAVpyxukqKyAfeU4u_lfks1EGoE7iWVBy2uhl5bxd1fpAQ";
 var visualizer = new Visualizer({ el: '#visual' });
 var params = window.params;
 var strategy = window.strategy;
@@ -226,7 +226,7 @@ function OnExtensionResponse(event) {
 	switch (cmd) {
 		case "START_GAME":
 			let gameSession = evtParam.getSFSObject("gameSession");
-			setTimeout(() => StartGame(gameSession, room), 200);
+			StartGame(gameSession)
 			break;
 		case "END_GAME":
 			EndGame();
@@ -246,7 +246,7 @@ function OnExtensionResponse(event) {
 	}
 }
 
-function StartGame(gameSession, room) {
+function StartGame(gameSession) {
 	// Assign Bot player & enemy player
 	AssignPlayers(room);
 
@@ -340,8 +340,6 @@ function AssignPlayers(room) {
 		botPlayer = new Player(playerId2, "player" + playerId2);
 		enemyPlayer = new Player(playerId1, "player" + playerId1);
 	}
-
-
 }
 
 function EndGame() {
