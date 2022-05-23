@@ -17,7 +17,22 @@ class Player
     getHerosAlive() {
         return this.heroes.filter(hero => hero.isAlive());
     }
-    
+
+    getTotalHeroAlive() {
+        return this.getHerosAlive().length;
+    }
+
+    isAlive() {
+        return this.getTotalHeroAlive() > 0;
+    }
+
+    getTotalHp() {
+        return this.heroes.reduce((acc, hero) => acc + hero.hp, 0);
+    }
+
+    getTotalMana() {
+        return this.heroes.reduce((acc, hero) => acc + hero.mana, 0);
+    }
 
     getCastableHeros() {
         let arr = this.heroes.filter(hero => hero.isAlive() && hero.isFullMana());

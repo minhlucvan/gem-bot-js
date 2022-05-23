@@ -350,6 +350,21 @@ class Grid {
         distinction.removedGems.push(gem.clone());
     }
 
+    countGemByType(type) {
+        const count = this.gems.reduce((acc, curr) => {
+            if(curr.type = GemType.NONE || curr.removed) {
+                return  acc + (1 / 6);
+            }
+
+            if(curr.type == type) {
+                return acc + 1;
+            }
+            
+            return acc;
+        }, 0);
+        return count;
+    }
+
     performReshape() {
         for(const gem of this.gems) {
             if(gem.removed) {

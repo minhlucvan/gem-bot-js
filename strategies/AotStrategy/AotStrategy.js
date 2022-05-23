@@ -357,16 +357,16 @@ class AotGeneralLineup extends AotLineUpSetup {
 
 }
 
-class AotMagniTerraSigmudLineup extends AotLineUpSetup {
-  static line = [HeroIdEnum.FIRE_SPIRIT, HeroIdEnum.SEA_SPIRIT, HeroIdEnum.SEA_GOD];
+class AotDynamicLineup extends AotLineUpSetup {
+  static line = [];
 
   createScoreMetrics() {
-    return new AotMagniTerraSigmudScoreMetric(this);
+    return new AotDynamicScoreMetric(this);
   }
 }
 
 class AotLineUpFactory {
-  static lineups = [AotMagniTerraSigmudLineup];
+  static lineups = [];
   metrics = null;
 
   static ofPlayer(player, enemy) {
@@ -379,27 +379,62 @@ class AotLineUpFactory {
     return new AotGeneralLineup(player, enemy);
   }
 
+  static dynamic(player, enemy) {
+    return new AotDynamicLineup(player, enemy);
+  }
+
+}
+
+class AotHeroMetricScale extends ScaleFn {
+  constructor(fn) {
+    super();
+    this.fn = fn;
+  }
+  exec(hero, player, enemyPlayer, state) {
+    return this.fn(hero, player, enemyPlayer, state);
+  }
 }
 
 class AotHeroMetrics {
-  sumMetric = new SumScale();
-  hpMetric = new LinearScale(1, 0);
-  manaMetric = new LinearScale(1, 0);
-  maxManaMetric = new LinearScale(0, 3);
-  overManaMetric = new LinearScale(-1, 0);
-  attackMetric = new AttackDamgeScoreMetric(1, 0);
+
+  hpMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    return hero.hp * 2;
+  });
+
+  manaMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    return hero.mana;
+  });
+
+  attackMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    return hero.attackl;
+  });
+
+  maxManaMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    return hero.mana;
+  });
+
+  skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    return hero.attack;
+  });
 
   static isMatched(hero) {
     return false;
   }
 
+  // hero metrics are represent by power
+  // power is caculated by atk, hp, skill damge and mana
+  // power = atk + (hp * 2) + (mana/maxMana + 1)*skillDamge;
   calcScore(hero, player, enemyPlayer, state) {
-    const hpScore = this.hpMetric.exec(hero.hp);
-    const manaScore = this.maxManaMetric.exec(hero.mana);
-    const overManaScore = this.overManaMetric.exec(0);
-    const attackScore = this.attackMetric.exec(hero, enemyPlayer)
-    const heroScore = this.sumMetric.exec(hpScore, manaScore, overManaScore, attackScore);
-    return heroScore;
+    if(!hero.isAlive()) {
+      return 0;
+    }
+    const hpPower = this.hpMetric.exec(hero, player, enemyPlayer, state);
+    const manaPower = this.manaMetric.exec(hero, player, enemyPlayer, state);
+    const attackPower = this.attackMetric.exec(hero, player, enemyPlayer, state);
+    const maxManaPower = this.maxManaMetric.exec(hero, player, enemyPlayer, state);
+    const skillPower = this.skillMetric.exec(hero, player, enemyPlayer, state);
+    const heroPower = attackPower + hpPower + (manaPower/maxManaPower + 1) * skillPower;
+    return heroPower;
   }
 }
 
@@ -430,6 +465,14 @@ class AotScoreMetric {
   }
 
   calcScoreOfPlayer(player, enemyPlayer, state) {
+    if(!player.isAlive()) {
+      return -999;
+    }
+
+    if(!enemyPlayer.isAlive()) {
+      return 999;
+    }
+
     const heros = player.getHerosAlive();
     const heroScores = heros.map((hero) => this.calcHeroScore(hero, player, enemyPlayer, state));
     const totalHeroScore = this.sumMetric.exec(...heroScores);
@@ -443,66 +486,228 @@ class AotScoreMetric {
 }
 
 class AotSigmudHeroMetric extends AotHeroMetrics {
+  skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    const totalRedGems = state.grid.countGemByType(GemType.RED);
+    const heroTarget = this.bestHeroToSkillTarget(hero, player, enemyPlayer, state);
+    const skillPower = heroTarget.attack + totalRedGems;
+    return skillPower;
+  });
 
+  bestHeroToSkillTarget(hero, player, enemyPlayer, state) {
+    const heroesAlive = enemyPlayer.getHerosAlive();
+    const totalRedGems = state.grid.countGemByType(GemType.RED);
+    const heroesCankill = heroesAlive.filter(hero => (hero.attack + totalRedGems) >= hero.hp);
+    if(heroesCankill.length > 0) {
+      const heroMaxPower = heroesCankill.reduce((acc, curr) => {
+        const accPower = acc.metrics.calcScore(acc, enemyPlayer, player, state);
+        const currPower = curr.metrics.calcScore(curr, enemyPlayer, player, state);
+        if(accPower > currPower) {
+          return acc;
+        }
+        return curr;
+      }, heroesCankill[0]);
+      return heroMaxPower;
+    } 
+
+    const heroMaxPower = heroesAlive.reduce((acc, curr) => {
+      const accPower = acc.metrics.calcScore(acc, enemyPlayer, player, state);
+      const currPower = curr.metrics.calcScore(curr, enemyPlayer, player, state);
+      if(accPower > currPower) {
+        return acc;
+      }
+      return curr;
+    }, heroesAlive[0]);
+    return heroMaxPower;
+  }
+
+  static isMatched(hero) {
+    return hero.id == HeroIdEnum.FIRE_SPIRIT;
+  }
 }
 
 class AotTerraHeroMetric extends AotHeroMetrics {
+  skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    const bestPowerGap = player.getHerosAlive().reduce((acc, curr) => {
+      if(curr.sameOne(hero)) {
+        return acc;
+      }
+      const cloned = curr.clone();
+      curr.hp += 5;
+      curr.attack += 5;
+      const clonedPower = cloned.metrics.calcScore(cloned, player, enemyPlayer, state);
+      const originalPower = curr.metrics.calcScore(curr, player, enemyPlayer, state);
+      const powerGap = clonedPower - originalPower;
+      if(powerGap > acc) {
+        return powerGap;
+      }
+      return acc;
+    }, 10)
+    return bestPowerGap;
+  }, 0);
 
+  static isMatched(hero) {
+    return hero.id == HeroIdEnum.SEA_SPIRIT;
+  }
 }
 
 class AotMagniHeroMetric extends AotHeroMetrics {
+  skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    const skillPower = enemyPlayer.getHerosAlive().reduce((acc, curr) => acc + hero.attack, 0);
+    return skillPower;
+  });
 
+  static isMatched(hero) {
+    return hero.id == HeroIdEnum.SEA_GOD;
+  }
 }
 
 class AotOrthurHeroMetric extends AotHeroMetrics {
+  skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    const additionalPower = player.getHerosAlive().reduce((acc, curr) => {
+      if(curr.sameOne(hero)) {
+        return acc + 8;
+      }
 
+      const cloned = curr.clone();
+      curr.attack += 8;
+      const originalPower = curr.metrics.calcScore(curr, player, enemyPlayer, state);
+      const clonedPower = cloned.metrics.calcScore(cloned, player, enemyPlayer, state);
+      const powerGap = clonedPower - originalPower;
+      return acc + powerGap;
+    }, 0);
+    
+    return additionalPower;
+  });
+
+  static isMatched(hero) {
+    return hero.id == HeroIdEnum.MONK;
+  }
 }
 
 class AotCerberusHeroMetric extends AotHeroMetrics {
+  skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    const skillPower = enemyPlayer.getHerosAlive().reduce((acc, curr) => acc + hero.attack + (2 * 3), 0);
+    return skillPower;
+  });
 
+  static isMatched(hero) {
+    return hero.id == HeroIdEnum.CERBERUS;
+  }
 } 
 
 class AotZeusHeroMetric extends AotHeroMetrics {
+  skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    const totalYellowGems = state.grid.countGemByType(GemType.YELLOW);
+    const skillDamge = enemyPlayer.getHerosAlive().reduce((acc, curr) => acc + hero.attack + totalYellowGems, 0);
+    const skillPower = skillDamge;
+    return skillPower;
+  });
 
+
+  static isMatched(hero) {
+    return hero.id == HeroIdEnum.THUNDER_GOD;
+  }
 } 
 
 class AotFateHeroMetric extends AotHeroMetrics {
+  skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    const heroTarget = this.bestHeroToSkillTarget(hero, player, enemyPlayer, state);
+    const powerTarget = heroTarget.metrics.calcScore(heroTarget, enemyPlayer, player, state);
+    const skillPower = powerTarget;
+    return skillPower;
+  });
 
+  bestHeroToSkillTarget(hero, player, enemyPlayer, state) {
+    const heroesAlive = enemyPlayer.getHerosAlive();
+    const heroMaxPower = heroesAlive.reduce((acc, curr) => {
+      const accPower = acc.metrics.calcScore(acc, enemyPlayer, player, state);
+      const currPower = curr.metrics.calcScore(curr, enemyPlayer, player, state);
+      if(accPower > currPower) {
+        return acc;
+      }
+      return curr;
+    }, heroesAlive[0]);
+    return heroMaxPower;
+  }
+
+  static isMatched(hero) {
+    return hero.id == HeroIdEnum.DISPATER;
+  }
 } 
 
+class AotPokoHeroMetric extends AotHeroMetrics {
+  skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    const skillDamge = enemyPlayer.getHerosAlive().reduce((acc, curr) => acc + hero.attack * 2, 0);
+    const skillPower = skillDamge;
+    return skillPower;
+  });
 
-class AotMagniTerraSigmudScoreMetric extends AotScoreMetric {
+
+  static isMatched(hero) {
+    return hero.id == HeroIdEnum.MERMAID;
+  }
+} 
+class AotSketletonHeroMetric extends AotHeroMetrics {
+  skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    const targetHero = this.bestHeroToSkillTarget(hero, player, enemyPlayer, state)
+    const skillDamge = (hero.hp - targetHero.hp) * 4;
+    return skillDamge;
+  });
+
+  bestHeroToSkillTarget(hero, player, enemyPlayer, state) {
+    const heroesAlive = enemyPlayer.getHerosAlive();
+    const heroMaxPower = heroesAlive.reduce((acc, curr) => {
+      if(acc.hp > curr.hp) {
+        return acc;
+      }
+      return curr;
+    }, heroesAlive[0]);
+    return heroMaxPower;
+  }
+
+
+  static isMatched(hero) {
+    return hero.id == HeroIdEnum.SKELETON;
+  }
+} 
+
+class AotNefiaHeroMetric extends AotHeroMetrics {
+  skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    const skillDamge = enemyPlayer.getHerosAlive().reduce((acc, curr) => acc + hero.attack, 0);
+    const skillPower = skillDamge;
+    return skillPower;
+  });
+
+
+  static isMatched(hero) {
+    return hero.id == HeroIdEnum.AIR_SPIRIT;
+  }
+} 
+
+class AotDynamicScoreMetric extends AotScoreMetric {
+  static heroMetricsClass = [
+    AotNefiaHeroMetric,
+    AotSketletonHeroMetric,
+    AotPokoHeroMetric, 
+    AotFateHeroMetric, 
+    AotZeusHeroMetric, 
+    AotCerberusHeroMetric, 
+    AotOrthurHeroMetric,
+    AotMagniHeroMetric,
+    AotTerraHeroMetric,
+    AotSigmudHeroMetric
+  ];
   constructor(lineup) {
-    super();
+    super(lineup);
   }
 
   createHeroMetric(hero) {
-    if(hero.id == HeroIdEnum.SEA_GOD) {
-      return this.createMagniHeroMetric(hero);
-    }
-
-    if(hero.id == HeroIdEnum.FIRE_SPIRIT) {
-      return this.createSigmudHeroMetric();
-    }
-
-    if(hero.id == HeroIdEnum.SEA_SPIRIT) {
-      return this.createTerraHeroMetric();
-    }
-  }
-
-  createMagniHeroMetric(hero) {
-    const metric = new AotMagniHeroMetric();
-    return metric;
-  }
-
-  createTerraHeroMetric() {
-    const metric = new AotTerraHeroMetric();
-    return metric;
-  }
-
-  createSigmudHeroMetric() {
-    const metric = new AotSigmudHeroMetric();
-    return metric;
+   for(const metric of AotDynamicScoreMetric.heroMetricsClass) {
+     if (metric.isMatched(hero)) {
+       return new metric();
+     }
+   }
+   return new AotGeneralHeroMetrics();
   }
 }
 class AoTStrategy {
@@ -522,7 +727,7 @@ class AoTStrategy {
   }
 
   initPlayer(player, enemy) {
-    player.lineup = AotLineUpFactory.ofPlayer(player, enemy);
+    player.lineup = AotLineUpFactory.dynamic(player, enemy);
     player.metrics = player.lineup.metrics;
   }
 
@@ -554,6 +759,7 @@ class AoTStrategy {
     if(!possibleMoves || possibleMoves.length == 0) {
       return null;
     }
+
     let currentBestMove = possibleMoves[0];
     let currentBestMoveScore = Number.NEGATIVE_INFINITY;
     for (const move of possibleMoves) {
