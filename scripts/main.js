@@ -474,7 +474,7 @@ function HandleGems(paramz) {
 	let gemCode = lastSnapshot.getSFSArray("gems");
 	let gemModifiers = lastSnapshot.getSFSArray("gemModifiers");
 
-	console.log("gemModifiers : ", gemModifiers);
+	// console.log("gemModifiers : ", gemModifiers);
 
 	grid.updateGems(gemCode, gemModifiers);
 

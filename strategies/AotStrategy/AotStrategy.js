@@ -86,6 +86,19 @@ class AotGameState {
     state.turnEffects = [...this.turnEffects];
     return state;
   }
+
+  debug() {
+    console.log('Aot State');
+    const currentPlayer = this.getCurrentPlayer();
+    console.log('currentPlayer');
+    currentPlayer.debug();
+    const currentEnemyPlayer = this.getCurrentEnemyPlayer();
+    console.log('currentEnemyPlayer');
+    currentPlayer.debug();
+
+    console.log(this.distinctions);
+    console.log(this.turnEffects);
+  }
 }
 
 class AotMove {
@@ -95,9 +108,240 @@ class AotMove {
 class AotCastSkill extends AotMove {
   type = "CAST_SKILL";
   isCastSkill = true;
+  targetId = null;
+  selectedGem = null;
+  gemIndex = null;
+
+  target = null;
+  gem = null;
+
   constructor(hero) {
     super();
     this.hero = hero;
+  }
+
+  withTargetHero(target) {
+    this.target = target;
+    this.targetId = target.id;
+    return this;
+  }
+
+  withhGem(gem) {
+    this.gem = gem;
+    this.gemIndex = gem.index;
+    return this;
+  }
+
+  setup() {
+    return {
+      targetId: this.targetId,
+      selectedGem: this.selectedGem,
+      gemIndex: this.gemIndex,
+    }
+  }
+
+  applyToState(state, player) {
+    // TBD:
+  }
+}
+
+class AotChainLightingSkill extends AotCastSkill {
+
+  constructor(hero, options) {
+    super(hero, options);
+  }
+
+  static fromHeroState(hero, player, enemyPlayer, state) {
+    return [new AotChainLightingSkill(hero)];
+  }
+}
+
+class AotDeathTouchSkill extends AotCastSkill {
+
+  constructor(hero, options) {
+    super(hero, options);
+  }
+
+  static fromHeroState(hero, player, enemyPlayer, state) {
+    return enemyPlayer.getHerosAlive().map((heroTarget) => new AotDeathTouchSkill(hero).withTargetHero(heroTarget));
+  }
+}
+
+class AotWindForceSkill extends AotCastSkill {
+
+  constructor(hero, options) {
+    super(hero, options);
+
+  }
+
+  static fromHeroState(hero, player, enemyPlayer, state) {
+    return state.grid.gems.getHerosAlive().map((gem) => new AotWindForceSkill(hero).withhGem(gem));
+  }
+} 
+
+class AotFocusSkill extends AotCastSkill {
+  constructor(hero, options) {
+    super(hero, options);
+  }
+
+  static fromHeroState(hero, player, enemyPlayer, state) {
+    return player.getHerosAlive().map((heroTarget) => new AotFocusSkill(hero).withTargetHero(heroTarget));
+  }
+} 
+
+class AotEathShockSkill extends AotCastSkill {
+
+  constructor(hero, options) {
+    super(hero, options);
+  }
+
+  static fromHeroState(hero, player, enemyPlayer, state) {
+    const totalMana = enemyPlayer.getTotalMana();
+    const maxMana =  enemyPlayer.getTotalMaxMana();
+    if(totalMana/maxMana > 1/3) {
+      return [new AotEathShockSkill(hero)];
+    } 
+    return [];
+  }
+} 
+
+class AotSoulSwapSkill extends AotCastSkill {
+  constructor(hero, options) {
+    super(hero, options);
+  }
+
+  static fromHeroState(hero, player, enemyPlayer, state) {
+    const maxHpGapHero = enemyPlayer.getHerosAlive().reduce((acc, curr) => {
+      if(!acc) { return curr; }
+      if(curr.hp - hero.hp > hero.hp - acc.hp ) {
+        return curr;
+      } 
+    }, null);
+
+    if(maxHpGapHero.hp - hero.hp > 10) {
+      return [new AotSoulSwapSkill(hero).withTargetHero(maxHpGapHero)];
+    } else if(hero.hp < 10 && maxHpGapHero.hp - hero.hp > 2) {
+      return [new AotSoulSwapSkill(hero).withTargetHero(maxHpGapHero)];
+    }
+
+    return [];
+  }
+} 
+
+class AotCeberusBiteSkill extends AotCastSkill {
+  constructor(hero, options) {
+    super(hero, options);
+  }
+
+  static fromHeroState(hero, player, enemyPlayer, state) {
+    return [new AotCeberusBiteSkill(hero)];
+  }
+
+  applyToState(hero, state, player, enemy) {
+    const targets = enemy.getHerosAlive();
+    const damge = hero.attack + 6;
+    for(const enemyHero of targets) {
+      enemyHero.takeDamge(damge);
+    }
+  }
+}
+
+class AotBlessOfLightSkill extends AotCastSkill {
+  constructor(hero, options) {
+    super(hero, options);
+  }
+
+  static fromHeroState(hero, player, enemyPlayer, state) {
+    const hasPoko = enemyPlayer.getHerosAlive().some(targetHero => targetHero.id == HeroIdEnum.MERMAID);
+    
+    if(hasPoko) {
+      return [];
+    }
+
+    return [new AotBlessOfLightSkill(hero)];
+  }
+
+  applyToState(hero, state, player, enemy) {
+    const allies = player.getHerosAlive();
+    for(const ally of allies) {
+      allies.attack += 8;
+    }
+  }
+}
+
+class AotVolcanoWrathSkill extends AotCastSkill {
+  constructor(hero, options) {
+    super(hero, options);
+  }
+
+  static fromHeroState(hero, player, enemyPlayer, state) {
+    const targetPriovity = [HeroIdEnum.DISPATER, HeroIdEnum.MERMAID, HeroIdEnum.MONK];
+    const targetBlacklitst = [HeroIdEnum.SKELETON, HeroIdEnum.ELIZAH];
+    const toalRedGem = state.grid.countGemByType(GemType.RED);
+    let heroTargetCanKill = null;
+    let heroTargetMaxAttack = null;
+    let heroTargetPriovity = null;
+    let currentPriovity = null;
+    
+    for(const targetHero of enemyPlayer.getHerosAlive()) {
+      const skillDamge = targetHero.attack + toalRedGem;
+      if(skillDamge >=  targetHero.hp) {
+        if(!heroTargetCanKill) {
+          heroTargetCanKill = targetHero;
+        } else if(targetHero.maxMana - targetHero.mana < 3) {
+          heroTargetCanKill = targetHero;
+        } else if ( heroTargetCanKill.attack < targetHero.attack) {
+          heroTargetCanKill = targetHero;
+        }
+      }
+
+      if(!heroTargetMaxAttack)  {
+        heroTargetMaxAttack = targetHero;
+      } else if(targetHero.attack > heroTargetMaxAttack.attack) {
+        heroTargetMaxAttack = targetHero;
+      }
+
+      const priovity = targetPriovity.findIndex(heroId => targetHero.id == heroId);
+      if(priovity > -1) {
+        if(!heroTargetPriovity) {
+          heroTargetPriovity = targetHero;
+          currentPriovity = priovity;
+        } else if(priovity < currentPriovity) {
+          heroTargetPriovity = targetHero;
+          currentPriovity = priovity;
+        }
+      }
+    }
+
+    if(heroTargetCanKill) {
+      return [new AotVolcanoWrathSkill(hero).withTargetHero(heroTargetCanKill)];
+    } else if(heroTargetMaxAttack && heroTargetMaxAttack.attack > 10) {
+      return [new AotVolcanoWrathSkill(hero).withTargetHero(heroTargetMaxAttack)];
+    } else if(heroTargetPriovity) {
+      return [new AotVolcanoWrathSkill(hero).withTargetHero(heroTargetPriovity)];
+    }
+
+    return enemyPlayer.getHerosAlive().map(targetHero => new AotVolcanoWrathSkill(hero).withTargetHero(targetHero))
+  }
+
+  applyToState(hero, state, player, enemy) {
+    const targets = enemy.getHerosAlive();
+    const toalRedGem = state.grid.countGemByType(GemType.RED);
+
+    for(const enemyHero of targets) {
+      const damge = enemyHero.attack + toalRedGem;
+      enemyHero.takeDamge(damge);
+    }
+  }
+}
+
+class AotChargeSkill extends AotCastSkill {
+  constructor(hero) {
+    super(hero);
+  }
+
+  static fromHeroState(hero, player, enemyPlayer, state) {
+    return [new AotChargeSkill(hero)];
   }
 }
 
@@ -126,7 +370,10 @@ class LinearScale extends ScaleFn {
 
 class AttackDamgeMetric extends ScaleFn {
   exec(gem, hero) {
-    return (gem - 3) * hero.attack + hero.attack;
+    const baseDamge = hero.attack;
+    const extraDamge = (gem - 3) * 5;
+    const damge = baseDamge + extraDamge;
+    return damge;
   }
 }
 
@@ -137,86 +384,93 @@ class SumScale extends ScaleFn {
 }
 
 class TurnEfect {
-  attackGem = 0;
   manaGem = {};
+  attackGem = 0;
   buffAttack = 0;
   buffExtraTurn = 0;
   buffHitPoint = 0;
   buffMana = 0;
   buffPoint = 0;
   maxMatchedSize = 0;
+  totalMatched = 0;
 
   static fromDistinction(distinction) {
     const turnEffect = new TurnEfect();
     const maxMatchedSize = Math.max(...distinction.matchesSize);
     turnEffect.maxMatchedSize = maxMatchedSize;
+    turnEffect.totalMatched = distinction.matchesSize.reduce((toal, size) => toal + size, 0);
 
     for (const gem of distinction.removedGems) {
       if(gem.type == GemType.SWORD) {
-        turnEffect.applyAttack(gem);
+        turnEffect.addAttack(gem);
       } else {
-        turnEffect.applyCollect(gem);
+        turnEffect.addCollect(gem);
       }
 
       if(gem.modifier == GemModifier.BUFF_ATTACK) {
-        turnEffect.applyBuffAttack(gem);
+        turnEffect.addBuffAttack(gem);
       }
 
       if(gem.modifier == GemModifier.EXTRA_TURN) {
-        turnEffect.applyExtraTurn(gem);
+        turnEffect.addExtraTurn(gem);
       }
 
       if(gem.modifier == GemModifier.HIT_POINT) {
-        turnEffect.applyHitPoint(gem);
+        turnEffect.addHitPoint(gem);
       }
 
-
       if(gem.modifier == GemModifier.MANA) {
-        turnEffect.applyMana(gem);
+        turnEffect.addMana(gem);
       }
 
       if(gem.modifier == GemModifier.POINT) {
-        turnEffect.applyPoint(gem);
+        turnEffect.addPoint(gem);
       }
     }
 
     return turnEffect;
   }
-  applyBuffAttack(gem) {
+  addBuffAttack(gem) {
     this.buffAttack += 1;
   }
 
-  applyExtraTurn(gem) {
+  addExtraTurn(gem) {
     this.buffExtraTurn += 1;
   }
 
-  applyHitPoint(gem) {
+  addHitPoint(gem) {
     this.buffHitPoint += 1;
   }
 
-  applyMana(gem) {
+  addMana(gem) {
     this.buffMana += 1;
   }
 
-  applyPoint(gem) {
+  addPoint(gem) {
     this.buffPoint += 0;
   }
 
-  applyAttack(gem){
+  addAttack(gem){
     this.attackGem += 1;
   }
 
-  applyCollect(gem) {
+  addCollect(gem) {
     if(!this.manaGem[gem.type]) {
       this.manaGem[gem.type] = 0;
     }
     this.manaGem[gem.type] += 1;
   }
+
+  debug() {
+    console.log(`Collection ${JSON.stringify(this.manaGem)}, totalMatched: ${this.totalMatched}, MaxMatchSize: ${this.maxMatchedSize}`);
+    console.log(`Attack: ${this.attackGem}`);
+    console.log(`Buffs: buffAttack ${this.buffAttack}, buffMana ${this.buffMana}, buffExtraTurn ${this.buffExtraTurn}, buffHitPoint ${this.buffHitPoint}, buffPoint ${this.buffPoint}`)
+  }
 }
 
 class GameSimulator {
   buffAttackMetric = new LinearScale(2, 0);
-  buffHitPointMetric = new LinearScale(2, 0);
+  buffHitPointMetric = new LinearScale(3, 0);
   buffManaMetric = new LinearScale(2, 0);
   damgeMetric = new AttackDamgeMetric();
 
@@ -230,9 +484,9 @@ class GameSimulator {
 
   applyMove(move) {
     if (move.isSwap) {
-      this.applySwap(move);
+      return this.applySwap(move);
     } else if (move.isCastSkill) {
-      this.applyCastSkill(move);
+      return this.applyCastSkill(move);
     }
     return this;
   }
@@ -327,7 +581,12 @@ class GameSimulator {
   }
 
   applyCastSkill(move) {
-    const { hero } = move;
+    const currentPlayer = this.state.getCurrentPlayer();
+    const currentEnemyPlayer = this.state.getCurrentPlayer();
+
+    if(move.appyToState) {
+      return move.applyToState(this.state, currentPlayer, currentEnemyPlayer);
+    }
   }
 }
 
@@ -441,9 +700,13 @@ class AotHeroMetrics {
     const maxManaPower = this.maxManaMetric.exec(hero, player, enemyPlayer, state);
     const skillPower = this.skillMetric.exec(hero, player, enemyPlayer, state);
     const heroPower = attackPower + hpPower + (manaPower/maxManaPower) * skillPower;
-    console.log(`calcScore ${player.playerId} ${hero.id} attackPower, hpPower, manaPower, maxManaPower, skillPower, heroPower`, attackPower, hpPower, manaPower, maxManaPower, skillPower, heroPower);
+    // console.log(`calcScore ${player.playerId} ${hero.id} attackPower, hpPower, manaPower, maxManaPower, skillPower, heroPower`, attackPower, hpPower, manaPower, maxManaPower, skillPower, heroPower);
     hero.power = heroPower;
     return heroPower;
+  }
+
+  getPossibleSkillCasts(hero, player, enemyPlayer, state) {
+    return [new AotCastSkill(hero, player, enemyPlayer, state)];
   }
 }
 
@@ -470,7 +733,6 @@ class AotScoreMetric {
 
   calcHeroScore(hero, player, enemyPlayer, state) {
     const score = hero.metrics.calcScore(hero, player, enemyPlayer, state);
-    console.log(`aot: ${player.playerId} ${hero.id} ${score}`);
     return score;
   }
 
@@ -533,6 +795,11 @@ class AotSigmudHeroMetric extends AotHeroMetrics {
   static isMatched(hero) {
     return hero.id == HeroIdEnum.FIRE_SPIRIT;
   }
+
+
+  getPossibleSkillCasts(hero, player, enemyPlayer, state) {
+    return AotVolcanoWrathSkill.fromHeroState(hero, player, enemyPlayer, state);
+  }
 }
 
 class AotTerraHeroMetric extends AotHeroMetrics {
@@ -558,6 +825,11 @@ class AotTerraHeroMetric extends AotHeroMetrics {
   static isMatched(hero) {
     return hero.id == HeroIdEnum.SEA_SPIRIT;
   }
+
+
+  getPossibleSkillCasts(hero, player, enemyPlayer, state) {
+    return AotFocusSkill.fromHeroState(hero, player, enemyPlayer, state);
+  }
 }
 
 class AotMagniHeroMetric extends AotHeroMetrics {
@@ -568,6 +840,11 @@ class AotMagniHeroMetric extends AotHeroMetrics {
 
   static isMatched(hero) {
     return hero.id == HeroIdEnum.SEA_GOD;
+  }
+
+
+  getPossibleSkillCasts(hero, player, enemyPlayer, state) {
+    return AotEathShockSkill.fromHeroState(hero, player, enemyPlayer, state);
   }
 }
 
@@ -592,6 +869,10 @@ class AotOrthurHeroMetric extends AotHeroMetrics {
   static isMatched(hero) {
     return hero.id == HeroIdEnum.MONK;
   }
+
+  getPossibleSkillCasts(hero, player, enemyPlayer, state) {
+    return AotBlessOfLightSkill.fromHeroState(hero, player, enemyPlayer, state);
+  }
 }
 
 class AotCerberusHeroMetric extends AotHeroMetrics {
@@ -602,6 +883,11 @@ class AotCerberusHeroMetric extends AotHeroMetrics {
 
   static isMatched(hero) {
     return hero.id == HeroIdEnum.CERBERUS;
+  }
+
+
+  getPossibleSkillCasts(hero, player, enemyPlayer, state) {
+    return AotCeberusBiteSkill.fromHeroState(hero, player, enemyPlayer, state);
   }
 } 
 
@@ -616,6 +902,11 @@ class AotZeusHeroMetric extends AotHeroMetrics {
 
   static isMatched(hero) {
     return hero.id == HeroIdEnum.THUNDER_GOD;
+  }
+
+
+  getPossibleSkillCasts(hero, player, enemyPlayer, state) {
+    return AotChainLightingSkill.fromHeroState(hero, player, enemyPlayer, state);
   }
 } 
 
@@ -643,6 +934,10 @@ class AotFateHeroMetric extends AotHeroMetrics {
   static isMatched(hero) {
     return hero.id == HeroIdEnum.DISPATER;
   }
+
+  getPossibleSkillCasts(hero, player, enemyPlayer, state) {
+    return AotDeathTouchSkill.fromHeroState(hero, player, enemyPlayer, state);
+  }
 } 
 
 class AotPokoHeroMetric extends AotHeroMetrics {
@@ -655,6 +950,10 @@ class AotPokoHeroMetric extends AotHeroMetrics {
 
   static isMatched(hero) {
     return hero.id == HeroIdEnum.MERMAID;
+  }
+
+  getPossibleSkillCasts(hero, player, enemyPlayer, state) {
+    return AotChargeSkill.fromHeroState(hero, player, enemyPlayer, state);
   }
 } 
 class AotSketletonHeroMetric extends AotHeroMetrics {
@@ -679,6 +978,11 @@ class AotSketletonHeroMetric extends AotHeroMetrics {
   static isMatched(hero) {
     return hero.id == HeroIdEnum.SKELETON;
   }
+
+  getPossibleSkillCasts(hero, player, enemyPlayer, state) {
+    return AotSoulSwapSkill.fromHeroState(hero, player, enemyPlayer, state);
+  }
+
 } 
 
 class AotNefiaHeroMetric extends AotHeroMetrics {
@@ -691,6 +995,10 @@ class AotNefiaHeroMetric extends AotHeroMetrics {
 
   static isMatched(hero) {
     return hero.id == HeroIdEnum.AIR_SPIRIT;
+  }
+
+  getPossibleSkillCasts(hero, player, enemyPlayer, state) {
+    return AotWindForceSkill.fromHeroState(hero, player, enemyPlayer, state);
   }
 } 
 
@@ -750,7 +1058,7 @@ class AoTStrategy {
     }
     if (action.isCastSkill) {
       console.log(`${AoTStrategy.name}: isCastSkill`);
-      this.castSkillHandle(action.hero);
+      this.castSkillHandle(action.hero, action.setup());
     } else if (action.isSwap) {
       console.log(`${AoTStrategy.name}: isSwap`);
       this.swapGemHandle(action.swap);
@@ -772,56 +1080,64 @@ class AoTStrategy {
 
     let currentBestMove = possibleMoves[0];
     let currentBestMoveScore = Number.NEGATIVE_INFINITY;
-    for (const move of possibleMoves) {
-      const futureState = this.seeFutureState(move, state, deep);
-      console.log(state, futureState);
-      const simulateMoveScore = this.compareScoreOnStates(state, futureState, currentPlayer);
-      console.log(
-        `${AoTStrategy.name}: simulateMoveScore  ${simulateMoveScore}`
-      );
+    let currentBestState = null;
 
+    for (const move of possibleMoves) {
+      const clonedState = state.clone();
+      console.log(`test move deep ${deep} ${move.type} ${possibleMoves.indexOf(move)}/${possibleMoves.length}`)
+      const futureState = this.seeFutureState(move, clonedState, deep);
+      for(const effect of futureState.turnEffects) {
+        console.log(`Turn effect ${futureState.turnEffects.indexOf(effect)}/${futureState.turnEffects.length}`)
+        effect.debug();
+      }
+      const simulateMoveScore = this.compareScoreOnStates(currentBestState, futureState, currentPlayer);
+      console.log('simulateMoveScore', simulateMoveScore);
       if (simulateMoveScore > currentBestMoveScore) {
         currentBestMove = move;
+        currentBestState = futureState;
         currentBestMoveScore = simulateMoveScore;
       }
     }
+
+    console.log('best move', currentBestMove);
+    console.log('best score', currentBestMoveScore);
+    console.log('best state', currentBestState);
+    
     return currentBestMove;
   }
 
   seeFutureState(move, state, deep) {
-    console.log("See the future", deep);
+    const clonedState = state.clone();
 
     if(!move) {
-      return state;
-    }
-    
-    if (deep === 0 || !move) {
-      return state;
+      return clonedState;
     }
 
-    if(state.isGameOver()) {
-      return state;
+    if(clonedState.isGameOver()) {
+      return clonedState;
     }
-
-    const clonedState = state.clone();
-    clonedState.hasExtraTurn = false;
 
     const futureState = this.applyMoveOnState(move, clonedState);
     if (futureState.isExtraturn()) {
+      futureState.hasExtraTurn = false;
       const newMove = this.chooseBestPossibleMove(futureState, deep);
       return this.seeFutureState(newMove, futureState, deep);
     }
 
-    futureState.switchTurn();
-    const newMove = this.chooseBestPossibleMove(futureState, deep - 1);
-    const afterState = this.seeFutureState(newMove, futureState, deep - 1);
+    if (deep === 1) {
+      return futureState;
+    }
+    
+    const clonedFutureState = futureState.clone();
+    clonedFutureState.switchTurn();
+    const newMove = this.chooseBestPossibleMove(clonedFutureState, deep - 1);
+    const afterState = this.seeFutureState(newMove, clonedFutureState, deep - 1);
     return afterState;
   }
 
   compareScoreOnStates(state1, state2, player) {
-    const score1 = this.calculateScoreOnStateOf(state1, player);
+    // const score1 = this.calculateScoreOnStateOf(state1, player);
     const score2 = this.calculateScoreOnStateOf(state2, player);
-    console.log(`${AoTStrategy.name}: compareScoreOnState`, score1, score2);
     return score2;
   }
 
@@ -846,20 +1162,28 @@ class AoTStrategy {
 
   getAllPossibleSkillCast(state) {
     const currentPlayer = state.getCurrentPlayer();
-    const castableHeroes = currentPlayer.getCastableHeros();
+    const currentEnemy = state.getCurrentEnemyPlayer();
 
+    const castableHeroes = currentPlayer.getCastableHeros();
     const possibleCastOnHeros = castableHeroes.map((hero) =>
-      this.possibleCastOnHero(hero, state)
+      this.possibleCastOnHero(hero, currentPlayer, currentEnemy, state)
     );
     const allPossibleCasts = [].concat(...possibleCastOnHeros);
+    const focusSkill = allPossibleCasts.find(skill => skill.hero.id == HeroIdEnum.SEA_SPIRIT);
+
+    if(focusSkill) {
+      return [focusSkill];
+    }
 
     return allPossibleCasts;
   }
 
-  possibleCastOnHero(hero, state) {
-    const casts = [new AotCastSkill(hero)];
-    // const casts = [];
-    return casts;
+  possibleCastOnHero(hero, player, enemy, state) {
+    if(hero.metrics && hero.metrics.getPossibleSkillCasts) {
+      const skills = hero.metrics.getPossibleSkillCasts(hero, player, enemy, state);
+      return skills;
+    }
+    return [];
   }
 
   getAllPossibleGemSwap(state) {

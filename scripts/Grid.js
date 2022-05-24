@@ -36,8 +36,6 @@ class Grid {
     recommendSwapGem() {
         let listMatchGem = this.suggestMatch();
 
-        console.log("recommendSwapGem: ", listMatchGem);
-
         if (listMatchGem.length === 0) {
             return [-1, -1];
         }
@@ -244,7 +242,6 @@ class Grid {
     performSwap(index1, index2) {
         const currentGem = this.gems[index1];
         const swapGem = this.gems[index2];
-        console.log(currentGem, swapGem);
         this.swap(currentGem, swapGem);
         const allMatchGems = this.getAllMatches();
         const distinction = new GridDistinction();
@@ -311,7 +308,7 @@ class Grid {
         for(let x = gem.x - 1; x < gem.x + 1; x++) {
             for(let y = gem.y - 1; y < gem.y + 1; y++) {
                 const targetGem = this.gemAt(gem.x, y);
-                if(!targetGem.sameOne(gem)) {
+                if(targetGem && !targetGem.sameOne(gem)) {
                     this.distinctGem(targetGem, distinction);
                 }
             }

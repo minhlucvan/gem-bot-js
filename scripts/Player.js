@@ -23,15 +23,19 @@ class Player
     }
 
     getTotalHp() {
-        return this.heroes.reduce((acc, hero) => acc + hero.hp, 0);
+        return this.getHerosAlive().reduce((acc, hero) => acc + hero.hp, 0);
     }
 
     getTotalMana() {
-        return this.heroes.reduce((acc, hero) => acc + hero.mana, 0);
+        return this.getHerosAlive().reduce((acc, hero) => acc + hero.mana, 0);
+    }
+
+    getTotalMaxMana() {
+        return this.getHerosAlive().reduce((acc, hero) => acc + hero.maxMana, 0);
     }
 
     getCastableHeros() {
-        let arr = this.heroes.filter(hero => hero.isAlive() && hero.isFullMana());
+        let arr = this.getHerosAlive().filter(hero => hero.isAlive() && hero.isFullMana());
         return arr;
     }
 
@@ -85,5 +89,12 @@ class Player
         cloned.metrics = this.metrics;
         cloned.power = this.power;
         return cloned;
+    }
+
+    debug() {
+        console.log(`Player ${this.playerId}`);
+        for(const hero of this.heroes) {
+            hero.debug();
+        }
     }
 }
