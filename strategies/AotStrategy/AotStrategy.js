@@ -7,6 +7,17 @@ class AotGameState {
     this.currentPlayer = botPlayer;
     this.distinctions = [];
     this.turnEffects = [];
+    this.hasExtraTurn = false;
+    this.everExtraTurn = false;
+    this.scores = {};
+  }
+
+  setExtraTurn(value) {
+    this.hasExtraTurn = value;
+    if(this.hasExtraTurn) {
+      this.everExtraTurn = true;
+    }
+    console.log(`Set extra turn ${value}`);
   }
 
   getTotalMatched(){
@@ -18,9 +29,15 @@ class AotGameState {
   }
 
   calcScoreOf(playerId) {
+    if(this.scores[playerId]) {
+      return this.scores[playerId];
+    }
     const player = this.getPlayerById(playerId);
     const enemy = this.getEnemyPlayerById(playerId);
-    return player.metrics.calc(player, enemy, this); 
+    const score = player.metrics.calc(player, enemy, this); 
+
+    this.scores[playerId] = score;
+    return score;
   }
 
   getPlayerById(id) {
@@ -37,16 +54,26 @@ class AotGameState {
     return this.botPlayer;
   }
 
+  isPlayerWin(id) {
+    const player = this.getCurrentPlayer(id);
+    return player.isLose();
+  }
+
+  isPlayerLose(id) {
+    const player = this.getCurrentEnemyPlayer(id);
+    return player.isLose();
+  }
+
   isGameOver() {
     return this.botPlayer.isLose() || this.enemyPlayer.isLose();
   }
 
   isExtraTurnEver() {
-    const effect = this.turnEffects[0];
-    if (!effect) {
-      return false;
-    }
-    return effect.buffExtraTurn;
+    return this.everExtraTurn;
+  }
+
+  totalMove() {
+    return this.turnEffects.length;
   }
 
   isExtraTurn() {
@@ -58,6 +85,7 @@ class AotGameState {
   }
 
   switchTurn() {
+    console.log(`Switch turn ${currentPlayer.playerId} -> ${this.currentEnemyPlayer.playerId}`);
     if(this.isBotTurn()) {
       this.currentPlayer = this.botPlayer;
     } else {
@@ -219,6 +247,7 @@ class AotFocusSkill extends AotCastSkill {
       target.buffHp(5);
       target.buffAttack(5);
     }
+    state.setExtraTurn(true);
   }
 } 
 
@@ -573,13 +602,13 @@ class GameSimulator {
 
   applyMaxMatchedSize(value) {
     if(value >= 5) {
-      this.state.hasExtraTurn = value > 0;
+      this.state.setExtraTurn(true);
     }
   }
 
   applyBuffExtraTurn(value) {
     if(value > 0) {
-      this.state.hasExtraTurn = value > 0;
+      this.state.setExtraTurn(true);
     }
   }
 
@@ -637,7 +666,13 @@ class GameSimulator {
     const currentEnemyPlayer = this.state.getCurrentEnemyPlayer();
 
     if(move.applyToState) {
-      return move.applyToState(this.state, currentPlayer, currentEnemyPlayer);
+      let result = move.applyToState(this.state, currentPlayer, currentEnemyPlayer);
+      
+      if(!result) {
+        result = new TurnEfect();
+      } 
+      this.applyTurnEffect(result);
+      return result;
     }
   }
 }
@@ -747,7 +782,7 @@ class AotHeroMetrics {
     const manaPower = this.manaMetric.exec(hero, player, enemyPlayer, state);
     const skillPower = this.skillMetric.exec(hero, player, enemyPlayer, state);
     const heroPower = attackPower + hpPower + manaPower * skillPower;
-    console.log(`Hero power ${player.playerId} ${hero.id} attackPower ${attackPower}, hpPower ${hpPower}, manaPower ${manaPower}, skillPower ${skillPower}, heroPower ${heroPower}`);
+    console.log(`Hero score ${player.playerId} ${hero.id} heroPower ${heroPower} =  ${attackPower} + ${hpPower} + ${manaPower} *  ${skillPower}`);
     hero.power = heroPower;
     return heroPower;
   }
@@ -1139,8 +1174,7 @@ class AoTStrategy {
       return null;
     }
 
-    let currentBestMove = possibleMoves[0];
-    let currentBestMoveScore = Number.NEGATIVE_INFINITY;
+    let currentBestMove = null;
     let currentBestState = null;
 
     for (const move of possibleMoves) {
@@ -1159,22 +1193,14 @@ class AoTStrategy {
         effect.debug();
       }
       const simulateMoveScore = this.compareScoreOnStates(currentBestState, futureState, currentPlayer);
-      console.log('simulateMoveScore', simulateMoveScore);
-      if (simulateMoveScore > currentBestMoveScore) {
+      console.log('State compare', simulateMoveScore);
+      if (simulateMoveScore == 2) {
         currentBestMove = move;
         currentBestState = futureState;
-        currentBestMoveScore = simulateMoveScore;
-      } else if (simulateMoveScore == currentBestMoveScore ){
-        if (currentBestState.getTotalMatched() < futureState.getTotalMatched()) {
-          currentBestMove = move;
-          currentBestState = futureState;
-          currentBestMoveScore = simulateMoveScore;
-        }
-      }
+      } 
     }
 
     console.log('best move', currentBestMove);
-    console.log('best score', currentBestMoveScore);
     console.log('best state', currentBestState);
     
     return currentBestMove;
@@ -1193,7 +1219,7 @@ class AoTStrategy {
 
     const futureState = this.applyMoveOnState(move, clonedState);
     if (futureState.isExtraTurn()) {
-      futureState.hasExtraTurn = false;
+      futureState.setExtraTurn(false);
       const newMove = this.chooseBestPossibleMove(futureState, deep);
       return this.seeFutureState(newMove, futureState, deep);
     }
@@ -1210,12 +1236,45 @@ class AoTStrategy {
   }
 
   compareScoreOnStates(state1, state2, player) {
-    // const score1 = this.calculateScoreOnStateOf(state1, player);
-    if ( state2.isExtraTurnEver() ) {
-      return Number.POSITIVE_INFINITY;
+    if(!state1) {
+      return 2;
     }
+
+    if(!state2) {
+      return 1;
+    }
+
+    if(state1.isPlayerWin(player.playerId)) {
+      return 1;
+    }
+
+    if(state2.isPlayerWin(player.playerId)) {
+      return 2;
+    }
+
+    if(state1.isPlayerLose(player.playerId)) {
+      return 2;
+    }
+
+    if(state2.isPlayerLose(player.playerId)) {
+      return 1;
+    }
+
+    if(state2.totalMove() > state1.totalMove()) {
+      return 2;
+    }
+
+    const score1 = this.calculateScoreOnStateOf(state1, player);
     const score2 = this.calculateScoreOnStateOf(state2, player);
-    return score2;
+    
+    if(score1 == score2 ){
+      if (state2.getTotalMatched() > state1.getTotalMatched()) {
+        return 2;
+      }
+    }
+
+
+    return score2 > score1 ? 2 : 1;
   }
 
   calculateScoreOnStateOf(state, player) {
