@@ -9,6 +9,14 @@ class AotGameState {
     this.turnEffects = [];
   }
 
+  getTotalMatched(){
+    let totalMatched = 0
+    for (const effect of this.turnEffects) {
+      totalMatched += effect.totalMatched
+    }
+    return totalMatched
+  }
+
   calcScoreOf(playerId) {
     const player = this.getPlayerById(playerId);
     const enemy = this.getEnemyPlayerById(playerId);
@@ -441,7 +449,7 @@ class TurnEfect {
       }
 
       if(gem.modifier == GemModifier.POINT) {
-        turnEffect.addBuffPoint(gem);
+        turnEffect.addHitPoint(gem);
       }
     }
 
@@ -599,7 +607,7 @@ class GameSimulator {
 
   applyCastSkill(move) {
     const currentPlayer = this.state.getCurrentPlayer();
-    const currentEnemyPlayer = this.state.getCurrentPlayer();
+    const currentEnemyPlayer = this.state.getCurrentEnemyPlayer();
 
     if(move.applyToState) {
       return move.applyToState(this.state, currentPlayer, currentEnemyPlayer);
@@ -803,7 +811,7 @@ class AotSigmudHeroMetric extends AotHeroMetrics {
   skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
     const totalRedGems = state.grid.countGemByType(GemType.RED);
     const heroTarget = this.bestHeroToSkillTarget(hero, player, enemyPlayer, state);
-    if ( !hero ) {
+    if ( !heroTarget ) {
       return 0;
     }
     const skillPower = heroTarget.attack + totalRedGems;
@@ -1131,10 +1139,17 @@ class AoTStrategy {
       }
       const simulateMoveScore = this.compareScoreOnStates(currentBestState, futureState, currentPlayer);
       console.log('simulateMoveScore', simulateMoveScore);
-      if (simulateMoveScore >= currentBestMoveScore) {
+      if (simulateMoveScore > currentBestMoveScore) {
         currentBestMove = move;
         currentBestState = futureState;
         currentBestMoveScore = simulateMoveScore;
+      }
+      else if (simulateMoveScore == currentBestMoveScore ){
+        if (currentBestState.getTotalMatched() < futureState.getTotalMatched()) {
+          currentBestMove = move;
+          currentBestState = futureState;
+          currentBestMoveScore = simulateMoveScore;
+        }
       }
     }
 
