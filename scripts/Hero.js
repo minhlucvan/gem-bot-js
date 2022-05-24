@@ -81,27 +81,33 @@ class Hero {
 
   takeDamage(damage) {
     this.hp = Math.min(this.hp - damage, 0);
+    console.log(`Hero ${this.id} take damage ${damage} -> ${this.hp}`);
   }
 
   burnManaTo(value) {
     this.mana = value;
+    console.log(`Hero ${this.id} burn mana to ${value} -> ${this.mana}`);
   }
 
   takeMana(value) {
     this.mana += value;
+    console.log(`Hero ${this.id} take mana ${value} -> ${this.mana}`);
   }
 
   buffAttack(additionalAttack) {
     this.attack += additionalAttack;
+    console.log(`Hero ${this.id} buff attack ${additionalAttack} -> ${this.attack}`);
   }
 
-  buffMana(additiionalMana) {
-    this.mana += additiionalMana;
+  buffMana(additionalMana) {
+    this.mana += additionalMana;
     this.mana = Math.min(this.mana, this.maxMana);
+    console.log(`Hero ${this.id} buff mana ${additionalMana} + ${this.mana}`);
   }
 
   buffHp(additionalHp) {
     this.hp += additionalHp;
+    console.log(`Hero ${this.id} buff hp ${additionalHp} -> ${this.hp}`);
   }
 
   sameOne(other) {

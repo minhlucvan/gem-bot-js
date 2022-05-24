@@ -7,6 +7,10 @@ function union (sets) {
 class GridDistinction {
     removedGems = [];
     matchesSize = [];
+
+    debug() {
+        console.log(`Removed gems ${this.removedGems.length}: ${this.removedGems.map(gem => gem.type).join(', ')}`)
+    }
 }
 class Grid {
     constructor(gemsCode, gemModifiers, gemTypes) {

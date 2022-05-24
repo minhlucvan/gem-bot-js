@@ -33,7 +33,7 @@ class AotGameState {
     return this.botPlayer.isLose() || this.enemyPlayer.isLose();
   }
 
-  isExtraturn() {
+  isExtraTurn() {
     return this.hasExtraTurn;
   }
 
@@ -246,7 +246,7 @@ class AotCeberusBiteSkill extends AotCastSkill {
   }
 
   applyToState(state, player, enemy) {
-    this.hero.burnManaTo(0);
+    // this.hero.burnManaTo(0);
     const targets = enemy.getHerosAlive();
     const damage = this.hero.attack + 6;
     for(const enemyHero of targets) {
@@ -271,10 +271,10 @@ class AotBlessOfLightSkill extends AotCastSkill {
   }
 
   applyToState(state, player, enemy) {
-    this.hero.burnManaTo(0);
+    // this.hero.burnManaTo(0);
     const allies = player.getHerosAlive();
     for(const ally of allies) {
-      allies.attack += 8;
+      ally.buffAttack(8);
     }
   }
 }
@@ -337,7 +337,7 @@ class AotVolcanoWrathSkill extends AotCastSkill {
   applyToState(state, player, enemy) {
     const targets = enemy.getHerosAlive();
     const totalRedGem = state.grid.countGemByType(GemType.RED);
-    this.hero.burnManaTo(0);
+    // this.hero.burnManaTo(0);
     for(const enemyHero of targets) {
       const damage = enemyHero.attack + totalRedGem;
       enemyHero.takeDamage(damage);
@@ -412,7 +412,7 @@ class TurnEfect {
     const turnEffect = new TurnEfect();
     const maxMatchedSize = Math.max(...distinction.matchesSize);
     turnEffect.maxMatchedSize = maxMatchedSize;
-    turnEffect.totalMatched = distinction.matchesSize.reduce((toal, size) => toal + size, 0);
+    turnEffect.totalMatched = distinction.matchesSize.reduce((total, size) => total + size, 0);
 
     for (const gem of distinction.removedGems) {
       if(gem.type == GemType.SWORD) {
@@ -434,11 +434,11 @@ class TurnEfect {
       }
 
       if(gem.modifier == GemModifier.MANA) {
-        turnEffect.addMana(gem);
+        turnEffect.addBuffMana(gem);
       }
 
       if(gem.modifier == GemModifier.POINT) {
-        turnEffect.addPoint(gem);
+        turnEffect.addBuffPoint(gem);
       }
     }
 
@@ -456,11 +456,11 @@ class TurnEfect {
     this.buffHitPoint += 1;
   }
 
-  addMana(gem) {
+  addBuffMana(gem) {
     this.buffMana += 1;
   }
 
-  addPoint(gem) {
+  addBuffMana(gem) {
     this.buffPoint += 0;
   }
 
@@ -673,7 +673,7 @@ class AotHeroMetricScale extends ScaleFn {
 class AotHeroMetrics {
 
   hpMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
-    return hero.hp * 2;
+    return hero.hp * 5;
   });
 
   manaMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
@@ -752,15 +752,15 @@ class AotScoreMetric {
 
   calcScoreOfPlayer(player, enemyPlayer, state) {
     if(!player.isAlive()) {
-      return -999;
-    }
-
-    if(!enemyPlayer.isAlive()) {
-      return 999;
+      return 0;
     }
 
     const heros = player.getHerosAlive();
-    const heroScores = heros.map((hero) => this.calcHeroScore(hero, player, enemyPlayer, state));
+    const heroScores = heros.map((hero) => {
+      const heroScore = this.calcHeroScore(hero, player, enemyPlayer, state);
+      console.log(`Hero score ${hero.id} ${heroScore}`);
+      return heroScore;
+    });
     const totalHeroScore = this.sumMetric.exec(...heroScores);
     return totalHeroScore;
   }
@@ -772,6 +772,11 @@ class AotScoreMetric {
     }
 
     const playerScore = this.calcScoreOfPlayer(player, enemy, state);
+    console.log(`Current player ${player.playerId} score ${playerScore}`);
+
+    if(playerScore == 0) {
+      return 0;
+    }
     
     for(const hero of [].concat(player.heroes, enemy.heroes)) {
       hero.power = undefined;
@@ -779,8 +784,15 @@ class AotScoreMetric {
     }
 
     const enemyScore =  this.calcScoreOfPlayer(enemy, player, state);
+    console.log(`Current enemy ${enemy.playerId} score ${enemyScore}`);
 
-    return playerScore / enemyScore;
+    if(playerScore == 0) {
+      return Number.POSITIVE_INFINITY;
+    }
+
+    const score = playerScore / enemyScore;
+    console.log(`calc score ${playerScore} / ${enemyScore} = ${score}`)
+    return score;
   }
 }
 
@@ -1101,6 +1113,12 @@ class AoTStrategy {
       console.log(`test move deep ${deep} ${move.type} ${possibleMoves.indexOf(move)}/${possibleMoves.length}`);
       move.debug();
       const futureState = this.seeFutureState(move, clonedState, deep);
+
+      for(const distinction of futureState.distinctions) {
+        console.log(`Turn distinction ${futureState.distinctions.indexOf(distinction)}/${futureState.distinctions.length}`)
+        distinction.debug();
+      }
+
       for(const effect of futureState.turnEffects) {
         console.log(`Turn effect ${futureState.turnEffects.indexOf(effect)}/${futureState.turnEffects.length}`)
         effect.debug();
@@ -1133,7 +1151,7 @@ class AoTStrategy {
     }
 
     const futureState = this.applyMoveOnState(move, clonedState);
-    if (futureState.isExtraturn()) {
+    if (futureState.isExtraTurn()) {
       futureState.hasExtraTurn = false;
       const newMove = this.chooseBestPossibleMove(futureState, deep);
       return this.seeFutureState(newMove, futureState, deep);
