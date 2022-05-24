@@ -1083,10 +1083,10 @@ class AoTStrategy {
       return;
     }
     if (action.isCastSkill) {
-      console.log(`${AoTStrategy.name}: isCastSkill`);
+      console.log(`${AoTStrategy.name}: Cast skill`);
       this.castSkillHandle(action.hero, action.setup());
     } else if (action.isSwap) {
-      console.log(`${AoTStrategy.name}: isSwap`);
+      console.log(`${AoTStrategy.name}: Swap gem`);
       this.swapGemHandle(action.swap);
     }
   }

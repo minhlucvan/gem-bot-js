@@ -80,7 +80,7 @@ class Hero {
   }
 
   takeDamage(damage) {
-    this.hp = Math.min(this.hp - damage, 0);
+    this.hp = Math.max(this.hp - Math.round(damage), 0);
     console.log(`Hero ${this.id} take damage ${damage} -> ${this.hp}`);
   }
 
@@ -102,7 +102,7 @@ class Hero {
   buffMana(additionalMana) {
     this.mana += additionalMana;
     this.mana = Math.min(this.mana, this.maxMana);
-    console.log(`Hero ${this.id} buff mana ${additionalMana} + ${this.mana}`);
+    console.log(`Hero ${this.id} buff mana ${additionalMana} -> ${this.mana}`);
   }
 
   buffHp(additionalHp) {

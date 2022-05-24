@@ -421,8 +421,8 @@ function SendCastSkill(heroCastSkill, { targetId, selectedGem, gemIndex, isTarge
 	} else {
 		data.putBool("isTargetAllyOrNot", false);
 	}
-	log("sendExtensionRequest()|room:" + room.Name + "|extCmd:" + USE_SKILL + "|Hero cast skill: " + heroCastSkill.name);
-	trace("sendExtensionRequest()|room:" + room.Name + "|extCmd:" + USE_SKILL + "|Hero cast skill: " + heroCastSkill.name);
+	log("sendExtensionRequest()|room:" + room.Name + "|extCmd:" + USE_SKILL + "|Hero cast skill: " + heroCastSkill.id);
+	trace("sendExtensionRequest()|room:" + room.Name + "|extCmd:" + USE_SKILL + "|Hero cast skill: " + heroCastSkill.id);
 
 	SendExtensionRequest(USE_SKILL, data);
 
