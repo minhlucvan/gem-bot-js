@@ -103,6 +103,10 @@ class AotGameState {
 
 class AotMove {
   type = "";
+
+  debug() {
+    console.log(`Move ${this.type}`);
+  }
 }
 
 class AotCastSkill extends AotMove {
@@ -142,6 +146,10 @@ class AotCastSkill extends AotMove {
 
   applyToState(state, player) {
     // TBD:
+  }
+
+  debug() {
+    console.log(`Move ${this.type} ${this.hero.id} target ${this.targetId} gem: ${this.gemIndex}`);
   }
 }
 
@@ -351,6 +359,10 @@ class AotSwapGem extends AotMove {
   constructor(swap) {
     super();
     this.swap = swap;
+  }
+
+  debug() {
+    console.log(`Move ${this.type} gem: ${this.swap}`);
   }
 }
 
@@ -1084,7 +1096,8 @@ class AoTStrategy {
 
     for (const move of possibleMoves) {
       const clonedState = state.clone();
-      console.log(`test move deep ${deep} ${move.type} ${possibleMoves.indexOf(move)}/${possibleMoves.length}`)
+      console.log(`test move deep ${deep} ${move.type} ${possibleMoves.indexOf(move)}/${possibleMoves.length}`);
+      move.debug();
       const futureState = this.seeFutureState(move, clonedState, deep);
       for(const effect of futureState.turnEffects) {
         console.log(`Turn effect ${futureState.turnEffects.indexOf(effect)}/${futureState.turnEffects.length}`)
@@ -1092,7 +1105,7 @@ class AoTStrategy {
       }
       const simulateMoveScore = this.compareScoreOnStates(currentBestState, futureState, currentPlayer);
       console.log('simulateMoveScore', simulateMoveScore);
-      if (simulateMoveScore > currentBestMoveScore) {
+      if (simulateMoveScore >= currentBestMoveScore) {
         currentBestMove = move;
         currentBestState = futureState;
         currentBestMoveScore = simulateMoveScore;
