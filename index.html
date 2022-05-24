@@ -171,11 +171,12 @@
 	</script>
 
 	<script type="text/javascript">
-		if(params && params.strategy) {
-			const strategyClass = window.strategies[params.strategy];
+		var strategyName = params.strategy || 'aot';
+		if(strategyName) {
+			const strategyClass = window.strategies[strategyName];
 
 			if(!strategyClass) {
-				console.log(`Strategy ${window.params.strategy} is not defined.`);
+				console.log(`Strategy ${strategyName} is not defined.`);
 			} else {
 				window.strategy = strategyClass.factory();	
 			}

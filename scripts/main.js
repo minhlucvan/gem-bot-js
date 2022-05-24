@@ -34,18 +34,18 @@ var enemyPlayer;
 var currentPlayerId;
 var grid;
 
-const username = "minh.lucvan";
+const username = params.username || "minh.lucvan";
 const token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaW5oLmx1Y3ZhbiIsImF1dGgiOiJST0xFX1VTRVIiLCJMQVNUX0xPR0lOX1RJTUUiOjE2NTMyNzk1ODgwMTAsImV4cCI6MTY1NTA3OTU4OH0.1K4jBJHEVy9DqmHF8rqBnrxsRseYzgyqRTFcj0FPsAVpyxukqKyAfeU4u_lfks1EGoE7iWVBy2uhl5bxd1fpAQ";
 var visualizer = new Visualizer({ el: '#visual' });
 var params = window.params;
-var strategy = "aot";
+var strategy = window.strategy;
 visualizer.start();
 
 // Connect to Game server
 initConnection();
 
-if (params.username) {
-	document.querySelector('#accountIn').value = params.username;
+if (username) {
+	document.querySelector('#accountIn').value = username;
 }
 
 function initConnection() {
