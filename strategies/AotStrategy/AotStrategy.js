@@ -41,6 +41,14 @@ class AotGameState {
     return this.botPlayer.isLose() || this.enemyPlayer.isLose();
   }
 
+  isExtraTurnEver() {
+    const effect = this.turnEffects[0];
+    if (!effect) {
+      return false;
+    }
+    return effect.buffExtraTurn;
+  }
+
   isExtraTurn() {
     return this.hasExtraTurn;
   }
@@ -692,7 +700,7 @@ class AotHeroMetrics {
   });
 
   attackMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
-    return hero.attack*0.5;
+    return hero.attack*0.7;
   });
 
   maxManaMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
@@ -1191,7 +1199,7 @@ class AoTStrategy {
 
   compareScoreOnStates(state1, state2, player) {
     // const score1 = this.calculateScoreOnStateOf(state1, player);
-    if ( state2.isExtraTurn() ) {
+    if ( state2.isExtraTurnEver() ) {
       return Number.POSITIVE_INFINITY;
     }
     const score2 = this.calculateScoreOnStateOf(state2, player);
