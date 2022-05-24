@@ -79,8 +79,12 @@ class Hero {
     return this.getManaLacked();
   }
 
-  takeDamge(damge) {
-    this.hp = Math.min(this.hp - damge, 0);
+  takeDamage(damage) {
+    this.hp = Math.min(this.hp - damage, 0);
+  }
+
+  burnManaTo(value) {
+    this.mana = value;
   }
 
   takeMana(value) {

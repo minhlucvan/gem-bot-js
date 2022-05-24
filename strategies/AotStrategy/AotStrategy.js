@@ -246,10 +246,11 @@ class AotCeberusBiteSkill extends AotCastSkill {
   }
 
   applyToState(state, player, enemy) {
+    this.hero.burnManaTo(0);
     const targets = enemy.getHerosAlive();
-    const damge = this.hero.attack + 6;
+    const damage = this.hero.attack + 6;
     for(const enemyHero of targets) {
-      enemyHero.takeDamge(damge);
+      enemyHero.takeDamage(damage);
     }
   }
 }
@@ -270,6 +271,7 @@ class AotBlessOfLightSkill extends AotCastSkill {
   }
 
   applyToState(state, player, enemy) {
+    this.hero.burnManaTo(0);
     const allies = player.getHerosAlive();
     for(const ally of allies) {
       allies.attack += 8;
@@ -334,11 +336,11 @@ class AotVolcanoWrathSkill extends AotCastSkill {
 
   applyToState(state, player, enemy) {
     const targets = enemy.getHerosAlive();
-    const toalRedGem = state.grid.countGemByType(GemType.RED);
-
+    const totalRedGem = state.grid.countGemByType(GemType.RED);
+    this.hero.burnManaTo(0);
     for(const enemyHero of targets) {
-      const damge = enemyHero.attack + toalRedGem;
-      enemyHero.takeDamge(damge);
+      const damage = enemyHero.attack + totalRedGem;
+      enemyHero.takeDamage(damage);
     }
   }
 }
@@ -571,7 +573,7 @@ class GameSimulator {
     const myHeroAlive = this.state.getCurrentPlayer().firstHeroAlive();
     const attackDame = this.damgeMetric.exec(attackGem, myHeroAlive);
     const enemyHeroAlive = this.state.getCurrentEnemyPlayer().firstHeroAlive();
-    enemyHeroAlive.takeDamge(attackDame);
+    enemyHeroAlive.takeDamage(attackDame);
   }
 
   applyMana(type, value) {
@@ -596,7 +598,7 @@ class GameSimulator {
     const currentPlayer = this.state.getCurrentPlayer();
     const currentEnemyPlayer = this.state.getCurrentPlayer();
 
-    if(move.appyToState) {
+    if(move.applyToState) {
       return move.applyToState(this.state, currentPlayer, currentEnemyPlayer);
     }
   }
