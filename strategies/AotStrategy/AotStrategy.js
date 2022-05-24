@@ -211,6 +211,15 @@ class AotFocusSkill extends AotCastSkill {
   static fromHeroState(hero, player, enemyPlayer, state) {
     return player.getHerosAlive().map((heroTarget) => new AotFocusSkill(hero).withTargetHero(heroTarget));
   }
+
+  applyToState(state, player, enemy) {
+    // this.hero.burnManaTo(0);
+    const target = this.target;
+    if(target) {
+      target.buffHp(5);
+      target.buffAttack(5);
+    }
+  }
 } 
 
 class AotEathShockSkill extends AotCastSkill {
@@ -226,6 +235,16 @@ class AotEathShockSkill extends AotCastSkill {
       return [new AotEathShockSkill(hero)];
     } 
     return [];
+  }
+
+  applyToState(state, player, enemy) {
+    // this.hero.burnManaTo(0);
+    const targets = enemy.getHerosAlive();
+    const damage = this.hero.attack;
+    for(const enemyHero of targets) {
+      enemyHero.takeDamage(damage);
+      enemy.burnMana(3);
+    }
   }
 } 
 
@@ -692,19 +711,15 @@ class AotHeroMetricScale extends ScaleFn {
 class AotHeroMetrics {
 
   hpMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
-    return hero.hp * 5;
+    return hero.hp;
   });
 
   manaMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
-    return hero.mana;
+    return (hero.mana/hero.maxMana + 1)*0.5;
   });
 
   attackMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
-    return hero.attack*0.7;
-  });
-
-  maxManaMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
-    return hero.maxMana;
+    return hero.attack*0.2;
   });
 
   skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
@@ -730,10 +745,9 @@ class AotHeroMetrics {
     const attackPower = this.attackMetric.exec(hero, player, enemyPlayer, state);
     const hpPower = this.hpMetric.exec(hero, player, enemyPlayer, state);
     const manaPower = this.manaMetric.exec(hero, player, enemyPlayer, state);
-    const maxManaPower = this.maxManaMetric.exec(hero, player, enemyPlayer, state);
     const skillPower = this.skillMetric.exec(hero, player, enemyPlayer, state);
-    const heroPower = attackPower + hpPower + (manaPower/maxManaPower) * skillPower;
-    // console.log(`calcScore ${player.playerId} ${hero.id} attackPower, hpPower, manaPower, maxManaPower, skillPower, heroPower`, attackPower, hpPower, manaPower, maxManaPower, skillPower, heroPower);
+    const heroPower = attackPower + hpPower + manaPower * skillPower;
+    console.log(`Hero power ${player.playerId} ${hero.id} attackPower ${attackPower}, hpPower ${hpPower}, manaPower ${manaPower}, skillPower ${skillPower}, heroPower ${heroPower}`);
     hero.power = heroPower;
     return heroPower;
   }
@@ -777,7 +791,6 @@ class AotScoreMetric {
     const heros = player.getHerosAlive();
     const heroScores = heros.map((hero) => {
       const heroScore = this.calcHeroScore(hero, player, enemyPlayer, state);
-      console.log(`Hero score ${hero.id} ${heroScore}`);
       return heroScore;
     });
     const totalHeroScore = this.sumMetric.exec(...heroScores);
@@ -1151,8 +1164,7 @@ class AoTStrategy {
         currentBestMove = move;
         currentBestState = futureState;
         currentBestMoveScore = simulateMoveScore;
-      }
-      else if (simulateMoveScore == currentBestMoveScore ){
+      } else if (simulateMoveScore == currentBestMoveScore ){
         if (currentBestState.getTotalMatched() < futureState.getTotalMatched()) {
           currentBestMove = move;
           currentBestState = futureState;
@@ -1238,6 +1250,12 @@ class AoTStrategy {
 
     if(focusSkill) {
       return [focusSkill];
+    }
+
+    const bleddSkill = allPossibleCasts.find(skill => skill.hero.id == HeroIdEnum.MONK);
+
+    if(bleddSkill) {
+      return [bleddSkill];
     }
 
     return allPossibleCasts;

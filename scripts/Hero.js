@@ -89,6 +89,11 @@ class Hero {
     console.log(`Hero ${this.id} burn mana to ${value} -> ${this.mana}`);
   }
 
+  burnMana(value) {
+    this.mana = Math.max(this.mana - value, 0);
+    console.log(`Hero ${this.id} burn mana ${value} -> ${this.mana}`);
+  }
+
   takeMana(value) {
     this.mana += value;
     console.log(`Hero ${this.id} take mana ${value} -> ${this.mana}`);
