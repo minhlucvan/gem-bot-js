@@ -321,7 +321,7 @@ class AotVolcanoWrathSkill extends AotCastSkill {
       }
     }
 
-    if(hcercerrcercccercerrccccroTargetCanKill) {
+    if(heroTargetCanKill) {
       return [new AotVolcanoWrathSkill(hero).withTargetHero(heroTargetCanKill)];
     } else if(heroTargetMaxAttack && heroTargetMaxAttack.attack > 10) {
       return [new AotVolcanoWrathSkill(hero).withTargetHero(heroTargetMaxAttack)];
