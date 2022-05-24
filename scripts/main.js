@@ -391,8 +391,6 @@ function isBotTurn() {
 	return botPlayer.playerId == currentPlayerId;
 }
 
-
-
 function SendCastSkill(heroCastSkill, { targetId, selectedGem, gemIndex, isTargetAllyOrNot } = {}) {
 	var data = new SFS2X.SFSObject();
 

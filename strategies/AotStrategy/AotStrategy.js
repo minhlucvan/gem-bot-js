@@ -384,6 +384,9 @@ class LinearScale extends ScaleFn {
 
 class AttackDamgeMetric extends ScaleFn {
   exec(gem, hero) {
+    if (gem < 3) {
+        return 0;
+    }
     const baseDamge = hero.attack;
     const extraDamge = (gem - 3) * 5;
     const damge = baseDamge + extraDamge;
@@ -681,7 +684,7 @@ class AotHeroMetrics {
   });
 
   attackMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
-    return hero.attack;
+    return hero.attack*0.5;
   });
 
   maxManaMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
@@ -800,6 +803,9 @@ class AotSigmudHeroMetric extends AotHeroMetrics {
   skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
     const totalRedGems = state.grid.countGemByType(GemType.RED);
     const heroTarget = this.bestHeroToSkillTarget(hero, player, enemyPlayer, state);
+    if ( !hero ) {
+      return 0;
+    }
     const skillPower = heroTarget.attack + totalRedGems;
     this.skillPower = skillPower;
     return skillPower;
@@ -1170,6 +1176,9 @@ class AoTStrategy {
 
   compareScoreOnStates(state1, state2, player) {
     // const score1 = this.calculateScoreOnStateOf(state1, player);
+    if ( state2.isExtraTurn() ) {
+      return Number.POSITIVE_INFINITY;
+    }
     const score2 = this.calculateScoreOnStateOf(state2, player);
     return score2;
   }

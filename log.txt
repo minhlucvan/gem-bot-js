@@ -1,0 +1,2564 @@
+DevTools failed to load source map: Could not load content for http://10.10.30.38:2222/libs/sfs2x-api-1.7.11.js.map: HTTP error: status code 404, net::ERR_HTTP_RESPONSE_CODE_FAILURE
+main.js:496 truong : |id user1: 1
+main.js:496 truong : |users.length : 2
+main.js:496 truong : |id user2: 2
+main.js:496 truong : |id user1: 1
+main.js:496 truong : |sendExtensionRequest()|room:minh.lucvan_1653403388058|extCmd:Battle.FINISH_TURN first turn true
+AotStrategy.js:1082 aot: playTurn
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 0/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 7 -> 18
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 0
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 157
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score CERBERUS 156
+AotStrategy.js:778 Current player 1 score 469
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 155
+AotStrategy.js:790 Current enemy 2 score 410
+AotStrategy.js:797 calc score 469 / 410 = 1.1439024390243901
+AotStrategy.js:1130 simulateMoveScore 1.1439024390243901
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 1/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 7 -> 18
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 0
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 157
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score CERBERUS 156
+AotStrategy.js:778 Current player 1 score 469
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 155
+AotStrategy.js:790 Current enemy 2 score 410
+AotStrategy.js:797 calc score 469 / 410 = 1.1439024390243901
+AotStrategy.js:1130 simulateMoveScore 1.1439024390243901
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 2/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 25
+Hero.js:94 Hero MONK take mana 3 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 3
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 0
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 2, 2, 2
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"2":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 167.28571428571428
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score CERBERUS 156
+AotStrategy.js:778 Current player 1 score 479.2857142857143
+AotStrategy.js:764 Hero score SEA_GOD 134
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 155
+AotStrategy.js:790 Current enemy 2 score 445
+AotStrategy.js:797 calc score 479.2857142857143 / 445 = 1.0770465489566612
+AotStrategy.js:1130 simulateMoveScore 1.0770465489566612
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 3/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 7 -> 18
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 0
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 157
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score CERBERUS 156
+AotStrategy.js:778 Current player 1 score 469
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 155
+AotStrategy.js:790 Current enemy 2 score 410
+AotStrategy.js:797 calc score 469 / 410 = 1.1439024390243901
+AotStrategy.js:1130 simulateMoveScore 1.1439024390243901
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 4/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 25
+Hero.js:94 Hero CERBERUS take mana 3 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 3
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 5, 5, 5
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"5":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 157
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score CERBERUS 171.42857142857142
+AotStrategy.js:778 Current player 1 score 484.42857142857144
+AotStrategy.js:764 Hero score SEA_GOD 134
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 155
+AotStrategy.js:790 Current enemy 2 score 445
+AotStrategy.js:797 calc score 484.42857142857144 / 445 = 1.0886035313001605
+AotStrategy.js:1130 simulateMoveScore 1.0886035313001605
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 5/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 25
+Hero.js:94 Hero MONK take mana 3 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 3
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 0
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 2, 2, 2
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"2":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 167.28571428571428
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score CERBERUS 156
+AotStrategy.js:778 Current player 1 score 479.2857142857143
+AotStrategy.js:764 Hero score SEA_GOD 134
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 155
+AotStrategy.js:790 Current enemy 2 score 445
+AotStrategy.js:797 calc score 479.2857142857143 / 445 = 1.0770465489566612
+AotStrategy.js:1130 simulateMoveScore 1.0770465489566612
+AotStrategy.js:1138 best move AotSwapGem {type: 'SWAP_GEM', isSwap: true, swap: GemSwapInfo}
+AotStrategy.js:1139 best score 1.1439024390243901
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+AotStrategy.js:1092 aot: Swap gem
+main.js:496 truong : |sendExtensionRequest()|room:undefined|extCmd:Battle.SWAP_GEM|index1: 36 index2: 37
+AotStrategy.js:1082 aot: playTurn
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 0/7
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 7 -> 11
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 0
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 157
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score CERBERUS 156
+AotStrategy.js:778 Current player 1 score 469
+AotStrategy.js:764 Hero score SEA_GOD 64
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 380
+AotStrategy.js:797 calc score 469 / 380 = 1.2342105263157894
+AotStrategy.js:1130 simulateMoveScore 1.2342105263157894
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 1/7
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:94 Hero MONK take mana 3 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 3
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 0
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 2, 2, 2
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"2":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 167.28571428571428
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score CERBERUS 156
+AotStrategy.js:778 Current player 1 score 479.2857142857143
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 479.2857142857143 / 415 = 1.1549053356282273
+AotStrategy.js:1130 simulateMoveScore 1.1549053356282273
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 2/7
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 7 -> 11
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 0
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 157
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score CERBERUS 156
+AotStrategy.js:778 Current player 1 score 469
+AotStrategy.js:764 Hero score SEA_GOD 64
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 380
+AotStrategy.js:797 calc score 469 / 380 = 1.2342105263157894
+AotStrategy.js:1130 simulateMoveScore 1.2342105263157894
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 3/7
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:94 Hero MONK take mana 3 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 3
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 0
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 2, 2, 2
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"2":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 167.28571428571428
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score CERBERUS 156
+AotStrategy.js:778 Current player 1 score 479.2857142857143
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 479.2857142857143 / 415 = 1.1549053356282273
+AotStrategy.js:1130 simulateMoveScore 1.1549053356282273
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 4/7
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:94 Hero MONK take mana 5 -> 5
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 5
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 0
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 0/2
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 7 -> 11
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 5
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 0
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/2
+Grid.js:12 Removed gems 5: 2, 2, 2, 2, 2
+AotStrategy.js:1121 Turn distinction 1/2
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/2
+AotStrategy.js:482 Collection {"2":5}, totalMatched: 5, MaxMatchSize: 5
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:1126 Turn effect 1/2
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 174.14285714285714
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score CERBERUS 156
+AotStrategy.js:778 Current player 1 score 486.1428571428571
+AotStrategy.js:764 Hero score SEA_GOD 64
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 380
+AotStrategy.js:797 calc score 486.1428571428571 / 380 = 1.2793233082706765
+AotStrategy.js:1130 simulateMoveScore 1.2793233082706765
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 1/2
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 7 -> 11
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 5
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 0
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/2
+Grid.js:12 Removed gems 5: 2, 2, 2, 2, 2
+AotStrategy.js:1121 Turn distinction 1/2
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/2
+AotStrategy.js:482 Collection {"2":5}, totalMatched: 5, MaxMatchSize: 5
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:1126 Turn effect 1/2
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 174.14285714285714
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score CERBERUS 156
+AotStrategy.js:778 Current player 1 score 486.1428571428571
+AotStrategy.js:764 Hero score SEA_GOD 64
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 380
+AotStrategy.js:797 calc score 486.1428571428571 / 380 = 1.2793233082706765
+AotStrategy.js:1130 simulateMoveScore 1.2793233082706765
+AotStrategy.js:1138 best move AotSwapGem {type: 'SWAP_GEM', isSwap: true, swap: GemSwapInfo}
+AotStrategy.js:1139 best score 1.2793233082706765
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+Hero.js:84 Hero SEA_GOD take damage 7 -> 11
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 5
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 0
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/2
+Grid.js:12 Removed gems 5: 2, 2, 2, 2, 2
+AotStrategy.js:1121 Turn distinction 1/2
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/2
+AotStrategy.js:482 Collection {"2":5}, totalMatched: 5, MaxMatchSize: 5
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:1126 Turn effect 1/2
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 174.14285714285714
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score CERBERUS 156
+AotStrategy.js:778 Current player 1 score 486.1428571428571
+AotStrategy.js:764 Hero score SEA_GOD 64
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 380
+AotStrategy.js:797 calc score 486.1428571428571 / 380 = 1.2793233082706765
+AotStrategy.js:1130 simulateMoveScore 1.2793233082706765
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 5/7
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:94 Hero MONK take mana 3 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 3
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 0
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 2, 2, 2
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"2":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 167.28571428571428
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score CERBERUS 156
+AotStrategy.js:778 Current player 1 score 479.2857142857143
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 479.2857142857143 / 415 = 1.1549053356282273
+AotStrategy.js:1130 simulateMoveScore 1.1549053356282273
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 6/7
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:94 Hero MONK take mana 3 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 3
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 0
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 2, 2, 2
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"2":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 167.28571428571428
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score CERBERUS 156
+AotStrategy.js:778 Current player 1 score 479.2857142857143
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 479.2857142857143 / 415 = 1.1549053356282273
+AotStrategy.js:1130 simulateMoveScore 1.1549053356282273
+AotStrategy.js:1138 best move AotSwapGem {type: 'SWAP_GEM', isSwap: true, swap: GemSwapInfo}
+AotStrategy.js:1139 best score 1.2793233082706765
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+AotStrategy.js:1092 aot: Swap gem
+main.js:496 truong : |sendExtensionRequest()|room:undefined|extCmd:Battle.SWAP_GEM|index1: 39 index2: 38
+AotStrategy.js:1082 aot: playTurn
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 0/8
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 7 -> 11
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 6
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 198.14285714285714
+AotStrategy.js:764 Hero score FIRE_SPIRIT 159.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 549.4206349206349
+AotStrategy.js:764 Hero score SEA_GOD 64
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 380
+AotStrategy.js:797 calc score 549.4206349206349 / 380 = 1.445843776106934
+AotStrategy.js:1130 simulateMoveScore 1.445843776106934
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 1/8
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 7 -> 11
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 6
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 198.14285714285714
+AotStrategy.js:764 Hero score FIRE_SPIRIT 159.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 549.4206349206349
+AotStrategy.js:764 Hero score SEA_GOD 64
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 380
+AotStrategy.js:797 calc score 549.4206349206349 / 380 = 1.445843776106934
+AotStrategy.js:1130 simulateMoveScore 1.445843776106934
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 2/8
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 6
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 5, 5, 5
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"5":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 198.14285714285714
+AotStrategy.js:764 Hero score FIRE_SPIRIT 159.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 549.4206349206349
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 549.4206349206349 / 415 = 1.3239051443870722
+AotStrategy.js:1130 simulateMoveScore 1.3239051443870722
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 3/8
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:94 Hero FIRE_SPIRIT take mana 3 -> 4
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 6
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 4
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 3, 3, 3
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"3":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 198.14285714285714
+AotStrategy.js:764 Hero score FIRE_SPIRIT 169.11111111111111
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 559.2539682539682
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 559.2539682539682 / 415 = 1.3475999235035379
+AotStrategy.js:1130 simulateMoveScore 1.3475999235035379
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 4/8
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:94 Hero MONK take mana 1 -> 7
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 0/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 7 -> 11
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/2
+Grid.js:12 Removed gems 6: 6, 6, 6, 1, 1, 1
+AotStrategy.js:1121 Turn distinction 1/2
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/2
+AotStrategy.js:482 Collection {"1":3,"6":3}, totalMatched: 6, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:1126 Turn effect 1/2
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 205
+AotStrategy.js:764 Hero score FIRE_SPIRIT 159.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 556.2777777777778
+AotStrategy.js:764 Hero score SEA_GOD 64
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 380
+AotStrategy.js:797 calc score 556.2777777777778 / 380 = 1.463888888888889
+AotStrategy.js:1130 simulateMoveScore 1.463888888888889
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 1/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 7 -> 11
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/2
+Grid.js:12 Removed gems 6: 6, 6, 6, 1, 1, 1
+AotStrategy.js:1121 Turn distinction 1/2
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/2
+AotStrategy.js:482 Collection {"1":3,"6":3}, totalMatched: 6, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:1126 Turn effect 1/2
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 205
+AotStrategy.js:764 Hero score FIRE_SPIRIT 159.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 556.2777777777778
+AotStrategy.js:764 Hero score SEA_GOD 64
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 380
+AotStrategy.js:797 calc score 556.2777777777778 / 380 = 1.463888888888889
+AotStrategy.js:1130 simulateMoveScore 1.463888888888889
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 2/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/2
+Grid.js:12 Removed gems 6: 6, 6, 6, 1, 1, 1
+AotStrategy.js:1121 Turn distinction 1/2
+Grid.js:12 Removed gems 3: 5, 5, 5
+AotStrategy.js:1126 Turn effect 0/2
+AotStrategy.js:482 Collection {"1":3,"6":3}, totalMatched: 6, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:1126 Turn effect 1/2
+AotStrategy.js:482 Collection {"5":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 205
+AotStrategy.js:764 Hero score FIRE_SPIRIT 159.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 556.2777777777778
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 556.2777777777778 / 415 = 1.3404283801874164
+AotStrategy.js:1130 simulateMoveScore 1.3404283801874164
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 3/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:94 Hero FIRE_SPIRIT take mana 3 -> 4
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 4
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/2
+Grid.js:12 Removed gems 6: 6, 6, 6, 1, 1, 1
+AotStrategy.js:1121 Turn distinction 1/2
+Grid.js:12 Removed gems 3: 3, 3, 3
+AotStrategy.js:1126 Turn effect 0/2
+AotStrategy.js:482 Collection {"1":3,"6":3}, totalMatched: 6, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:1126 Turn effect 1/2
+AotStrategy.js:482 Collection {"3":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 205
+AotStrategy.js:764 Hero score FIRE_SPIRIT 169.11111111111111
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 566.1111111111111
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 566.1111111111111 / 415 = 1.364123159303882
+AotStrategy.js:1130 simulateMoveScore 1.364123159303882
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 4/6
+AotStrategy.js:152 Move CAST_SKILL MONK target null gem: null
+Hero.js:99 Hero MONK buff attack 8 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 8 -> 14
+Hero.js:99 Hero CERBERUS buff attack 8 -> 14
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 6: 6, 6, 6, 1, 1, 1
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"1":3,"6":3}, totalMatched: 6, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 213
+AotStrategy.js:764 Hero score FIRE_SPIRIT 167.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 224
+AotStrategy.js:778 Current player 1 score 604.2777777777778
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 604.2777777777778 / 415 = 1.456091030789826
+AotStrategy.js:1130 simulateMoveScore 1.456091030789826
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 5/6
+AotStrategy.js:152 Move CAST_SKILL CERBERUS target null gem: null
+Hero.js:84 Hero MONK take damage 12 -> 18
+Hero.js:84 Hero FIRE_SPIRIT take damage 12 -> 18
+Hero.js:84 Hero CERBERUS take damage 12 -> 18
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 6: 6, 6, 6, 1, 1, 1
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"1":3,"6":3}, totalMatched: 6, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 145
+AotStrategy.js:764 Hero score FIRE_SPIRIT 99.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 132
+AotStrategy.js:778 Current player 1 score 376.27777777777777
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 376.27777777777777 / 415 = 0.9066934404283802
+AotStrategy.js:1130 simulateMoveScore 0.9066934404283802
+AotStrategy.js:1138 best move AotSwapGem {type: 'SWAP_GEM', isSwap: true, swap: GemSwapInfo}
+AotStrategy.js:1139 best score 1.463888888888889
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+Hero.js:84 Hero SEA_GOD take damage 7 -> 11
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/2
+Grid.js:12 Removed gems 6: 6, 6, 6, 1, 1, 1
+AotStrategy.js:1121 Turn distinction 1/2
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/2
+AotStrategy.js:482 Collection {"1":3,"6":3}, totalMatched: 6, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:1126 Turn effect 1/2
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 205
+AotStrategy.js:764 Hero score FIRE_SPIRIT 159.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 556.2777777777778
+AotStrategy.js:764 Hero score SEA_GOD 64
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 380
+AotStrategy.js:797 calc score 556.2777777777778 / 380 = 1.463888888888889
+AotStrategy.js:1130 simulateMoveScore 1.463888888888889
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 5/8
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 6
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 4: 6, 6, 6, 6
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"6":4}, totalMatched: 4, MaxMatchSize: 4
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 198.14285714285714
+AotStrategy.js:764 Hero score FIRE_SPIRIT 159.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 549.4206349206349
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 549.4206349206349 / 415 = 1.3239051443870722
+AotStrategy.js:1130 simulateMoveScore 1.3239051443870722
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 6/8
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:94 Hero MONK take mana 1 -> 7
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 0/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 7 -> 11
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/2
+Grid.js:12 Removed gems 6: 6, 6, 6, 1, 1, 1
+AotStrategy.js:1121 Turn distinction 1/2
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/2
+AotStrategy.js:482 Collection {"1":3,"6":3}, totalMatched: 6, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:1126 Turn effect 1/2
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 205
+AotStrategy.js:764 Hero score FIRE_SPIRIT 159.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 556.2777777777778
+AotStrategy.js:764 Hero score SEA_GOD 64
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 380
+AotStrategy.js:797 calc score 556.2777777777778 / 380 = 1.463888888888889
+AotStrategy.js:1130 simulateMoveScore 1.463888888888889
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 1/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 7 -> 11
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/2
+Grid.js:12 Removed gems 6: 6, 6, 6, 1, 1, 1
+AotStrategy.js:1121 Turn distinction 1/2
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/2
+AotStrategy.js:482 Collection {"1":3,"6":3}, totalMatched: 6, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:1126 Turn effect 1/2
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 205
+AotStrategy.js:764 Hero score FIRE_SPIRIT 159.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 556.2777777777778
+AotStrategy.js:764 Hero score SEA_GOD 64
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 380
+AotStrategy.js:797 calc score 556.2777777777778 / 380 = 1.463888888888889
+AotStrategy.js:1130 simulateMoveScore 1.463888888888889
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 2/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/2
+Grid.js:12 Removed gems 6: 6, 6, 6, 1, 1, 1
+AotStrategy.js:1121 Turn distinction 1/2
+Grid.js:12 Removed gems 3: 5, 5, 5
+AotStrategy.js:1126 Turn effect 0/2
+AotStrategy.js:482 Collection {"1":3,"6":3}, totalMatched: 6, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:1126 Turn effect 1/2
+AotStrategy.js:482 Collection {"5":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 205
+AotStrategy.js:764 Hero score FIRE_SPIRIT 159.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 556.2777777777778
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 556.2777777777778 / 415 = 1.3404283801874164
+AotStrategy.js:1130 simulateMoveScore 1.3404283801874164
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 3/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:94 Hero FIRE_SPIRIT take mana 3 -> 4
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 4
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/2
+Grid.js:12 Removed gems 6: 6, 6, 6, 1, 1, 1
+AotStrategy.js:1121 Turn distinction 1/2
+Grid.js:12 Removed gems 3: 3, 3, 3
+AotStrategy.js:1126 Turn effect 0/2
+AotStrategy.js:482 Collection {"1":3,"6":3}, totalMatched: 6, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:1126 Turn effect 1/2
+AotStrategy.js:482 Collection {"3":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 205
+AotStrategy.js:764 Hero score FIRE_SPIRIT 169.11111111111111
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 566.1111111111111
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 566.1111111111111 / 415 = 1.364123159303882
+AotStrategy.js:1130 simulateMoveScore 1.364123159303882
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 4/6
+AotStrategy.js:152 Move CAST_SKILL MONK target null gem: null
+Hero.js:99 Hero MONK buff attack 8 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 8 -> 14
+Hero.js:99 Hero CERBERUS buff attack 8 -> 14
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 6: 6, 6, 6, 1, 1, 1
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"1":3,"6":3}, totalMatched: 6, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 213
+AotStrategy.js:764 Hero score FIRE_SPIRIT 167.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 224
+AotStrategy.js:778 Current player 1 score 604.2777777777778
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 604.2777777777778 / 415 = 1.456091030789826
+AotStrategy.js:1130 simulateMoveScore 1.456091030789826
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 5/6
+AotStrategy.js:152 Move CAST_SKILL CERBERUS target null gem: null
+Hero.js:84 Hero MONK take damage 12 -> 18
+Hero.js:84 Hero FIRE_SPIRIT take damage 12 -> 18
+Hero.js:84 Hero CERBERUS take damage 12 -> 18
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 6: 6, 6, 6, 1, 1, 1
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"1":3,"6":3}, totalMatched: 6, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 145
+AotStrategy.js:764 Hero score FIRE_SPIRIT 99.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 132
+AotStrategy.js:778 Current player 1 score 376.27777777777777
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 376.27777777777777 / 415 = 0.9066934404283802
+AotStrategy.js:1130 simulateMoveScore 0.9066934404283802
+AotStrategy.js:1138 best move AotSwapGem {type: 'SWAP_GEM', isSwap: true, swap: GemSwapInfo}
+AotStrategy.js:1139 best score 1.463888888888889
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+Hero.js:84 Hero SEA_GOD take damage 7 -> 11
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 30
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/2
+Grid.js:12 Removed gems 6: 6, 6, 6, 1, 1, 1
+AotStrategy.js:1121 Turn distinction 1/2
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/2
+AotStrategy.js:482 Collection {"1":3,"6":3}, totalMatched: 6, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:1126 Turn effect 1/2
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 205
+AotStrategy.js:764 Hero score FIRE_SPIRIT 159.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 556.2777777777778
+AotStrategy.js:764 Hero score SEA_GOD 64
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 380
+AotStrategy.js:797 calc score 556.2777777777778 / 380 = 1.463888888888889
+AotStrategy.js:1130 simulateMoveScore 1.463888888888889
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 7/8
+AotStrategy.js:152 Move CAST_SKILL CERBERUS target null gem: null
+Hero.js:84 Hero MONK take damage 12 -> 18
+Hero.js:84 Hero FIRE_SPIRIT take damage 12 -> 18
+Hero.js:84 Hero CERBERUS take damage 12 -> 18
+AotStrategy.js:764 Hero score MONK 138.14285714285714
+AotStrategy.js:764 Hero score FIRE_SPIRIT 99.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 132
+AotStrategy.js:778 Current player 1 score 369.42063492063494
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 369.42063492063494 / 415 = 0.890170204628036
+AotStrategy.js:1130 simulateMoveScore 0.890170204628036
+AotStrategy.js:1138 best move AotSwapGem {type: 'SWAP_GEM', isSwap: true, swap: GemSwapInfo}
+AotStrategy.js:1139 best score 1.463888888888889
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+AotStrategy.js:1092 aot: Swap gem
+main.js:496 truong : |sendExtensionRequest()|room:undefined|extCmd:Battle.SWAP_GEM|index1: 61 index2: 53
+AotStrategy.js:1082 aot: playTurn
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 0/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 5, 5, 5
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"5":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 160
+AotStrategy.js:764 Hero score FIRE_SPIRIT 159.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 511.27777777777777
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 511.27777777777777 / 415 = 1.2319946452476573
+AotStrategy.js:1130 simulateMoveScore 1.2319946452476573
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 1/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 5, 5, 5
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"5":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 160
+AotStrategy.js:764 Hero score FIRE_SPIRIT 159.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 511.27777777777777
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 511.27777777777777 / 415 = 1.2319946452476573
+AotStrategy.js:1130 simulateMoveScore 1.2319946452476573
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 2/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 7 -> 11
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 160
+AotStrategy.js:764 Hero score FIRE_SPIRIT 159.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 511.27777777777777
+AotStrategy.js:764 Hero score SEA_GOD 64
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 380
+AotStrategy.js:797 calc score 511.27777777777777 / 380 = 1.34546783625731
+AotStrategy.js:1130 simulateMoveScore 1.34546783625731
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 3/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:94 Hero FIRE_SPIRIT take mana 3 -> 4
+Hero.js:99 Hero MONK buff attack 0 -> 7
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 6
+Hero.js:99 Hero CERBERUS buff attack 0 -> 6
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 4
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 4, 4, 4
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"4":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 160
+AotStrategy.js:764 Hero score FIRE_SPIRIT 169.11111111111111
+AotStrategy.js:764 Hero score CERBERUS 192
+AotStrategy.js:778 Current player 1 score 521.1111111111111
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 521.1111111111111 / 415 = 1.255689424364123
+AotStrategy.js:1130 simulateMoveScore 1.255689424364123
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 4/6
+AotStrategy.js:152 Move CAST_SKILL MONK target null gem: null
+Hero.js:99 Hero MONK buff attack 8 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 8 -> 14
+Hero.js:99 Hero CERBERUS buff attack 8 -> 14
+AotStrategy.js:764 Hero score MONK 168
+AotStrategy.js:764 Hero score FIRE_SPIRIT 167.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 224
+AotStrategy.js:778 Current player 1 score 559.2777777777778
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 559.2777777777778 / 415 = 1.347657295850067
+AotStrategy.js:1130 simulateMoveScore 1.347657295850067
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 5/6
+AotStrategy.js:152 Move CAST_SKILL CERBERUS target null gem: null
+Hero.js:84 Hero MONK take damage 12 -> 9
+Hero.js:84 Hero FIRE_SPIRIT take damage 12 -> 18
+Hero.js:84 Hero CERBERUS take damage 12 -> 18
+AotStrategy.js:764 Hero score MONK 100
+AotStrategy.js:764 Hero score FIRE_SPIRIT 99.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 132
+AotStrategy.js:778 Current player 1 score 331.27777777777777
+AotStrategy.js:764 Hero score SEA_GOD 99
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 415
+AotStrategy.js:797 calc score 331.27777777777777 / 415 = 0.7982597054886211
+AotStrategy.js:1130 simulateMoveScore 0.7982597054886211
+AotStrategy.js:1138 best move AotBlessOfLightSkill {type: 'CAST_SKILL', isCastSkill: true, targetId: null, selectedGem: null, gemIndex: null, …}
+AotStrategy.js:1139 best score 1.347657295850067
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+AotStrategy.js:1089 aot: Cast skill
+main.js:512 recommendGemType:  Set(6) {2, 1, 3, 4, 5, …}
+main.js:513 grid.gemType :  Set(7) {5, 4, 2, 6, 1, …}
+main.js:517 gemSelect :  2
+main.js:405 selectedGem:   2
+main.js:512 recommendGemType:  Set(6) {2, 1, 3, 4, 5, …}
+main.js:513 grid.gemType :  Set(7) {5, 4, 2, 6, 1, …}
+main.js:517 gemSelect :  2
+main.js:496 truong : |sendExtensionRequest()|room:undefined|extCmd:Battle.USE_SKILL|Hero cast skill: MONK
+AotStrategy.js:1082 aot: playTurn
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 0/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:94 Hero MONK take mana 3 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 3
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 2, 2, 2
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"2":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 140.57142857142856
+AotStrategy.js:764 Hero score FIRE_SPIRIT 167.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 224
+AotStrategy.js:778 Current player 1 score 531.8492063492063
+AotStrategy.js:764 Hero score SEA_GOD 108
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 424
+AotStrategy.js:797 calc score 531.8492063492063 / 424 = 1.25436133572926
+AotStrategy.js:1130 simulateMoveScore 1.25436133572926
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 1/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:94 Hero FIRE_SPIRIT take mana 3 -> 4
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 4
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 3, 3, 3
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"3":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 120
+AotStrategy.js:764 Hero score FIRE_SPIRIT 177.11111111111111
+AotStrategy.js:764 Hero score CERBERUS 224
+AotStrategy.js:778 Current player 1 score 521.1111111111111
+AotStrategy.js:764 Hero score SEA_GOD 108
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 424
+AotStrategy.js:797 calc score 521.1111111111111 / 424 = 1.2290356394129978
+AotStrategy.js:1130 simulateMoveScore 1.2290356394129978
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 2/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 15 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 120
+AotStrategy.js:764 Hero score FIRE_SPIRIT 167.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 224
+AotStrategy.js:778 Current player 1 score 511.27777777777777
+AotStrategy.js:764 Hero score SEA_GOD 33
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 349
+AotStrategy.js:797 calc score 511.27777777777777 / 349 = 1.4649793059535179
+AotStrategy.js:1130 simulateMoveScore 1.4649793059535179
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 3/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 6, 6, 6
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"6":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 120
+AotStrategy.js:764 Hero score FIRE_SPIRIT 167.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 224
+AotStrategy.js:778 Current player 1 score 511.27777777777777
+AotStrategy.js:764 Hero score SEA_GOD 108
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 424
+AotStrategy.js:797 calc score 511.27777777777777 / 424 = 1.2058438155136268
+AotStrategy.js:1130 simulateMoveScore 1.2058438155136268
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 4/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 18
+Hero.js:94 Hero FIRE_SPIRIT take mana 3 -> 4
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 4
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 4, 4, 4
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"4":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 120
+AotStrategy.js:764 Hero score FIRE_SPIRIT 177.11111111111111
+AotStrategy.js:764 Hero score CERBERUS 224
+AotStrategy.js:778 Current player 1 score 521.1111111111111
+AotStrategy.js:764 Hero score SEA_GOD 108
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 424
+AotStrategy.js:797 calc score 521.1111111111111 / 424 = 1.2290356394129978
+AotStrategy.js:1130 simulateMoveScore 1.2290356394129978
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 5/6
+AotStrategy.js:152 Move CAST_SKILL CERBERUS target null gem: null
+Hero.js:84 Hero MONK take damage 20 -> 1
+Hero.js:84 Hero FIRE_SPIRIT take damage 20 -> 10
+Hero.js:84 Hero CERBERUS take damage 20 -> 10
+AotStrategy.js:764 Hero score MONK 20
+AotStrategy.js:764 Hero score FIRE_SPIRIT 67.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 124
+AotStrategy.js:778 Current player 1 score 211.27777777777777
+AotStrategy.js:764 Hero score SEA_GOD 108
+AotStrategy.js:764 Hero score FIRE_SPIRIT 156
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 424
+AotStrategy.js:797 calc score 211.27777777777777 / 424 = 0.4982966457023061
+AotStrategy.js:1130 simulateMoveScore 0.4982966457023061
+AotStrategy.js:1138 best move AotSwapGem {type: 'SWAP_GEM', isSwap: true, swap: GemSwapInfo}
+AotStrategy.js:1139 best score 1.4649793059535179
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+AotStrategy.js:1092 aot: Swap gem
+main.js:496 truong : |sendExtensionRequest()|room:undefined|extCmd:Battle.SWAP_GEM|index1: 30 index2: 38
+AotStrategy.js:1082 aot: playTurn
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 0/7
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 3
+Hero.js:94 Hero MONK take mana 3 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 3
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 2, 2, 2
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"2":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 140.57142857142856
+AotStrategy.js:764 Hero score FIRE_SPIRIT 167.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 224
+AotStrategy.js:778 Current player 1 score 531.8492063492063
+AotStrategy.js:764 Hero score SEA_GOD 42
+AotStrategy.js:764 Hero score FIRE_SPIRIT 168.83333333333334
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 370.83333333333337
+AotStrategy.js:797 calc score 531.8492063492063 / 370.83333333333337 = 1.4342001070090955
+AotStrategy.js:1130 simulateMoveScore 1.4342001070090955
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 1/7
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 3
+Hero.js:94 Hero FIRE_SPIRIT take mana 3 -> 4
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 4
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 3, 3, 3
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"3":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 120
+AotStrategy.js:764 Hero score FIRE_SPIRIT 177.11111111111111
+AotStrategy.js:764 Hero score CERBERUS 224
+AotStrategy.js:778 Current player 1 score 521.1111111111111
+AotStrategy.js:764 Hero score SEA_GOD 42
+AotStrategy.js:764 Hero score FIRE_SPIRIT 168.83333333333334
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 370.83333333333337
+AotStrategy.js:797 calc score 521.1111111111111 / 370.83333333333337 = 1.4052434456928837
+AotStrategy.js:1130 simulateMoveScore 1.4052434456928837
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 2/7
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 3
+Hero.js:94 Hero MONK take mana 3 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 3
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 1, 1, 1
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"1":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 140.57142857142856
+AotStrategy.js:764 Hero score FIRE_SPIRIT 167.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 224
+AotStrategy.js:778 Current player 1 score 531.8492063492063
+AotStrategy.js:764 Hero score SEA_GOD 42
+AotStrategy.js:764 Hero score FIRE_SPIRIT 168.83333333333334
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 370.83333333333337
+AotStrategy.js:797 calc score 531.8492063492063 / 370.83333333333337 = 1.4342001070090955
+AotStrategy.js:1130 simulateMoveScore 1.4342001070090955
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 3/7
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 3
+Hero.js:94 Hero MONK take mana 3 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 3
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 1, 1, 1
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"1":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 140.57142857142856
+AotStrategy.js:764 Hero score FIRE_SPIRIT 167.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 224
+AotStrategy.js:778 Current player 1 score 531.8492063492063
+AotStrategy.js:764 Hero score SEA_GOD 42
+AotStrategy.js:764 Hero score FIRE_SPIRIT 168.83333333333334
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 370.83333333333337
+AotStrategy.js:797 calc score 531.8492063492063 / 370.83333333333337 = 1.4342001070090955
+AotStrategy.js:1130 simulateMoveScore 1.4342001070090955
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 4/7
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 0 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 6, 6, 6
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"6":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 120
+AotStrategy.js:764 Hero score FIRE_SPIRIT 167.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 224
+AotStrategy.js:778 Current player 1 score 511.27777777777777
+AotStrategy.js:764 Hero score SEA_GOD 42
+AotStrategy.js:764 Hero score FIRE_SPIRIT 168.83333333333334
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 370.83333333333337
+AotStrategy.js:797 calc score 511.27777777777777 / 370.83333333333337 = 1.3787265917602995
+AotStrategy.js:1130 simulateMoveScore 1.3787265917602995
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 5/7
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero SEA_GOD take damage 15 -> 0
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 120
+AotStrategy.js:764 Hero score FIRE_SPIRIT 166.77777777777777
+AotStrategy.js:764 Hero score CERBERUS 204
+AotStrategy.js:778 Current player 1 score 490.77777777777777
+AotStrategy.js:764 Hero score FIRE_SPIRIT 168.83333333333334
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 328.83333333333337
+AotStrategy.js:797 calc score 490.77777777777777 / 328.83333333333337 = 1.4924818381483356
+AotStrategy.js:1130 simulateMoveScore 1.4924818381483356
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 6/7
+AotStrategy.js:152 Move CAST_SKILL CERBERUS target null gem: null
+Hero.js:84 Hero MONK take damage 20 -> 1
+Hero.js:84 Hero FIRE_SPIRIT take damage 20 -> 10
+Hero.js:84 Hero CERBERUS take damage 20 -> 10
+AotStrategy.js:764 Hero score MONK 20
+AotStrategy.js:764 Hero score FIRE_SPIRIT 67.27777777777777
+AotStrategy.js:764 Hero score CERBERUS 124
+AotStrategy.js:778 Current player 1 score 211.27777777777777
+AotStrategy.js:764 Hero score SEA_GOD 42
+AotStrategy.js:764 Hero score FIRE_SPIRIT 168.83333333333334
+AotStrategy.js:764 Hero score SEA_SPIRIT 160
+AotStrategy.js:790 Current enemy 2 score 370.83333333333337
+AotStrategy.js:797 calc score 211.27777777777777 / 370.83333333333337 = 0.5697378277153557
+AotStrategy.js:1130 simulateMoveScore 0.5697378277153557
+AotStrategy.js:1138 best move AotSwapGem {type: 'SWAP_GEM', isSwap: true, swap: GemSwapInfo}
+AotStrategy.js:1139 best score 1.4924818381483356
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+AotStrategy.js:1092 aot: Swap gem
+main.js:496 truong : |sendExtensionRequest()|room:undefined|extCmd:Battle.SWAP_GEM|index1: 62 index2: 61
+AotStrategy.js:1082 aot: playTurn
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 0/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 30
+Hero.js:94 Hero MONK take mana 3 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 3
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 2, 2, 2
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"2":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 137.14285714285714
+AotStrategy.js:764 Hero score FIRE_SPIRIT 166.77777777777777
+AotStrategy.js:764 Hero score CERBERUS 204
+AotStrategy.js:778 Current player 1 score 507.92063492063494
+AotStrategy.js:764 Hero score FIRE_SPIRIT 168.83333333333334
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 333.83333333333337
+AotStrategy.js:797 calc score 507.92063492063494 / 333.83333333333337 = 1.5214796852340535
+AotStrategy.js:1130 simulateMoveScore 1.5214796852340535
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 1/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 30
+Hero.js:94 Hero FIRE_SPIRIT take mana 3 -> 4
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 4
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 3, 3, 3
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"3":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 120
+AotStrategy.js:764 Hero score FIRE_SPIRIT 175.11111111111111
+AotStrategy.js:764 Hero score CERBERUS 204
+AotStrategy.js:778 Current player 1 score 499.1111111111111
+AotStrategy.js:764 Hero score FIRE_SPIRIT 168.83333333333334
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 333.83333333333337
+AotStrategy.js:797 calc score 499.1111111111111 / 333.83333333333337 = 1.495090697287402
+AotStrategy.js:1130 simulateMoveScore 1.495090697287402
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 2/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 30
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 5, 5, 5
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"5":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 120
+AotStrategy.js:764 Hero score FIRE_SPIRIT 166.77777777777777
+AotStrategy.js:764 Hero score CERBERUS 204
+AotStrategy.js:778 Current player 1 score 490.77777777777777
+AotStrategy.js:764 Hero score FIRE_SPIRIT 168.83333333333334
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 333.83333333333337
+AotStrategy.js:797 calc score 490.77777777777777 / 333.83333333333337 = 1.4701281411216507
+AotStrategy.js:1130 simulateMoveScore 1.4701281411216507
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 3/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 30
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 5, 5, 5
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"5":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 120
+AotStrategy.js:764 Hero score FIRE_SPIRIT 166.77777777777777
+AotStrategy.js:764 Hero score CERBERUS 204
+AotStrategy.js:778 Current player 1 score 490.77777777777777
+AotStrategy.js:764 Hero score FIRE_SPIRIT 168.83333333333334
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 333.83333333333337
+AotStrategy.js:797 calc score 490.77777777777777 / 333.83333333333337 = 1.4701281411216507
+AotStrategy.js:1130 simulateMoveScore 1.4701281411216507
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 4/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 30
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 6, 6, 6
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"6":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 120
+AotStrategy.js:764 Hero score FIRE_SPIRIT 166.77777777777777
+AotStrategy.js:764 Hero score CERBERUS 204
+AotStrategy.js:778 Current player 1 score 490.77777777777777
+AotStrategy.js:764 Hero score FIRE_SPIRIT 168.83333333333334
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 333.83333333333337
+AotStrategy.js:797 calc score 490.77777777777777 / 333.83333333333337 = 1.4701281411216507
+AotStrategy.js:1130 simulateMoveScore 1.4701281411216507
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 5/6
+AotStrategy.js:152 Move CAST_SKILL CERBERUS target null gem: null
+Hero.js:84 Hero MONK take damage 20 -> 1
+Hero.js:84 Hero FIRE_SPIRIT take damage 20 -> 10
+Hero.js:84 Hero CERBERUS take damage 20 -> 10
+AotStrategy.js:764 Hero score MONK 20
+AotStrategy.js:764 Hero score FIRE_SPIRIT 66.77777777777777
+AotStrategy.js:764 Hero score CERBERUS 104
+AotStrategy.js:778 Current player 1 score 190.77777777777777
+AotStrategy.js:764 Hero score FIRE_SPIRIT 168.83333333333334
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 333.83333333333337
+AotStrategy.js:797 calc score 190.77777777777777 / 333.83333333333337 = 0.5714761191546014
+AotStrategy.js:1130 simulateMoveScore 0.5714761191546014
+AotStrategy.js:1138 best move AotSwapGem {type: 'SWAP_GEM', isSwap: true, swap: GemSwapInfo}
+AotStrategy.js:1139 best score 1.5214796852340535
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+AotStrategy.js:1092 aot: Swap gem
+main.js:496 truong : |sendExtensionRequest()|room:undefined|extCmd:Battle.SWAP_GEM|index1: 10 index2: 11
+AotStrategy.js:1082 aot: playTurn
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 0/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 30
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 3
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 6, 6, 6
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"6":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 137.14285714285714
+AotStrategy.js:764 Hero score FIRE_SPIRIT 166.77777777777777
+AotStrategy.js:764 Hero score CERBERUS 204
+AotStrategy.js:778 Current player 1 score 507.92063492063494
+AotStrategy.js:764 Hero score FIRE_SPIRIT 181.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 346.66666666666663
+AotStrategy.js:797 calc score 507.92063492063494 / 346.66666666666663 = 1.4651556776556778
+AotStrategy.js:1130 simulateMoveScore 1.4651556776556778
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 1/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 30
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 3
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 6, 6, 6
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"6":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 137.14285714285714
+AotStrategy.js:764 Hero score FIRE_SPIRIT 166.77777777777777
+AotStrategy.js:764 Hero score CERBERUS 204
+AotStrategy.js:778 Current player 1 score 507.92063492063494
+AotStrategy.js:764 Hero score FIRE_SPIRIT 181.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 346.66666666666663
+AotStrategy.js:797 calc score 507.92063492063494 / 346.66666666666663 = 1.4651556776556778
+AotStrategy.js:1130 simulateMoveScore 1.4651556776556778
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 2/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 30
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 3
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 5, 5, 5
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"5":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 137.14285714285714
+AotStrategy.js:764 Hero score FIRE_SPIRIT 166.77777777777777
+AotStrategy.js:764 Hero score CERBERUS 204
+AotStrategy.js:778 Current player 1 score 507.92063492063494
+AotStrategy.js:764 Hero score FIRE_SPIRIT 181.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 346.66666666666663
+AotStrategy.js:797 calc score 507.92063492063494 / 346.66666666666663 = 1.4651556776556778
+AotStrategy.js:1130 simulateMoveScore 1.4651556776556778
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 3/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 30
+Hero.js:94 Hero MONK take mana 3 -> 6
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 6
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 6: 5, 5, 5, 2, 2, 2
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"2":3,"5":3}, totalMatched: 6, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 154.28571428571428
+AotStrategy.js:764 Hero score FIRE_SPIRIT 166.77777777777777
+AotStrategy.js:764 Hero score CERBERUS 204
+AotStrategy.js:778 Current player 1 score 525.063492063492
+AotStrategy.js:764 Hero score FIRE_SPIRIT 181.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 346.66666666666663
+AotStrategy.js:797 calc score 525.063492063492 / 346.66666666666663 = 1.5146062271062273
+AotStrategy.js:1130 simulateMoveScore 1.5146062271062273
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 4/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 30
+Hero.js:94 Hero MONK take mana 3 -> 6
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 6
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 2, 2, 2
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"2":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 154.28571428571428
+AotStrategy.js:764 Hero score FIRE_SPIRIT 166.77777777777777
+AotStrategy.js:764 Hero score CERBERUS 204
+AotStrategy.js:778 Current player 1 score 525.063492063492
+AotStrategy.js:764 Hero score FIRE_SPIRIT 181.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 346.66666666666663
+AotStrategy.js:797 calc score 525.063492063492 / 346.66666666666663 = 1.5146062271062273
+AotStrategy.js:1130 simulateMoveScore 1.5146062271062273
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 5/6
+AotStrategy.js:152 Move CAST_SKILL CERBERUS target null gem: null
+Hero.js:84 Hero MONK take damage 20 -> 1
+Hero.js:84 Hero FIRE_SPIRIT take damage 20 -> 10
+Hero.js:84 Hero CERBERUS take damage 20 -> 10
+AotStrategy.js:764 Hero score MONK 37.14285714285714
+AotStrategy.js:764 Hero score FIRE_SPIRIT 66.77777777777777
+AotStrategy.js:764 Hero score CERBERUS 104
+AotStrategy.js:778 Current player 1 score 207.9206349206349
+AotStrategy.js:764 Hero score FIRE_SPIRIT 181.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 346.66666666666663
+AotStrategy.js:797 calc score 207.9206349206349 / 346.66666666666663 = 0.5997710622710624
+AotStrategy.js:1130 simulateMoveScore 0.5997710622710624
+AotStrategy.js:1138 best move AotSwapGem {type: 'SWAP_GEM', isSwap: true, swap: GemSwapInfo}
+AotStrategy.js:1139 best score 1.5146062271062273
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+AotStrategy.js:1092 aot: Swap gem
+main.js:496 truong : |sendExtensionRequest()|room:undefined|extCmd:Battle.SWAP_GEM|index1: 60 index2: 52
+AotStrategy.js:1082 aot: playTurn
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 0/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 30
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 6
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 6, 6, 6
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"6":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 154.28571428571428
+AotStrategy.js:764 Hero score FIRE_SPIRIT 166.77777777777777
+AotStrategy.js:764 Hero score CERBERUS 204
+AotStrategy.js:778 Current player 1 score 525.063492063492
+AotStrategy.js:764 Hero score FIRE_SPIRIT 181.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 346.66666666666663
+AotStrategy.js:797 calc score 525.063492063492 / 346.66666666666663 = 1.5146062271062273
+AotStrategy.js:1130 simulateMoveScore 1.5146062271062273
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 1/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 30
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 6
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 1
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 6, 6, 6
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"6":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 154.28571428571428
+AotStrategy.js:764 Hero score FIRE_SPIRIT 166.77777777777777
+AotStrategy.js:764 Hero score CERBERUS 204
+AotStrategy.js:778 Current player 1 score 525.063492063492
+AotStrategy.js:764 Hero score FIRE_SPIRIT 181.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 346.66666666666663
+AotStrategy.js:797 calc score 525.063492063492 / 346.66666666666663 = 1.5146062271062273
+AotStrategy.js:1130 simulateMoveScore 1.5146062271062273
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 2/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 30
+Hero.js:94 Hero MONK take mana 1 -> 7
+Hero.js:94 Hero FIRE_SPIRIT take mana 3 -> 4
+Hero.js:94 Hero FIRE_SPIRIT take mana 2 -> 6
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 6
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 0/4
+AotStrategy.js:152 Move CAST_SKILL MONK target null gem: null
+Hero.js:99 Hero MONK buff attack 8 -> 23
+Hero.js:99 Hero FIRE_SPIRIT buff attack 8 -> 22
+Hero.js:99 Hero CERBERUS buff attack 8 -> 22
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 9: 1, 1, 1, 3, 3, 3, 4, 4, 4
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"1":3,"3":3,"4":3}, totalMatched: 9, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 168
+AotStrategy.js:764 Hero score FIRE_SPIRIT 188.66666666666666
+AotStrategy.js:764 Hero score CERBERUS 228
+AotStrategy.js:778 Current player 1 score 584.6666666666666
+AotStrategy.js:764 Hero score FIRE_SPIRIT 189.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 354.66666666666663
+AotStrategy.js:797 calc score 584.6666666666666 / 354.66666666666663 = 1.6484962406015038
+AotStrategy.js:1130 simulateMoveScore 1.6484962406015038
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 1/4
+AotStrategy.js:152 Move CAST_SKILL FIRE_SPIRIT target FIRE_SPIRIT gem: null
+Hero.js:84 Hero MONK take damage 25.666666666666664 -> 0
+Hero.js:84 Hero FIRE_SPIRIT take damage 24.666666666666664 -> 5
+Hero.js:84 Hero CERBERUS take damage 24.666666666666664 -> 5
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 9: 1, 1, 1, 3, 3, 3, 4, 4, 4
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"1":3,"3":3,"4":3}, totalMatched: 9, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score FIRE_SPIRIT 55.666666666666664
+AotStrategy.js:764 Hero score CERBERUS 79
+AotStrategy.js:778 Current player 1 score 134.66666666666666
+AotStrategy.js:764 Hero score FIRE_SPIRIT 180.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 345.66666666666663
+AotStrategy.js:797 calc score 134.66666666666666 / 345.66666666666663 = 0.38958534233365477
+AotStrategy.js:1130 simulateMoveScore 0.38958534233365477
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 2/4
+AotStrategy.js:152 Move CAST_SKILL FIRE_SPIRIT target SEA_SPIRIT gem: null
+Hero.js:84 Hero MONK take damage 25.666666666666664 -> 0
+Hero.js:84 Hero FIRE_SPIRIT take damage 24.666666666666664 -> 5
+Hero.js:84 Hero CERBERUS take damage 24.666666666666664 -> 5
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 9: 1, 1, 1, 3, 3, 3, 4, 4, 4
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"1":3,"3":3,"4":3}, totalMatched: 9, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score FIRE_SPIRIT 55.666666666666664
+AotStrategy.js:764 Hero score CERBERUS 79
+AotStrategy.js:778 Current player 1 score 134.66666666666666
+AotStrategy.js:764 Hero score FIRE_SPIRIT 180.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 345.66666666666663
+AotStrategy.js:797 calc score 134.66666666666666 / 345.66666666666663 = 0.38958534233365477
+AotStrategy.js:1130 simulateMoveScore 0.38958534233365477
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 3/4
+AotStrategy.js:152 Move CAST_SKILL CERBERUS target null gem: null
+Hero.js:84 Hero MONK take damage 20 -> 1
+Hero.js:84 Hero FIRE_SPIRIT take damage 20 -> 10
+Hero.js:84 Hero CERBERUS take damage 20 -> 10
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 9: 1, 1, 1, 3, 3, 3, 4, 4, 4
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"1":3,"3":3,"4":3}, totalMatched: 9, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 60
+AotStrategy.js:764 Hero score FIRE_SPIRIT 80.66666666666666
+AotStrategy.js:764 Hero score CERBERUS 104
+AotStrategy.js:778 Current player 1 score 244.66666666666666
+AotStrategy.js:764 Hero score FIRE_SPIRIT 181.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 346.66666666666663
+AotStrategy.js:797 calc score 244.66666666666666 / 346.66666666666663 = 0.7057692307692308
+AotStrategy.js:1130 simulateMoveScore 0.7057692307692308
+AotStrategy.js:1138 best move AotBlessOfLightSkill {type: 'CAST_SKILL', isCastSkill: true, targetId: null, selectedGem: null, gemIndex: null, …}
+AotStrategy.js:1139 best score 1.6484962406015038
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+Hero.js:99 Hero MONK buff attack 8 -> 23
+Hero.js:99 Hero FIRE_SPIRIT buff attack 8 -> 22
+Hero.js:99 Hero CERBERUS buff attack 8 -> 22
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 9: 1, 1, 1, 3, 3, 3, 4, 4, 4
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"1":3,"3":3,"4":3}, totalMatched: 9, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 168
+AotStrategy.js:764 Hero score FIRE_SPIRIT 188.66666666666666
+AotStrategy.js:764 Hero score CERBERUS 228
+AotStrategy.js:778 Current player 1 score 584.6666666666666
+AotStrategy.js:764 Hero score FIRE_SPIRIT 189.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 354.66666666666663
+AotStrategy.js:797 calc score 584.6666666666666 / 354.66666666666663 = 1.6484962406015038
+AotStrategy.js:1130 simulateMoveScore 1.6484962406015038
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 3/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 30
+Hero.js:94 Hero MONK take mana 1 -> 7
+Hero.js:94 Hero FIRE_SPIRIT take mana 3 -> 4
+Hero.js:94 Hero FIRE_SPIRIT take mana 2 -> 6
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 7
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 6
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 0/4
+AotStrategy.js:152 Move CAST_SKILL MONK target null gem: null
+Hero.js:99 Hero MONK buff attack 8 -> 23
+Hero.js:99 Hero FIRE_SPIRIT buff attack 8 -> 22
+Hero.js:99 Hero CERBERUS buff attack 8 -> 22
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 9: 1, 1, 1, 3, 3, 3, 4, 4, 4
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"1":3,"3":3,"4":3}, totalMatched: 9, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 168
+AotStrategy.js:764 Hero score FIRE_SPIRIT 188.66666666666666
+AotStrategy.js:764 Hero score CERBERUS 228
+AotStrategy.js:778 Current player 1 score 584.6666666666666
+AotStrategy.js:764 Hero score FIRE_SPIRIT 189.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 354.66666666666663
+AotStrategy.js:797 calc score 584.6666666666666 / 354.66666666666663 = 1.6484962406015038
+AotStrategy.js:1130 simulateMoveScore 1.6484962406015038
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 1/4
+AotStrategy.js:152 Move CAST_SKILL FIRE_SPIRIT target FIRE_SPIRIT gem: null
+Hero.js:84 Hero MONK take damage 25.666666666666664 -> 0
+Hero.js:84 Hero FIRE_SPIRIT take damage 24.666666666666664 -> 5
+Hero.js:84 Hero CERBERUS take damage 24.666666666666664 -> 5
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 9: 1, 1, 1, 3, 3, 3, 4, 4, 4
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"1":3,"3":3,"4":3}, totalMatched: 9, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score FIRE_SPIRIT 55.666666666666664
+AotStrategy.js:764 Hero score CERBERUS 79
+AotStrategy.js:778 Current player 1 score 134.66666666666666
+AotStrategy.js:764 Hero score FIRE_SPIRIT 180.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 345.66666666666663
+AotStrategy.js:797 calc score 134.66666666666666 / 345.66666666666663 = 0.38958534233365477
+AotStrategy.js:1130 simulateMoveScore 0.38958534233365477
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 2/4
+AotStrategy.js:152 Move CAST_SKILL FIRE_SPIRIT target SEA_SPIRIT gem: null
+Hero.js:84 Hero MONK take damage 25.666666666666664 -> 0
+Hero.js:84 Hero FIRE_SPIRIT take damage 24.666666666666664 -> 5
+Hero.js:84 Hero CERBERUS take damage 24.666666666666664 -> 5
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 9: 1, 1, 1, 3, 3, 3, 4, 4, 4
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"1":3,"3":3,"4":3}, totalMatched: 9, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score FIRE_SPIRIT 55.666666666666664
+AotStrategy.js:764 Hero score CERBERUS 79
+AotStrategy.js:778 Current player 1 score 134.66666666666666
+AotStrategy.js:764 Hero score FIRE_SPIRIT 180.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 345.66666666666663
+AotStrategy.js:797 calc score 134.66666666666666 / 345.66666666666663 = 0.38958534233365477
+AotStrategy.js:1130 simulateMoveScore 0.38958534233365477
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 3/4
+AotStrategy.js:152 Move CAST_SKILL CERBERUS target null gem: null
+Hero.js:84 Hero MONK take damage 20 -> 1
+Hero.js:84 Hero FIRE_SPIRIT take damage 20 -> 10
+Hero.js:84 Hero CERBERUS take damage 20 -> 10
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 9: 1, 1, 1, 3, 3, 3, 4, 4, 4
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"1":3,"3":3,"4":3}, totalMatched: 9, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 60
+AotStrategy.js:764 Hero score FIRE_SPIRIT 80.66666666666666
+AotStrategy.js:764 Hero score CERBERUS 104
+AotStrategy.js:778 Current player 1 score 244.66666666666666
+AotStrategy.js:764 Hero score FIRE_SPIRIT 181.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 346.66666666666663
+AotStrategy.js:797 calc score 244.66666666666666 / 346.66666666666663 = 0.7057692307692308
+AotStrategy.js:1130 simulateMoveScore 0.7057692307692308
+AotStrategy.js:1138 best move AotBlessOfLightSkill {type: 'CAST_SKILL', isCastSkill: true, targetId: null, selectedGem: null, gemIndex: null, …}
+AotStrategy.js:1139 best score 1.6484962406015038
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+Hero.js:99 Hero MONK buff attack 8 -> 23
+Hero.js:99 Hero FIRE_SPIRIT buff attack 8 -> 22
+Hero.js:99 Hero CERBERUS buff attack 8 -> 22
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 9: 1, 1, 1, 3, 3, 3, 4, 4, 4
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"1":3,"3":3,"4":3}, totalMatched: 9, MaxMatchSize: 6
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 168
+AotStrategy.js:764 Hero score FIRE_SPIRIT 188.66666666666666
+AotStrategy.js:764 Hero score CERBERUS 228
+AotStrategy.js:778 Current player 1 score 584.6666666666666
+AotStrategy.js:764 Hero score FIRE_SPIRIT 189.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 354.66666666666663
+AotStrategy.js:797 calc score 584.6666666666666 / 354.66666666666663 = 1.6484962406015038
+AotStrategy.js:1130 simulateMoveScore 1.6484962406015038
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 4/6
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 30
+Hero.js:94 Hero FIRE_SPIRIT take mana 3 -> 4
+Hero.js:99 Hero MONK buff attack 0 -> 15
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 14
+Hero.js:99 Hero CERBERUS buff attack 0 -> 14
+Hero.js:105 Hero MONK buff mana 0 -> 6
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 4
+Hero.js:105 Hero CERBERUS buff mana 0 -> 7
+Hero.js:110 Hero MONK buff hp 0 -> 21
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 4, 4, 4
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"4":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 154.28571428571428
+AotStrategy.js:764 Hero score FIRE_SPIRIT 175.11111111111111
+AotStrategy.js:764 Hero score CERBERUS 204
+AotStrategy.js:778 Current player 1 score 533.3968253968254
+AotStrategy.js:764 Hero score FIRE_SPIRIT 181.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 346.66666666666663
+AotStrategy.js:797 calc score 533.3968253968254 / 346.66666666666663 = 1.538644688644689
+AotStrategy.js:1130 simulateMoveScore 1.538644688644689
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 5/6
+AotStrategy.js:152 Move CAST_SKILL CERBERUS target null gem: null
+Hero.js:84 Hero MONK take damage 20 -> 1
+Hero.js:84 Hero FIRE_SPIRIT take damage 20 -> 10
+Hero.js:84 Hero CERBERUS take damage 20 -> 10
+AotStrategy.js:764 Hero score MONK 54.285714285714285
+AotStrategy.js:764 Hero score FIRE_SPIRIT 66.77777777777777
+AotStrategy.js:764 Hero score CERBERUS 104
+AotStrategy.js:778 Current player 1 score 225.06349206349205
+AotStrategy.js:764 Hero score FIRE_SPIRIT 181.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 346.66666666666663
+AotStrategy.js:797 calc score 225.06349206349205 / 346.66666666666663 = 0.6492216117216117
+AotStrategy.js:1130 simulateMoveScore 0.6492216117216117
+AotStrategy.js:1138 best move AotSwapGem {type: 'SWAP_GEM', isSwap: true, swap: GemSwapInfo}
+AotStrategy.js:1139 best score 1.6484962406015038
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+AotStrategy.js:1092 aot: Swap gem
+main.js:496 truong : |sendExtensionRequest()|room:undefined|extCmd:Battle.SWAP_GEM|index1: 37 index2: 29
+AotStrategy.js:1082 aot: playTurn
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 0/4
+AotStrategy.js:152 Move CAST_SKILL MONK target null gem: null
+Hero.js:99 Hero MONK buff attack 8 -> 23
+Hero.js:99 Hero FIRE_SPIRIT buff attack 8 -> 22
+Hero.js:99 Hero CERBERUS buff attack 8 -> 22
+AotStrategy.js:764 Hero score MONK 168
+AotStrategy.js:764 Hero score FIRE_SPIRIT 188.66666666666666
+AotStrategy.js:764 Hero score CERBERUS 228
+AotStrategy.js:778 Current player 1 score 584.6666666666666
+AotStrategy.js:764 Hero score FIRE_SPIRIT 189.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 354.66666666666663
+AotStrategy.js:797 calc score 584.6666666666666 / 354.66666666666663 = 1.6484962406015038
+AotStrategy.js:1130 simulateMoveScore 1.6484962406015038
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 1/4
+AotStrategy.js:152 Move CAST_SKILL FIRE_SPIRIT target FIRE_SPIRIT gem: null
+Hero.js:84 Hero MONK take damage 25.666666666666664 -> 0
+Hero.js:84 Hero FIRE_SPIRIT take damage 24.666666666666664 -> 5
+Hero.js:84 Hero CERBERUS take damage 24.666666666666664 -> 5
+AotStrategy.js:764 Hero score FIRE_SPIRIT 55.666666666666664
+AotStrategy.js:764 Hero score CERBERUS 79
+AotStrategy.js:778 Current player 1 score 134.66666666666666
+AotStrategy.js:764 Hero score FIRE_SPIRIT 180.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 345.66666666666663
+AotStrategy.js:797 calc score 134.66666666666666 / 345.66666666666663 = 0.38958534233365477
+AotStrategy.js:1130 simulateMoveScore 0.38958534233365477
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 2/4
+AotStrategy.js:152 Move CAST_SKILL FIRE_SPIRIT target SEA_SPIRIT gem: null
+Hero.js:84 Hero MONK take damage 25.666666666666664 -> 0
+Hero.js:84 Hero FIRE_SPIRIT take damage 24.666666666666664 -> 5
+Hero.js:84 Hero CERBERUS take damage 24.666666666666664 -> 5
+AotStrategy.js:764 Hero score FIRE_SPIRIT 55.666666666666664
+AotStrategy.js:764 Hero score CERBERUS 79
+AotStrategy.js:778 Current player 1 score 134.66666666666666
+AotStrategy.js:764 Hero score FIRE_SPIRIT 180.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 345.66666666666663
+AotStrategy.js:797 calc score 134.66666666666666 / 345.66666666666663 = 0.38958534233365477
+AotStrategy.js:1130 simulateMoveScore 0.38958534233365477
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 3/4
+AotStrategy.js:152 Move CAST_SKILL CERBERUS target null gem: null
+Hero.js:84 Hero MONK take damage 20 -> 1
+Hero.js:84 Hero FIRE_SPIRIT take damage 20 -> 10
+Hero.js:84 Hero CERBERUS take damage 20 -> 10
+AotStrategy.js:764 Hero score MONK 60
+AotStrategy.js:764 Hero score FIRE_SPIRIT 80.66666666666666
+AotStrategy.js:764 Hero score CERBERUS 104
+AotStrategy.js:778 Current player 1 score 244.66666666666666
+AotStrategy.js:764 Hero score FIRE_SPIRIT 181.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 346.66666666666663
+AotStrategy.js:797 calc score 244.66666666666666 / 346.66666666666663 = 0.7057692307692308
+AotStrategy.js:1130 simulateMoveScore 0.7057692307692308
+AotStrategy.js:1138 best move AotBlessOfLightSkill {type: 'CAST_SKILL', isCastSkill: true, targetId: null, selectedGem: null, gemIndex: null, …}
+AotStrategy.js:1139 best score 1.6484962406015038
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+AotStrategy.js:1089 aot: Cast skill
+main.js:512 recommendGemType:  Set(6) {2, 1, 3, 4, 5, …}
+main.js:513 grid.gemType :  Set(7) {5, 1, 4, 6, 2, …}
+main.js:517 gemSelect :  2
+main.js:405 selectedGem:   2
+main.js:512 recommendGemType:  Set(6) {2, 1, 3, 4, 5, …}
+main.js:513 grid.gemType :  Set(7) {5, 1, 4, 6, 2, …}
+main.js:517 gemSelect :  2
+main.js:496 truong : |sendExtensionRequest()|room:undefined|extCmd:Battle.USE_SKILL|Hero cast skill: MONK
+AotStrategy.js:1082 aot: playTurn
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 0/3
+AotStrategy.js:152 Move CAST_SKILL FIRE_SPIRIT target FIRE_SPIRIT gem: null
+Hero.js:84 Hero MONK take damage 33.666666666666664 -> 0
+Hero.js:84 Hero FIRE_SPIRIT take damage 32.666666666666664 -> 0
+Hero.js:84 Hero CERBERUS take damage 32.666666666666664 -> 0
+AotStrategy.js:778 Current player 1 score 0
+AotStrategy.js:1130 simulateMoveScore 0
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 1/3
+AotStrategy.js:152 Move CAST_SKILL FIRE_SPIRIT target SEA_SPIRIT gem: null
+Hero.js:84 Hero MONK take damage 33.666666666666664 -> 0
+Hero.js:84 Hero FIRE_SPIRIT take damage 32.666666666666664 -> 0
+Hero.js:84 Hero CERBERUS take damage 32.666666666666664 -> 0
+AotStrategy.js:778 Current player 1 score 0
+AotStrategy.js:1130 simulateMoveScore 0
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 2/3
+AotStrategy.js:152 Move CAST_SKILL CERBERUS target null gem: null
+Hero.js:84 Hero MONK take damage 28 -> 0
+Hero.js:84 Hero FIRE_SPIRIT take damage 28 -> 2
+Hero.js:84 Hero CERBERUS take damage 28 -> 2
+AotStrategy.js:764 Hero score FIRE_SPIRIT 48.666666666666664
+AotStrategy.js:764 Hero score CERBERUS 88
+AotStrategy.js:778 Current player 1 score 136.66666666666666
+AotStrategy.js:764 Hero score FIRE_SPIRIT 188.66666666666666
+AotStrategy.js:764 Hero score SEA_SPIRIT 165
+AotStrategy.js:790 Current enemy 2 score 353.66666666666663
+AotStrategy.js:797 calc score 136.66666666666666 / 353.66666666666663 = 0.38642789820923656
+AotStrategy.js:1130 simulateMoveScore 0.38642789820923656
+AotStrategy.js:1138 best move AotCeberusBiteSkill {type: 'CAST_SKILL', isCastSkill: true, targetId: null, selectedGem: null, gemIndex: null, …}
+AotStrategy.js:1139 best score 0.38642789820923656
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+AotStrategy.js:1089 aot: Cast skill
+main.js:512 recommendGemType:  Set(6) {2, 1, 3, 4, 5, …}
+main.js:513 grid.gemType :  Set(7) {5, 1, 4, 6, 2, …}
+main.js:517 gemSelect :  2
+main.js:405 selectedGem:   2
+main.js:512 recommendGemType:  Set(6) {2, 1, 3, 4, 5, …}
+main.js:513 grid.gemType :  Set(7) {5, 1, 4, 6, 2, …}
+main.js:517 gemSelect :  2
+main.js:496 truong : |sendExtensionRequest()|room:undefined|extCmd:Battle.USE_SKILL|Hero cast skill: CERBERUS
+AotStrategy.js:1082 aot: playTurn
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 CAST_SKILL 0/1
+AotStrategy.js:152 Move CAST_SKILL FIRE_SPIRIT target SEA_SPIRIT gem: null
+Hero.js:84 Hero MONK take damage 33.666666666666664 -> 0
+Hero.js:84 Hero FIRE_SPIRIT take damage 32.666666666666664 -> 0
+Hero.js:84 Hero CERBERUS take damage 32.666666666666664 -> 0
+AotStrategy.js:778 Current player 1 score 0
+AotStrategy.js:1130 simulateMoveScore 0
+AotStrategy.js:1138 best move AotVolcanoWrathSkill {type: 'CAST_SKILL', isCastSkill: true, targetId: 'SEA_SPIRIT', selectedGem: null, gemIndex: null, …}
+AotStrategy.js:1139 best score 0
+AotStrategy.js:1140 best state AotGameState {game: undefined, grid: Grid, botPlayer: Player, enemyPlayer: Player, currentPlayer: Player, …}
+AotStrategy.js:1089 aot: Cast skill
+main.js:512 recommendGemType:  Set(6) {2, 1, 3, 4, 5, …}
+main.js:513 grid.gemType :  Set(7) {5, 1, 4, 3, 2, …}
+main.js:517 gemSelect :  2
+main.js:405 selectedGem:   2
+main.js:512 recommendGemType:  Set(6) {2, 1, 3, 4, 5, …}
+main.js:513 grid.gemType :  Set(7) {5, 1, 4, 3, 2, …}
+main.js:517 gemSelect :  2
+main.js:496 truong : |sendExtensionRequest()|room:undefined|extCmd:Battle.USE_SKILL|Hero cast skill: FIRE_SPIRIT
+AotStrategy.js:1082 aot: playTurn
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 0/5
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 4
+Hero.js:94 Hero FIRE_SPIRIT take mana 3 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 23
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 22
+Hero.js:99 Hero CERBERUS buff attack 0 -> 22
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 3
+Hero.js:105 Hero CERBERUS buff mana 0 -> 0
+Hero.js:110 Hero MONK buff hp 0 -> 15
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/1
+Grid.js:12 Removed gems 3: 4, 4, 4
+AotStrategy.js:1126 Turn effect 0/1
+AotStrategy.js:482 Collection {"4":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 98
+AotStrategy.js:764 Hero score FIRE_SPIRIT 180.33333333333334
+AotStrategy.js:764 Hero score CERBERUS 172
+AotStrategy.js:778 Current player 1 score 450.33333333333337
+AotStrategy.js:764 Hero score FIRE_SPIRIT 59.666666666666664
+AotStrategy.js:790 Current enemy 2 score 59.666666666666664
+AotStrategy.js:797 calc score 450.33333333333337 / 59.666666666666664 = 7.547486033519554
+AotStrategy.js:1130 simulateMoveScore 7.547486033519554
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 1/5
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 4
+Hero.js:94 Hero CERBERUS take mana 3 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 23
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 22
+Hero.js:99 Hero CERBERUS buff attack 0 -> 22
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 3
+Hero.js:110 Hero MONK buff hp 0 -> 15
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1102 aot: chooseBestPosibleMove
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 0/3
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 4
+Hero.js:94 Hero FIRE_SPIRIT take mana 3 -> 3
+Hero.js:99 Hero MONK buff attack 0 -> 23
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 22
+Hero.js:99 Hero CERBERUS buff attack 0 -> 22
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 3
+Hero.js:105 Hero CERBERUS buff mana 0 -> 3
+Hero.js:110 Hero MONK buff hp 0 -> 15
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/2
+Grid.js:12 Removed gems 3: 6, 6, 6
+AotStrategy.js:1121 Turn distinction 1/2
+Grid.js:12 Removed gems 3: 4, 4, 4
+AotStrategy.js:1126 Turn effect 0/2
+AotStrategy.js:482 Collection {"6":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 1, buffHitPoint 0, buffPoint 0
+AotStrategy.js:1126 Turn effect 1/2
+AotStrategy.js:482 Collection {"4":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 98
+AotStrategy.js:764 Hero score FIRE_SPIRIT 180.33333333333334
+AotStrategy.js:764 Hero score CERBERUS 184
+AotStrategy.js:778 Current player 1 score 462.33333333333337
+AotStrategy.js:764 Hero score FIRE_SPIRIT 59.666666666666664
+AotStrategy.js:790 Current enemy 2 score 59.666666666666664
+AotStrategy.js:797 calc score 462.33333333333337 / 59.666666666666664 = 7.748603351955309
+AotStrategy.js:1130 simulateMoveScore 7.748603351955309
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 1/3
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 0 -> 4
+Hero.js:94 Hero CERBERUS take mana 3 -> 6
+Hero.js:99 Hero MONK buff attack 0 -> 23
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 22
+Hero.js:99 Hero CERBERUS buff attack 0 -> 22
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 6
+Hero.js:110 Hero MONK buff hp 0 -> 15
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/2
+Grid.js:12 Removed gems 3: 6, 6, 6
+AotStrategy.js:1121 Turn distinction 1/2
+Grid.js:12 Removed gems 3: 5, 5, 5
+AotStrategy.js:1126 Turn effect 0/2
+AotStrategy.js:482 Collection {"6":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 1, buffHitPoint 0, buffPoint 0
+AotStrategy.js:1126 Turn effect 1/2
+AotStrategy.js:482 Collection {"5":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:764 Hero score MONK 98
+AotStrategy.js:764 Hero score FIRE_SPIRIT 172
+AotStrategy.js:764 Hero score CERBERUS 196
+AotStrategy.js:778 Current player 1 score 466
+AotStrategy.js:764 Hero score FIRE_SPIRIT 59.666666666666664
+AotStrategy.js:790 Current enemy 2 score 59.666666666666664
+AotStrategy.js:797 calc score 466 / 59.666666666666664 = 7.810055865921788
+AotStrategy.js:1130 simulateMoveScore 7.810055865921788
+AotStrategy.js:1116 test move deep 1 SWAP_GEM 2/3
+AotStrategy.js:367 Move SWAP_GEM gem: [object Object]
+Hero.js:84 Hero FIRE_SPIRIT take damage 23 -> 0
+Hero.js:99 Hero MONK buff attack 0 -> 23
+Hero.js:99 Hero FIRE_SPIRIT buff attack 0 -> 22
+Hero.js:99 Hero CERBERUS buff attack 0 -> 22
+Hero.js:105 Hero MONK buff mana 0 -> 0
+Hero.js:105 Hero FIRE_SPIRIT buff mana 0 -> 0
+Hero.js:105 Hero CERBERUS buff mana 0 -> 3
+Hero.js:110 Hero MONK buff hp 0 -> 15
+Hero.js:110 Hero FIRE_SPIRIT buff hp 0 -> 30
+Hero.js:110 Hero CERBERUS buff hp 0 -> 30
+AotStrategy.js:1121 Turn distinction 0/2
+Grid.js:12 Removed gems 3: 6, 6, 6
+AotStrategy.js:1121 Turn distinction 1/2
+Grid.js:12 Removed gems 3: 0, 0, 0
+AotStrategy.js:1126 Turn effect 0/2
+AotStrategy.js:482 Collection {"6":3}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 0
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 1, buffHitPoint 0, buffPoint 0
+AotStrategy.js:1126 Turn effect 1/2
+AotStrategy.js:482 Collection {}, totalMatched: 3, MaxMatchSize: 3
+AotStrategy.js:483 Attack: 3
+AotStrategy.js:484 Buffs: buffAttack 0, buffMana 0, buffExtraTurn 0, buffHitPoint 0, buffPoint 0
+AotStrategy.js:806 Uncaught TypeError: Cannot read properties of undefined (reading 'attack')
+    at AotHeroMetricScale.skillMetric [as fn] (AotStrategy.js:806:35)
+    at AotHeroMetricScale.exec (AotStrategy.js:672:17)
+    at AotSigmudHeroMetric.calcScore (AotStrategy.js:718:41)
+    at AotStrategy.js:889:42
+    at Array.reduce (<anonymous>)
+    at AotHeroMetricScale.skillMetric [as fn] (AotStrategy.js:882:52)
+    at AotHeroMetricScale.exec (AotStrategy.js:672:17)
+    at AotOrthurHeroMetric.calcScore (AotStrategy.js:718:41)
+    at AotDynamicScoreMetric.calcHeroScore (AotStrategy.js:752:32)
+    at AotStrategy.js:763:30
+skillMetric @ AotStrategy.js:806
+exec @ AotStrategy.js:672
+calcScore @ AotStrategy.js:718
+(anonymous) @ AotStrategy.js:889
+skillMetric @ AotStrategy.js:882
+exec @ AotStrategy.js:672
+calcScore @ AotStrategy.js:718
+calcHeroScore @ AotStrategy.js:752
+(anonymous) @ AotStrategy.js:763
+calcScoreOfPlayer @ AotStrategy.js:762
+calc @ AotStrategy.js:777
+calcScoreOf @ AotStrategy.js:15
+calculateScoreOnStateOf @ AotStrategy.js:1184
+compareScoreOnStates @ AotStrategy.js:1179
+chooseBestPossibleMove @ AotStrategy.js:1129
+seeFutureState @ AotStrategy.js:1159
+chooseBestPossibleMove @ AotStrategy.js:1118
+playTurn @ AotStrategy.js:1083
+(anonymous) @ main.js:377
+setTimeout (async)
+StartTurn @ main.js:368
+OnExtensionResponse @ main.js:235
+value @ sfs2x-api-1.7.11.js:6
+value @ sfs2x-api-1.7.11.js:7
+value @ sfs2x-api-1.7.11.js:7
+value @ sfs2x-api-1.7.11.js:6
+value @ sfs2x-api-1.7.11.js:7
