@@ -245,9 +245,9 @@ class AotCeberusBiteSkill extends AotCastSkill {
     return [new AotCeberusBiteSkill(hero)];
   }
 
-  applyToState(hero, state, player, enemy) {
+  applyToState(state, player, enemy) {
     const targets = enemy.getHerosAlive();
-    const damge = hero.attack + 6;
+    const damge = this.hero.attack + 6;
     for(const enemyHero of targets) {
       enemyHero.takeDamge(damge);
     }
@@ -269,7 +269,7 @@ class AotBlessOfLightSkill extends AotCastSkill {
     return [new AotBlessOfLightSkill(hero)];
   }
 
-  applyToState(hero, state, player, enemy) {
+  applyToState(state, player, enemy) {
     const allies = player.getHerosAlive();
     for(const ally of allies) {
       allies.attack += 8;
@@ -321,7 +321,7 @@ class AotVolcanoWrathSkill extends AotCastSkill {
       }
     }
 
-    if(heroTargetCanKill) {
+    if(hcercerrcercccercerrccccroTargetCanKill) {
       return [new AotVolcanoWrathSkill(hero).withTargetHero(heroTargetCanKill)];
     } else if(heroTargetMaxAttack && heroTargetMaxAttack.attack > 10) {
       return [new AotVolcanoWrathSkill(hero).withTargetHero(heroTargetMaxAttack)];
@@ -332,7 +332,7 @@ class AotVolcanoWrathSkill extends AotCastSkill {
     return enemyPlayer.getHerosAlive().map(targetHero => new AotVolcanoWrathSkill(hero).withTargetHero(targetHero))
   }
 
-  applyToState(hero, state, player, enemy) {
+  applyToState(state, player, enemy) {
     const targets = enemy.getHerosAlive();
     const toalRedGem = state.grid.countGemByType(GemType.RED);
 
