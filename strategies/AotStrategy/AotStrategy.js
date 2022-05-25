@@ -1319,7 +1319,7 @@ class AoTStrategy {
     console.log(`All possible casts ${allPossibleCasts.length}`);
     const focusSkillCasts = allPossibleCasts.filter(skill => skill.hero.id == HeroIdEnum.SEA_SPIRIT);
 
-    if(focusSkillCasts) {
+    if(focusSkillCasts.length > 0) {
       return focusSkillCasts;
     }
 
