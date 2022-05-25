@@ -780,7 +780,7 @@ class AotHeroMetrics {
   });
 
   manaMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
-    return (hero.mana/hero.maxMana + 1)*0.6;
+    return (hero.mana/hero.maxMana + 1)*0.5;
   });
 
   attackMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
@@ -1177,7 +1177,7 @@ class AoTStrategy {
 
   playTurn() {
     console.log(`${AoTStrategy.name}: playTurn`);
-    const action = this.chooseBestPossibleMove(this.state, 2);
+    const action = this.chooseBestPossibleMove(this.state, 1);
     if(!action) {
       console.log("Cannot choose");
       return;

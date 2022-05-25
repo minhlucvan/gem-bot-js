@@ -1,9 +1,3 @@
-function union (sets) {
-    return sets.reduce((combined, list) => {
-      return new Set([...combined, ...list]);
-    }, new Set());
-  }
-
 class GridDistinction {
     removedGems = [];
     matchesSize = [];
@@ -261,12 +255,14 @@ class Grid {
                 matches.push(matchGems);
             }
         }
-        return matches.length > 0 ? [union(matches)] : [];
+        return matches.length > 0 ? [matches] : [];
     }
     
     performDistinction(allMatchGems, distinction) {
         for(const matchGems of allMatchGems) {
-            this.distinctGemBatch(matchGems, distinction)
+            for(const batch of matchGems) {
+                this.distinctGemBatch(batch, distinction)
+            }
         }
         this.performReshape();
         const nextMatches = this.getAllMatches();
