@@ -87,9 +87,9 @@ class AotGameState {
   switchTurn() {
     console.log(`Switch turn ${this.getCurrentPlayer().playerId} -> ${this.getCurrentEnemyPlayer().playerId}`);
     if(this.isBotTurn()) {
-      this.currentPlayer = this.botPlayer;
-    } else {
       this.currentPlayer = this.enemyPlayer;
+    } else {
+      this.currentPlayer = this.botPlayer;
     }
   }
 
@@ -598,15 +598,30 @@ class GameSimulator {
 
   applyTurnEffect(turn) {
     this.turnEffect = turn;
-    this.applyAttack(turn.attackGem);
+
+    if(turn.attackGem) {
+      this.applyAttack(turn.attackGem);
+    }
+    
     for (const [type, value] of Object.entries(turn.manaGem)) {
       this.applyMana(type, value);
     }
-    this.applyMaxMatchedSize(turn.maxMatchedSize);
-    this.applyBuffAttack(turn.buffAttack);
-    this.applyBuffMana(turn.buffMana);
-    this.applyHitPoint(turn.buffHitPoint);
-    this.applyBuffExtraTurn(turn.buffExtraTurn);
+    
+    if(turn.maxMatchedSize) {
+      this.applyMaxMatchedSize(turn.maxMatchedSize);
+    }
+
+    if(turn.buffAttack ) {
+        this.applyBuffAttack(turn.buffAttack);
+    }
+
+    if(turn.buffMana) {
+      this.applyHitPoint(turn.buffHitPoint);
+    }
+
+    if(turn.buffExtraTurn ) {
+      this.applyBuffExtraTurn(turn.buffExtraTurn);
+    }
   }
 
   applyMaxMatchedSize(value) {
@@ -1162,7 +1177,7 @@ class AoTStrategy {
 
   playTurn() {
     console.log(`${AoTStrategy.name}: playTurn`);
-    const action = this.chooseBestPossibleMove(this.state, 1);
+    const action = this.chooseBestPossibleMove(this.state, 2);
     if(!action) {
       console.log("Cannot choose");
       return;
@@ -1183,8 +1198,8 @@ class AoTStrategy {
   chooseBestPossibleMove(state, deep = 2) {
     console.log(`${AoTStrategy.name}: chooseBestPosibleMove`);
     const possibleMoves = this.getAllPossibleMove(state);
-    console.log(`Choose besst move in ${possibleMoves.length} moves`);
     const currentPlayer = state.getCurrentPlayer();
+    console.log(`Player ${currentPlayer.playerId} Choose best move in ${possibleMoves.length} moves of`);
 
     if(!possibleMoves || possibleMoves.length == 0) {
       return null;
