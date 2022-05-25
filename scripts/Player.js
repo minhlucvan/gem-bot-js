@@ -14,6 +14,10 @@ class Player
         return this.getHerosAlive().length;
     }
 
+    getHeroById(id) {
+        return this.heroes.find(her => her.id == id);
+    }
+
     getHerosAlive() {
         return this.heroes.filter(hero => hero.isAlive());
     }

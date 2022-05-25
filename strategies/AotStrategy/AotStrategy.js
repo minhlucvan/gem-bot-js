@@ -85,7 +85,7 @@ class AotGameState {
   }
 
   switchTurn() {
-    console.log(`Switch turn ${currentPlayer.playerId} -> ${this.currentEnemyPlayer.playerId}`);
+    console.log(`Switch turn ${this.getCurrentPlayer().playerId} -> ${this.getCurrentEnemyPlayer().playerId}`);
     if(this.isBotTurn()) {
       this.currentPlayer = this.botPlayer;
     } else {
@@ -241,13 +241,18 @@ class AotFocusSkill extends AotCastSkill {
   }
 
   applyToState(state, player, enemy) {
-    // this.hero.burnManaTo(0);
-    const target = this.target;
+    const turnEffect = new TurnEfect();
+    const caster = player.getHeroById(this.hero.id);
+    const target = player.getHeroById(this.target.id);
+    caster.burnManaTo(0);
     if(target) {
       target.buffHp(5);
       target.buffAttack(5);
     }
-    state.setExtraTurn(true);
+    
+    turnEffect.addExtraTurn(1);
+    
+    return turnEffect;
   }
 } 
 
@@ -267,9 +272,10 @@ class AotEathShockSkill extends AotCastSkill {
   }
 
   applyToState(state, player, enemy) {
-    // this.hero.burnManaTo(0);
+    const caster = player.getHeroById(this.hero.id);
+    caster.burnManaTo(0);
     const targets = enemy.getHerosAlive();
-    const damage = this.hero.attack;
+    const damage = caster.attack;
     for(const enemyHero of targets) {
       enemyHero.takeDamage(damage);
       enemy.burnMana(3);
@@ -310,9 +316,10 @@ class AotCeberusBiteSkill extends AotCastSkill {
   }
 
   applyToState(state, player, enemy) {
-    // this.hero.burnManaTo(0);
+    const caster = player.getHeroById(this.hero.id);
+    caster.burnManaTo(0);
     const targets = enemy.getHerosAlive();
-    const damage = this.hero.attack + 6;
+    const damage = caster.attack + 6;
     for(const enemyHero of targets) {
       enemyHero.takeDamage(damage);
     }
@@ -335,7 +342,8 @@ class AotBlessOfLightSkill extends AotCastSkill {
   }
 
   applyToState(state, player, enemy) {
-    // this.hero.burnManaTo(0);
+    const caster = player.getHeroById(this.hero.id);
+    caster.burnManaTo(0);
     const allies = player.getHerosAlive();
     for(const ally of allies) {
       ally.buffAttack(8);
@@ -399,9 +407,10 @@ class AotVolcanoWrathSkill extends AotCastSkill {
   }
 
   applyToState(state, player, enemy) {
+    const caster = player.getHeroById(this.hero.id);
     const targets = enemy.getHerosAlive();
     const totalRedGem = state.grid.countGemByType(GemType.RED);
-    // this.hero.burnManaTo(0);
+    caster.burnManaTo(0);
     for(const enemyHero of targets) {
       const damage = enemyHero.attack + totalRedGem;
       enemyHero.takeDamage(damage);
@@ -750,11 +759,11 @@ class AotHeroMetrics {
   });
 
   manaMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
-    return (hero.mana/hero.maxMana + 1)*0.5;
+    return (hero.mana/hero.maxMana + 1)*0.6;
   });
 
   attackMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
-    return hero.attack*0.2;
+    return hero.attack*0.3;
   });
 
   skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
@@ -1168,6 +1177,7 @@ class AoTStrategy {
   chooseBestPossibleMove(state, deep = 2) {
     console.log(`${AoTStrategy.name}: chooseBestPosibleMove`);
     const possibleMoves = this.getAllPossibleMove(state);
+    console.log(`Choose besst move in ${possibleMoves.length} moves`);
     const currentPlayer = state.getCurrentPlayer();
 
     if(!possibleMoves || possibleMoves.length == 0) {
@@ -1199,7 +1209,7 @@ class AoTStrategy {
         currentBestState = futureState;
       } 
     }
-
+    console.log('best score', currentBestState.scores[currentPlayer.playerId]);
     console.log('best move', currentBestMove);
     console.log('best state', currentBestState);
     
@@ -1301,20 +1311,22 @@ class AoTStrategy {
     const currentEnemy = state.getCurrentEnemyPlayer();
 
     const castableHeroes = currentPlayer.getCastableHeros();
+    console.log(`All castable heros ${castableHeroes.map(hero => `${hero.id} ${hero.mana}/${hero.maxMana}`)}`)
     const possibleCastOnHeros = castableHeroes.map((hero) =>
       this.possibleCastOnHero(hero, currentPlayer, currentEnemy, state)
     );
     const allPossibleCasts = [].concat(...possibleCastOnHeros);
-    const focusSkill = allPossibleCasts.find(skill => skill.hero.id == HeroIdEnum.SEA_SPIRIT);
+    console.log(`All possible casts ${allPossibleCasts.length}`);
+    const focusSkillCasts = allPossibleCasts.filter(skill => skill.hero.id == HeroIdEnum.SEA_SPIRIT);
 
-    if(focusSkill) {
-      return [focusSkill];
+    if(focusSkillCasts) {
+      return focusSkillCasts;
     }
 
-    const bleddSkill = allPossibleCasts.find(skill => skill.hero.id == HeroIdEnum.MONK);
+    const belessedCasts = allPossibleCasts.filter(skill => skill.hero.id == HeroIdEnum.MONK);
 
-    if(bleddSkill) {
-      return [bleddSkill];
+    if(belessedCasts.length > 0) {
+      return belessedCasts;
     }
 
     return allPossibleCasts;
