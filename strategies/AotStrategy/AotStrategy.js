@@ -647,8 +647,14 @@ class GameSimulator {
 
   applyAttack(attackGem) {
     const myHeroAlive = this.state.getCurrentPlayer().firstHeroAlive();
+    if(myHeroAlive) {
+      return;
+    }
     const attackDame = this.damgeMetric.exec(attackGem, myHeroAlive);
     const enemyHeroAlive = this.state.getCurrentEnemyPlayer().firstHeroAlive();
+    if(!enemyHeroAlive) {
+      return;
+    }
     enemyHeroAlive.takeDamage(attackDame);
   }
 
