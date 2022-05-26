@@ -246,6 +246,24 @@ class Grid {
         const result = this.performDistinction(allMatchGems, distinction);
         return result;
     }
+
+    performSquareGrab(index) {
+        const currentGem = this.gems[index];
+        const distinction = new GridDistinction();
+        const result = this.performSquareDistinct(currentGem, distinction);
+        return result;
+    }
+
+    performSquareDistinct(gem, distinction) {
+        this.performExplodeSquare(gem, distinction);
+        this.performReshape();
+
+        const nextMatches = this.getAllMatches();
+        if(nextMatches.length > 0) {
+            this.performDistinction(nextMatches, distinction);
+        } 
+        return distinction;
+    }
     
     getAllMatches() {
         const matches = [];

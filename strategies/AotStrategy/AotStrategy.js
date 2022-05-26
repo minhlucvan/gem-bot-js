@@ -228,6 +228,17 @@ class AotChainLightingSkill extends AotCastSkill {
   static fromHeroState(hero, player, enemyPlayer, state) {
     return [new AotChainLightingSkill(hero)];
   }
+
+  applyToState(state, player, enemy) {
+    const caster = player.getHeroById(this.hero.id);
+    caster.burnManaTo(0);
+    const targets = enemy.getHerosAlive();
+    const toalYellowGem = state.grid.countGemByType(GemType.YELLOW);
+    const damage = caster.attack + toalYellowGem;
+    for(const enemyHero of targets) {
+      enemyHero.takeDamage(damage);
+    }
+  }
 }
 
 class AotDeathTouchSkill extends AotCastSkill {
@@ -238,6 +249,15 @@ class AotDeathTouchSkill extends AotCastSkill {
 
   static fromHeroState(hero, player, enemyPlayer, state) {
     return enemyPlayer.getHerosAlive().map((heroTarget) => new AotDeathTouchSkill(hero).withTargetHero(heroTarget));
+  }
+
+  applyToState(state, player, enemy) {
+    const caster = player.getHeroById(this.hero.id);
+    // caster.burnManaTo(0);
+    const targets = enemy.getHerosAlive();
+    const damage = 666;
+    const target = targets[Math.floor(Math.random()*targets.length)];
+    target.takeDamage(target.hp);
   }
 }
 
@@ -261,8 +281,7 @@ class AotWindForceSkill extends AotCastSkill {
       enemyHero.takeDamage(damage);
     }
 
-    const distinction = new GridDistinction();
-    state.grid.performExplodeSquare(this.gem, distinction);
+    const distinction = state.grid.performSquareGrab(this.gem.index);
     const effect = TurnEfect.fromDistinction(distinction);
 
     return effect;
@@ -463,6 +482,17 @@ class AotChargeSkill extends AotCastSkill {
 
   static fromHeroState(hero, player, enemyPlayer, state) {
     return [new AotChargeSkill(hero)];
+  }
+
+  applyToState(state, player, enemy) {
+    const caster = player.getHeroById(this.hero.id);
+    const targets = enemy.getHerosAlive();
+    caster.burnManaTo(0);
+    const damage = caster.attack;
+    caster.buffAttack(caster.attack);
+    for(const enemyHero of targets) {
+      enemyHero.takeDamage(damage);
+    }
   }
 }
 
@@ -1128,6 +1158,26 @@ class AotPokoHeroMetric extends AotHeroMetrics {
     return AotChargeSkill.fromHeroState(hero, player, enemyPlayer, state);
   }
 } 
+
+class AotQueenMetric extends AotHeroMetrics {
+
+  hpMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    return hero.hp + 13;
+  });
+
+  skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    return 0;
+  });
+
+  static isMatched(hero) {
+    return hero.id == HeroIdEnum.ELIZAH;
+  }
+
+  getPossibleSkillCasts(hero, player, enemyPlayer, state) {
+    return [];
+  }
+} 
+
 class AotSketletonHeroMetric extends AotHeroMetrics {
   skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
     const targetHero = this.bestHeroToSkillTarget(hero, player, enemyPlayer, state)
@@ -1185,7 +1235,8 @@ class AotDynamicScoreMetric extends AotScoreMetric {
     AotOrthurHeroMetric,
     AotMagniHeroMetric,
     AotTerraHeroMetric,
-    AotSigmudHeroMetric
+    AotSigmudHeroMetric,
+    AotQueenMetric,
   ];
   constructor(lineup) {
     super(lineup);
