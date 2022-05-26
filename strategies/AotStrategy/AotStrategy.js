@@ -1401,18 +1401,23 @@ class AoTStrategy {
     const [effect2] = state2.turnEffects;
 
     // handle case chossing between cast skill and sword
+    console.log(`Compare score of state effect2 isCastSkill ${effect2.isCastSkill} effect1 isCastSkill ${effect1.isCastSkill}`);
     if(effect2 && effect1 && effect2.isCastSkill && !effect1.isCastSkill) {
       const sword1 = state1.toalSwordGain();
+      console.log(`Total sword1 gain ${sword1}`);
       const damageMetric  = new AttackDamgeMetric();
       const playerFirstHero = player.firstHeroAlive();
       const enemyFirstHero = enemy.firstHeroAlive();
+      console.log(`Compare cast skill with sword`);
 
       const playerDamage = damageMetric.exec(sword1, playerFirstHero);
+      console.log(`Player damge playerDamage ${playerDamage}`);
       if(playerDamage/enemyFirstHero.hp > 0.3) {
         return 1;
       } 
 
       const enemyDamage = damageMetric.exec(sword1, playerFirstHero);
+      console.log(`Player damge enemyDamage ${enemyDamage}`);
       if(enemyDamage/playerFirstHero.hp > 0.3) {
         return 1;
       }
