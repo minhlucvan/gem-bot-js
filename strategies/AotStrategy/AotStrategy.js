@@ -55,12 +55,12 @@ class AotGameState {
   }
 
   isPlayerWin(id) {
-    const player = this.getCurrentPlayer(id);
+    const player = this.getPlayerById(id);
     return player.isLose();
   }
 
   isPlayerLose(id) {
-    const player = this.getCurrentEnemyPlayer(id);
+    const player = this.getPlayerById(id);
     return player.isLose();
   }
 
@@ -196,7 +196,7 @@ class AotCastSkill extends AotMove {
     return this;
   }
 
-  withhGem(gem) {
+  withGem(gem) {
     this.gem = gem;
     this.gemIndex = gem.index;
     return this;
@@ -249,7 +249,23 @@ class AotWindForceSkill extends AotCastSkill {
   }
 
   static fromHeroState(hero, player, enemyPlayer, state) {
-    return state.grid.gems.getHerosAlive().map((gem) => new AotWindForceSkill(hero).withhGem(gem));
+    return state.grid.gems.map((gem) => new AotWindForceSkill(hero).withGem(gem));
+  }
+
+  applyToState(state, player, enemy) {
+    const caster = player.getHeroById(this.hero.id);
+    caster.burnManaTo(0);
+    const targets = enemy.getHerosAlive();
+    const damage = caster.attack;
+    for(const enemyHero of targets) {
+      enemyHero.takeDamage(damage);
+    }
+
+    const distinction = new GridDistinction();
+    state.grid.performExplodeSquare(this.gem, distinction);
+    const effect = TurnEfect.fromDistinction(distinction);
+
+    return effect;
   }
 } 
 
@@ -804,11 +820,11 @@ class AotHeroMetrics {
   });
 
   manaMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
-    return (hero.mana/hero.maxMana + 1)*0.5;
+    return (hero.mana/hero.maxMana + 2)/3;
   });
 
   attackMetric = new AotHeroMetricScale((hero, player, enemyPlayer, state) => {
-    return hero.attack*0.3;
+    return hero.attack*0.2;
   });
 
   skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {

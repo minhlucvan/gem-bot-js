@@ -23,7 +23,7 @@ const BATTLE_MODE = "BATTLE_MODE";
 const ENEMY_PLAYER_ID = 0;
 const BOT_PLAYER_ID = 2;
 
-const delaySwapGem = 1000;
+const delaySwapGem = 2000;
 const delayFindGame = 5000;
 
 var sfs;
@@ -276,7 +276,8 @@ function StartGame(gameSession) {
 	//taskScheduler.schedule(new FinishTurn(true), new Date(System.currentTimeMillis() + delaySwapGem));
 	//TaskSchedule(delaySwapGem, _ => SendFinishTurn(true));
 
-	setTimeout(function () { SendFinishTurn(true) }, delaySwapGem);
+	setTimeout(function () { SendFinishTurn(true) }, 1000);
+
 	visualizer.setGame({
 		game: gameSession,
 		grid,
@@ -409,7 +410,7 @@ function SendCastSkill(heroCastSkill, { targetId, selectedGem, gemIndex, isTarge
 		data.putUtfString("selectedGem", SelectGem().toString());
 	}
 	if (gemIndex) {
-		data.putUtfString("gemIndex", gemIndex);
+		data.putUtfString("gemIndex", `${gemIndex}`);
 	} {
 		data.putUtfString("gemIndex", GetRandomInt(64).toString());
 	}
