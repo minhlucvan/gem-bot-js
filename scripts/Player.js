@@ -38,6 +38,10 @@ class Player
         return this.getHerosAlive().reduce((acc, hero) => acc + hero.maxMana, 0);
     }
 
+    getRecomenedGems(){
+        return this.getHerosAlive().reduce((gems, her) => gems.concat(her.gems), [])
+    }
+
     getCastableHeros() {
         let arr = this.getHerosAlive().filter(hero => hero.isAlive() && hero.isFullMana());
         return arr;

@@ -120,6 +120,28 @@ class AotGameState {
     this.turnEffects.push(result);
   }
 
+  toalSwordGain() {
+    let denied = 0;
+    for(const effect of this.turnEffects) {
+      denied += denied += effect.attackGem;
+    }
+    return denied;
+  }
+
+  gemDeninedOfPlayer(player) {
+    const designedGems  = player.getRecomenedGems();
+    let denied = 0;
+    for(const distinction of this.distinctions) {
+      for(const gem of distinction.removedGems) {
+        if(designedGems.includes(gem.type)) {
+          denied += 1;
+        }
+      }
+    }
+
+    return denied;
+  }
+
   clone() {
     const game = this.game;
     const grid = this.grid.clone();
@@ -474,6 +496,7 @@ class SumScale extends ScaleFn {
 }
 
 class TurnEfect {
+  isCastSkill = false;
   manaGem = {};
   attackGem = 0;
   buffAttack = 0;
@@ -488,7 +511,7 @@ class TurnEfect {
     const turnEffect = new TurnEfect();
     const maxMatchedSize = Math.max(...distinction.matchesSize);
     turnEffect.maxMatchedSize = maxMatchedSize;
-    turnEffect.totalMatched = distinction.matchesSize.reduce((total, size) => total + size, 0);
+    turnEffect.totalMatched = distinction.removedGems.length;
 
     for (const gem of distinction.removedGems) {
       if(gem.type == GemType.SWORD) {
@@ -701,6 +724,7 @@ class GameSimulator {
       if(!result) {
         result = new TurnEfect();
       } 
+      result.isCastSkill = true;
       this.applyTurnEffect(result);
       return result;
     }
@@ -1047,12 +1071,12 @@ class AotFateHeroMetric extends AotHeroMetrics {
   bestHeroToSkillTarget(hero, player, enemyPlayer, state) {
     const heroesAlive = enemyPlayer.getHerosAlive();
     const heroMaxPower = heroesAlive.reduce((acc, curr) => {
-      const accPower = acc.metrics.calcScore(acc, enemyPlayer, player, state, true);
-      const currPower = curr.metrics.calcScore(curr, enemyPlayer, player, state, true);
-      if(accPower > currPower) {
-        return acc;
+      const curPower = curr.mana + acc.attack;
+      const accPower = acc.mana + acc.attack;
+      if(curPower > accPower) {
+        return curr;
       }
-      return curr;
+      return acc;
     }, heroesAlive[0]);
     return heroMaxPower;
   }
@@ -1199,7 +1223,8 @@ class AoTStrategy {
     console.log(`${AoTStrategy.name}: chooseBestPosibleMove`);
     const possibleMoves = this.getAllPossibleMove(state);
     const currentPlayer = state.getCurrentPlayer();
-    console.log(`Player ${currentPlayer.playerId} Choose best move in ${possibleMoves.length} moves of`);
+    const currentEnemyPlayer = state.getCurrentEnemyPlayer()
+    console.log(`Player ${currentPlayer.playerId} Choose best move in ${possibleMoves.length} moves againts ${currentEnemyPlayer.playerId}`);
 
     if(!possibleMoves || possibleMoves.length == 0) {
       return null;
@@ -1223,7 +1248,7 @@ class AoTStrategy {
         console.log(`Turn effect ${futureState.turnEffects.indexOf(effect)}/${futureState.turnEffects.length}`)
         effect.debug();
       }
-      const simulateMoveScore = this.compareScoreOnStates(currentBestState, futureState, currentPlayer);
+      const simulateMoveScore = this.compareScoreOnStates(currentBestState, futureState, currentPlayer, currentEnemyPlayer);
       console.log('State compare', simulateMoveScore);
       if (simulateMoveScore == 2) {
         currentBestMove = move;
@@ -1266,7 +1291,7 @@ class AoTStrategy {
     return afterState;
   }
 
-  compareScoreOnStates(state1, state2, player) {
+  compareScoreOnStates(state1, state2, player, enemy) {
     if(!state1) {
       return 2;
     }
@@ -1295,11 +1320,36 @@ class AoTStrategy {
       return 2;
     }
 
+    const [effect1] = state1.turnEffects;
+    const [effect2] = state2.turnEffects;
+
+    // handle case chossing between cast skill and sword
+    if(effect2 && effect1 && effect2.isCastSkill && !effect1.isCastSkill) {
+      const sword1 = state1.toalSwordGain();
+      const damageMetric  = new AttackDamgeMetric();
+      const playerFirstHero = player.firstHeroAlive();
+      const enemyFirstHero = enemy.firstHeroAlive();
+
+      const playerDamage = damageMetric.exec(sword1, playerFirstHero);
+      if(playerDamage/enemyFirstHero.hp > 0.3) {
+        return 1;
+      } 
+
+      const enemyDamage = damageMetric.exec(sword1, playerFirstHero);
+      if(enemyDamage/playerFirstHero.hp > 0.3) {
+        return 1;
+      }
+    }
+
     const score1 = this.calculateScoreOnStateOf(state1, player);
     const score2 = this.calculateScoreOnStateOf(state2, player);
     
     if(score1 == score2 ){
       if (state2.getTotalMatched() > state1.getTotalMatched()) {
+        return 2;
+      }
+
+      if(state2.gemDeninedOfPlayer(enemy) > state1.gemDeninedOfPlayer(enemy)) {
         return 2;
       }
     }
