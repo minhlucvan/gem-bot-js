@@ -1389,6 +1389,10 @@ class AoTStrategy {
       return 1;
     }
 
+    if(state2.isExtraTurn()) {
+      return 2;
+    }
+
     if(state2.totalMove() > state1.totalMove()) {
       return 2;
     }
