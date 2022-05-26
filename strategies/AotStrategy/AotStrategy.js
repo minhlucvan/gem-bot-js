@@ -505,7 +505,7 @@ class AotChargeSkill extends AotCastSkill {
         return [];
       }
     }
-    
+
     return [new AotChargeSkill(hero)];
   }
 
@@ -1426,8 +1426,8 @@ class AoTStrategy {
     const [effect2] = state2.turnEffects;
 
     // handle case chossing between cast skill and sword
-    console.log(`Compare score of state effect2 isCastSkill ${effect2.isCastSkill} effect1 isCastSkill ${effect1.isCastSkill}`);
     if(effect2 && effect1 && effect2.isCastSkill && !effect1.isCastSkill) {
+      console.log(`Compare score of state effect2 isCastSkill ${effect2} effect1 isCastSkill ${effect1.isCastSkill}`);
       const sword1 = state1.toalSwordGain();
       console.log(`Total sword1 gain ${sword1}`);
       const damageMetric  = new AttackDamgeMetric();
