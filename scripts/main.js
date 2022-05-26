@@ -35,7 +35,7 @@ var currentPlayerId;
 var grid;
 
 const username = params.username || "nguyentran";
-const token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuZ3V5ZW50cmFuIiwiYXV0aCI6IlJPTEVfVVNFUiIsIkxBU1RfTE9HSU5fVElNRSI6MTY1MzQwNDUzNjczMSwiZXhwIjoxNjU1MjA0NTM2fQ.Gcd02v7yKwj7rlkRmSamlnO87AqwGsNkaiuk_vPNnySOfjqVRxM_W_SJBarpWdT96njG4rEG8l3JxjYdPSrzUQ";
+const token = params.token || "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuZ3V5ZW50cmFuIiwiYXV0aCI6IlJPTEVfVVNFUiIsIkxBU1RfTE9HSU5fVElNRSI6MTY1MzQwNDUzNjczMSwiZXhwIjoxNjU1MjA0NTM2fQ.Gcd02v7yKwj7rlkRmSamlnO87AqwGsNkaiuk_vPNnySOfjqVRxM_W_SJBarpWdT96njG4rEG8l3JxjYdPSrzUQ";
 var visualizer = new Visualizer({ el: '#visual' });
 var params = window.params;
 var strategy = window.strategy;

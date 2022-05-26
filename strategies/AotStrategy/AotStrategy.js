@@ -300,7 +300,7 @@ class AotEathShockSkill extends AotCastSkill {
     const damage = caster.attack;
     for(const enemyHero of targets) {
       enemyHero.takeDamage(damage);
-      enemy.burnMana(3);
+      enemyHero.burnMana(3);
     }
   }
 } 
