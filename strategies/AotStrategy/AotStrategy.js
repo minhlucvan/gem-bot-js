@@ -475,7 +475,7 @@ class AotSwapGem extends AotMove {
   }
 
   debug() {
-    console.log(`Move ${this.type} gem: ${this.swap}`);
+    console.log(`Move ${this.type} gem: ${this.swap.type} ${this.swap.index1}/${this.swap.index2}`);
   }
 }
 
@@ -701,7 +701,7 @@ class GameSimulator {
 
   applyAttack(attackGem) {
     const myHeroAlive = this.state.getCurrentPlayer().firstHeroAlive();
-    if(myHeroAlive) {
+    if(!myHeroAlive) {
       return;
     }
     const attackDame = this.damgeMetric.exec(attackGem, myHeroAlive);
