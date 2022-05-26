@@ -369,6 +369,15 @@ class AotCeberusBiteSkill extends AotCastSkill {
   }
 
   static fromHeroState(hero, player, enemyPlayer, state) {
+    const monkAlly = player.getHerosAlive().find(her => her.id == HeroIdEnum.MONK);
+    if(monkAlly) {
+      if(monkAlly.mana < 3) {
+        return [new AotCeberusBiteSkill(hero)];
+      } else {
+        return [];
+      }
+    }
+
     return [new AotCeberusBiteSkill(hero)];
   }
 
@@ -389,13 +398,20 @@ class AotBlessOfLightSkill extends AotCastSkill {
   }
 
   static fromHeroState(hero, player, enemyPlayer, state) {
-    const hasPoko = enemyPlayer.getHerosAlive().some(targetHero => targetHero.id == HeroIdEnum.MERMAID);
-    
-    if(hasPoko) {
-      return [];
-    }
+    const allies = player.getHerosAlive();
 
-    return [new AotBlessOfLightSkill(hero)];
+    for(const ally of allies) {
+      if(ally.id == HeroIdEnum.MONK) {
+        continue;
+      }
+      if(ally.id == HeroIdEnum.CERBERUS || ally.id == HeroIdEnum.MERMAID) {
+        if(ally.isFullMana()) {
+          return [new AotBlessOfLightSkill(hero)]
+        }
+      }
+    } 
+
+    return [];
   }
 
   applyToState(state, player, enemy) {
@@ -481,6 +497,15 @@ class AotChargeSkill extends AotCastSkill {
   }
 
   static fromHeroState(hero, player, enemyPlayer, state) {
+    const monkAlly = player.getHerosAlive().find(her => her.id == HeroIdEnum.MONK);
+    if(monkAlly) {
+      if(monkAlly.mana < 3) {
+        return [new AotCeberusBiteSkill(hero)];
+      } else {
+        return [];
+      }
+    }
+    
     return [new AotChargeSkill(hero)];
   }
 
