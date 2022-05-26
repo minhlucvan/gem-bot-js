@@ -276,7 +276,7 @@ function StartGame(gameSession) {
 	//taskScheduler.schedule(new FinishTurn(true), new Date(System.currentTimeMillis() + delaySwapGem));
 	//TaskSchedule(delaySwapGem, _ => SendFinishTurn(true));
 
-	setTimeout(function () { SendFinishTurn(true) }, 1000);
+	setTimeout(function () { SendFinishTurn(true) }, delaySwapGem);
 
 	visualizer.setGame({
 		game: gameSession,
@@ -410,6 +410,7 @@ function SendCastSkill(heroCastSkill, { targetId, selectedGem, gemIndex, isTarge
 		data.putUtfString("selectedGem", SelectGem().toString());
 	}
 	if (gemIndex) {
+		console.log('Gem index', gemIndex);
 		data.putUtfString("gemIndex", `${gemIndex}`);
 	} {
 		data.putUtfString("gemIndex", GetRandomInt(64).toString());

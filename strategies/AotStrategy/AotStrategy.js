@@ -741,6 +741,12 @@ class GameSimulator {
         result = new TurnEfect();
       } 
       result.isCastSkill = true;
+
+      console.log(`Move applied use skill`);
+      move.debug();
+      console.log(`Move effect`);
+      result.debug();
+
       this.applyTurnEffect(result);
       return result;
     }
@@ -1251,7 +1257,7 @@ class AoTStrategy {
 
     for (const move of possibleMoves) {
       const clonedState = state.clone();
-      console.log(`test move deep ${deep} ${move.type} ${possibleMoves.indexOf(move)}/${possibleMoves.length}`);
+      console.log(`Test move deep ${deep} ${move.type} step ${possibleMoves.indexOf(move)}/${possibleMoves.length}`);
       move.debug();
       const futureState = this.seeFutureState(move, clonedState, deep);
 
