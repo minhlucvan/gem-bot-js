@@ -407,7 +407,7 @@ class AotBlessOfLightSkill extends AotCastSkill {
         continue;
       }
       if(ally.id == HeroIdEnum.CERBERUS || ally.id == HeroIdEnum.MERMAID) {
-        if(ally.isFullMana()) {
+        if(ally.maxMana - ally.mana < 4) {
           return [new AotBlessOfLightSkill(hero)]
         }
       }

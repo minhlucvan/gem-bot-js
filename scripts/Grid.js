@@ -3,7 +3,7 @@ class GridDistinction {
     matchesSize = [];
 
     debug() {
-        console.log(`Removed gems ${this.removedGems.length}: ${this.removedGems.map(gem => gem.type).join(', ')}`)
+        console.log(`Removed gems ${this.removedGems.length}: ${this.removedGems.map(gem => `${gem.type}/${gem.modifier}`).join(', ')}`)
     }
 }
 class Grid {
