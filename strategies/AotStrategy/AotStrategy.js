@@ -1113,7 +1113,7 @@ class AotOrthurHeroMetric extends AotHeroMetrics {
 
   static allIn() {
     const metric = new AotOrthurHeroMetric();
-    metric.skillMetricScale = 2;
+    metric.skillMetricScale = 4;
     metric.baseManaScale = 1;
     metric.manaScale = 2;
     return metric;
