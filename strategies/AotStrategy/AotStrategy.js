@@ -401,17 +401,23 @@ class AotBlessOfLightSkill extends AotCastSkill {
 
   static fromHeroState(hero, player, enemyPlayer, state) {
     const allies = player.getHerosAlive();
+    let hasCompanies = false;
 
     for(const ally of allies) {
       if(ally.id == HeroIdEnum.MONK) {
         continue;
       }
       if(ally.id == HeroIdEnum.CERBERUS || ally.id == HeroIdEnum.MERMAID) {
+        hasCompanies = true;
         if(ally.maxMana - ally.mana < 4) {
           return [new AotBlessOfLightSkill(hero)]
         }
       }
     } 
+
+    if(!hasCompanies) {
+      return [new AotBlessOfLightSkill(hero)];
+    }
 
     return [];
   }

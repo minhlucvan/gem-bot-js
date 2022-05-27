@@ -34,8 +34,8 @@ var enemyPlayer;
 var currentPlayerId;
 var grid;
 
-const username = params.username || "nguyentran";
-const token = params.token || "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuZ3V5ZW50cmFuIiwiYXV0aCI6IlJPTEVfVVNFUiIsIkxBU1RfTE9HSU5fVElNRSI6MTY1MzQwNDUzNjczMSwiZXhwIjoxNjU1MjA0NTM2fQ.Gcd02v7yKwj7rlkRmSamlnO87AqwGsNkaiuk_vPNnySOfjqVRxM_W_SJBarpWdT96njG4rEG8l3JxjYdPSrzUQ";
+const username = params.username || "minh.lucvan";
+const token = params.token || "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaW5oLmx1Y3ZhbiIsImF1dGgiOiJST0xFX1VTRVIiLCJMQVNUX0xPR0lOX1RJTUUiOjE2NTM2NDc2MzIyMTQsImV4cCI6MTY1NTQ0NzYzMn0.1evp04cW4jrF0sszsKTv5hxvCmm1Ya4mL-rz0ngqXIb-rCZ-TZIgXbk3VjdmKrrpG-UFRkit4phhhNjlLGzgmA";
 var visualizer = new Visualizer({ el: '#visual' });
 var params = window.params;
 var strategy = window.strategy;
