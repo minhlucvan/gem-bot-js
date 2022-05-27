@@ -372,8 +372,9 @@ class AotCeberusBiteSkill extends AotCastSkill {
 
   static fromHeroState(hero, player, enemyPlayer, state) {
     const monkAlly = player.getHerosAlive().find(her => her.id == HeroIdEnum.MONK);
+
     if(monkAlly) {
-      if(monkAlly.mana < 3) {
+      if(monkAlly.mana < 5) {
         return [new AotCeberusBiteSkill(hero)];
       } else {
         return [];
@@ -520,7 +521,7 @@ class AotChargeSkill extends AotCastSkill {
   static fromHeroState(hero, player, enemyPlayer, state) {
     const monkAlly = player.getHerosAlive().find(her => her.id == HeroIdEnum.MONK);
     if(monkAlly) {
-      if(monkAlly.mana < 3) {
+      if(monkAlly.mana < 5) {
         return [new AotChargeSkill(hero)];
       } else {
         return [];
@@ -709,11 +710,10 @@ class GameSimulator {
     this.state.addDistinction(result);
     const turnEffect = TurnEfect.fromDistinction(result);
     this.applyTurnEffect(turnEffect);
-    this.state.addTurnEffect(turnEffect);
   }
-
+  
   applyTurnEffect(turn) {
-    this.turnEffect = turn;
+    this.state.addTurnEffect(turn);
 
     if(turn.attackGem) {
       this.applyAttack(turn.attackGem);
@@ -1503,16 +1503,16 @@ class AoTStrategy {
       return 1;
     }
 
-    if(state2.isExtraTurn()) {
-      return 2;
-    }
-
     if(state2.totalMove() > state1.totalMove()) {
       return 2;
     }
 
     const [effect1] = state1.turnEffects;
     const [effect2] = state2.turnEffects;
+
+    if(state2.isExtraTurn() && !effect2.isCastSkill) {
+      return 2;
+    }
 
     // handle case chossing between cast skill and sword
     if(effect2 && effect1 && effect2.isCastSkill && !effect1.isCastSkill) {
