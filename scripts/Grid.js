@@ -22,7 +22,10 @@ class Grid {
         this.gemTypes = new Set();
 
         for (let i = 0; i < gemsCode.size(); i++) {
-            let gem = new Gem(i, gemsCode.getByte(i), gemModifiers != null ? gemModifiers.getByte(i) : GemModifier.NONE);
+            const index = i;
+            const type = gemsCode.getByte(i);
+            const modifier = gemModifiers != null ? gemModifiers.getByte(i) : GemModifier.NONE;
+            let gem = new Gem(index, type, modifier);
             this.gems.push(gem);
 
             this.gemTypes.add(gem.type);

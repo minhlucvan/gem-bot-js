@@ -119,6 +119,10 @@ class Hero {
     return this.signature == other.signature;
   }
 
+  useSkill() {
+    this.skillUsed++;
+  }
+
   clone() {
     const cloned = new Hero(this.objHero);
     cloned.playerId = this.playerId;
@@ -133,6 +137,7 @@ class Hero {
     cloned.power = this.power;
     cloned.skillPower = this.skillPower;
     cloned.metrics = this.metrics;
+    cloned.skillUsed = this.skillUsed;
     return cloned;
   }
 

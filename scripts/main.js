@@ -463,6 +463,7 @@ function HandleGems(paramz) {
 	// update information of hero
 	HandleHeroes(lastSnapshot);
 	if (needRenewBoard) {
+		console.log('needRenewBoard')
 		grid.updateGems(paramz.getSFSArray("renewBoard"), null);
 		// TaskSchedule(delaySwapGem, _ => SendFinishTurn(false));
 		setTimeout(function () { SendFinishTurn(false) }, delaySwapGem);
@@ -474,7 +475,7 @@ function HandleGems(paramz) {
 	let gemCode = lastSnapshot.getSFSArray("gems");
 	let gemModifiers = lastSnapshot.getSFSArray("gemModifiers");
 
-	// console.log("gemModifiers : ", gemModifiers);
+	console.log("gemModifiers : ", gemModifiers);
 
 	grid.updateGems(gemCode, gemModifiers);
 

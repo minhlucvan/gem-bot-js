@@ -88,7 +88,8 @@ class Visualizer {
 
     renderCell(cell, gem) {
         const type = gem ?  gem.type : '';
-        cell.innerText = type;
+        const modifier = gem ?  gem.modifier : '';
+        cell.innerText = `${type}|${modifier}`;
         cell.style.backgroundColor = GemColor[type];
     }
 

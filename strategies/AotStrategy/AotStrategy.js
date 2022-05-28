@@ -371,16 +371,6 @@ class AotCeberusBiteSkill extends AotCastSkill {
   }
 
   static fromHeroState(hero, player, enemyPlayer, state) {
-    const monkAlly = player.getHerosAlive().find(her => her.id == HeroIdEnum.MONK);
-
-    if(monkAlly) {
-      if(monkAlly.mana < 5) {
-        return [new AotCeberusBiteSkill(hero)];
-      } else {
-        return [];
-      }
-    }
-
     return [new AotCeberusBiteSkill(hero)];
   }
 
@@ -519,15 +509,6 @@ class AotChargeSkill extends AotCastSkill {
   }
 
   static fromHeroState(hero, player, enemyPlayer, state) {
-    const monkAlly = player.getHerosAlive().find(her => her.id == HeroIdEnum.MONK);
-    if(monkAlly) {
-      if(monkAlly.mana < 5) {
-        return [new AotChargeSkill(hero)];
-      } else {
-        return [];
-      }
-    }
-
     return [new AotChargeSkill(hero)];
   }
 
@@ -630,7 +611,7 @@ class TurnEfect {
       }
 
       if(gem.modifier == GemModifier.POINT) {
-        turnEffect.addHitPoint(gem);
+        turnEffect.addBuffPoint(gem);
       }
     }
 
@@ -652,7 +633,7 @@ class TurnEfect {
     this.buffMana += 1;
   }
 
-  addBuffMana(gem) {
+  addBuffPoint(gem) {
     this.buffPoint += 0;
   }
 
@@ -813,7 +794,8 @@ class GameSimulator {
 
     if(move.applyToState) {
       let result = move.applyToState(this.state, currentPlayer, currentEnemyPlayer);
-      
+      move.hero.useSkill();
+
       if(!result) {
         result = new TurnEfect();
       } 
@@ -867,6 +849,9 @@ class AotDynamicLineup extends AotLineUpSetup {
 }
 
 class AotAllInLineup extends AotLineUpSetup {
+  static name = 'ALL_IN';
+
+  name = 'ALl_IN';
   static line = [HeroIdEnum.MONK, HeroIdEnum.MERMAID, HeroIdEnum.CERBERUS];
 
   createScoreMetrics() {
@@ -1072,7 +1057,7 @@ class AotSigmudHeroMetric extends AotHeroMetrics {
 class AotTerraHeroMetric extends AotHeroMetrics {
   skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
     const bestPowerGap = player.getHerosAlive().reduce((acc, curr) => {
-      if(curr.sameOne(hero)) {
+      if(curr.id == hero.id) {
         return acc;
       }
       const cloned = curr.clone();
@@ -1119,7 +1104,7 @@ class AotOrthurHeroMetric extends AotHeroMetrics {
 
   static allIn() {
     const metric = new AotOrthurHeroMetric();
-    metric.skillMetricScale = 4;
+    metric.skillMetricScale = 2;
     metric.baseManaScale = 1;
     metric.manaScale = 2;
     return metric;
@@ -1442,8 +1427,8 @@ class AoTStrategy {
       } 
     }
     console.log('best score', currentBestState.scores[currentPlayer.playerId]);
-    console.log('best move', currentBestMove);
-    console.log('best state', currentBestState);
+    console.log('best move');
+    currentBestMove.debug();
     
     return currentBestMove;
   }
@@ -1488,22 +1473,27 @@ class AoTStrategy {
     }
 
     if(state1.isPlayerWin(player.playerId)) {
+      console.log(`Player ${player.playerId} wins`);
       return 1;
     }
 
     if(state2.isPlayerWin(player.playerId)) {
+      console.log(`Player ${player.playerId} wins`);
       return 2;
     }
 
     if(state1.isPlayerLose(player.playerId)) {
+      console.log(`Player ${player.playerId} lost`);
       return 2;
     }
 
     if(state2.isPlayerLose(player.playerId)) {
+      console.log(`Player ${player.playerId} lost`);
       return 1;
     }
 
     if(state2.totalMove() > state1.totalMove()) {
+      console.log(`Total move ${state2.totalMove()} over ${state1.totalMove()}`);
       return 2;
     }
 
@@ -1511,47 +1501,70 @@ class AoTStrategy {
     const [effect2] = state2.turnEffects;
 
     if(state2.isExtraTurn() && !effect2.isCastSkill) {
+      console.log(`Got extra turn on swap`);
       return 2;
     }
 
-    // // handle case chossing between cast skill and sword
-    // if(effect2 && effect1 && effect2.isCastSkill && !effect1.isCastSkill) {
-    //   console.log(`Compare score of state effect2 isCastSkill ${effect2} effect1 isCastSkill ${effect1.isCastSkill}`);
-    //   const sword1 = state1.toalSwordGain();
-    //   console.log(`Total sword1 gain ${sword1}`);
-    //   const damageMetric  = new AttackDamgeMetric();
-    //   const playerFirstHero = player.firstHeroAlive();
-    //   const enemyFirstHero = enemy.firstHeroAlive();
-    //   console.log(`Compare cast skill with sword`);
+    // handle case chossing between cast skill and sword
+    if(effect2 && effect1 && effect2.isCastSkill && !effect1.isCastSkill) {
+      console.log(`Compare score of state effect2 isCastSkill ${effect2.isCastSkill} effect1 isCastSkill ${effect1.isCastSkill}`);
+      const sword1 = state1.toalSwordGain();
+      console.log(`Total sword1 gain ${sword1}`);
+      const damageMetric  = new AttackDamgeMetric();
+      const playerFirstHero = player.firstHeroAlive();
+      const enemyFirstHero = enemy.firstHeroAlive();
+      console.log(`Compare cast skill with sword`);
 
-    //   const playerDamage = damageMetric.exec(sword1, playerFirstHero);
-    //   console.log(`Player damge playerDamage ${playerDamage}`);
-    //   if(playerDamage/enemyFirstHero.hp > 0.3) {
-    //     return 1;
-    //   } 
+      const playerDamage = damageMetric.exec(sword1, playerFirstHero);
+      console.log(`Player damge over enemy hp ${playerDamage}/${enemyFirstHero.hp}`);
+      if(playerDamage/enemyFirstHero.hp >= 1) {
+        return 1;
+      } 
 
-    //   const enemyDamage = damageMetric.exec(sword1, playerFirstHero);
-    //   console.log(`Player damge enemyDamage ${enemyDamage}`);
-    //   if(enemyDamage/playerFirstHero.hp > 0.3) {
-    //     return 1;
-    //   }
-    // }
+      const enemyDamage = damageMetric.exec(sword1, playerFirstHero);
+      console.log(`Enemy damge over player hp ${enemyDamage}/${playerFirstHero.hp}`);
+      if(enemyDamage/playerFirstHero.hp >= 1) {
+        return 1;
+      }
+      
+      const enemyFullMana = enemy.anyHeroFullMana();
+      if(enemyFullMana) {
+        console.log(`Has enemy hero ${enemyFullMana.id}full mana`);
+        return 1;
+      }
+    }
 
     const score1 = this.calculateScoreOnStateOf(state1, player);
     const score2 = this.calculateScoreOnStateOf(state2, player);
     
     if(score1 == score2 ){
-      if (state2.getTotalMatched() > state1.getTotalMatched()) {
+      console.log(`Got same score ${score1}  ${score2}`);
+
+      if(state2.gemDeninedOfPlayer(enemy) > state1.gemDeninedOfPlayer(enemy)) {
+        console.log(`Got total denied ${state2.gemDeninedOfPlayer(enemy)} / ${state1.gemDeninedOfPlayer(enemy)}`);
         return 2;
       }
 
-      if(state2.gemDeninedOfPlayer(enemy) > state1.gemDeninedOfPlayer(enemy)) {
+      if (state2.getTotalMatched() > state1.getTotalMatched()) {
+        console.log(`Got total matched ${state2.getTotalMatched()} / ${state1.getTotalMatched()}`);
         return 2;
       }
     }
 
+    if(player.lineup.name == AotAllInLineup.name) {
+      if(effect2 && effect1 && !effect2.isCastSkill && !effect1.isCastSkill) {
+        const skillUsed = player.heroes.reduce(her => her.skillUsed + acc, 0);
+        const sword2 = state1.toalSwordGain();
+        console.log(`Compare swap turn with ${sword2} swords and ${skillUsed} skill used`);
+        if(skillUsed < 3 && sword2 > 0) {
+          return 1;
+        }
+      }
+    }
 
-    return score2 > score1 ? 2 : 1;
+    const result = score2 > score1 ? 2 : 1;
+    console.log(`Got score gap 2 ${score2} over 1 ${score1} select ${result}`);
+    return result;
   }
 
   calculateScoreOnStateOf(state, player) {
@@ -1609,7 +1622,8 @@ class AoTStrategy {
 
   getAllPossibleGemSwap(state) {
     const allPosibleSwaps = state.grid.suggestMatch();
-    const allSwapMove = allPosibleSwaps.map((swap) => new AotSwapGem(swap));
+    const allSwapMove = allPosibleSwaps  
+    .map((swap) => new AotSwapGem(swap));
 
     return allSwapMove;
   }
