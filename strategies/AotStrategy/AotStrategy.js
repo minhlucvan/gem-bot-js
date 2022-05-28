@@ -1596,16 +1596,16 @@ class AoTStrategy {
     //   }
     // }
 
-    if(player.lineup.name == AotAllInLineup.name) {
-      if(effect2 && effect1 && !effect2.isCastSkill && !effect1.isCastSkill) {
-        const skillUsed = player.heroes.reduce(her => her.skillUsed + acc, 0);
-        const sword2 = state2.toalSwordGain();
-        console.log(`Compare swap turn with ${sword2} swords and ${skillUsed} skill used`);
-        if(skillUsed < 3 && sword2 > 0) {
-          return 1;
-        }
-      }
-    }
+    // if(player.lineup.name == AotAllInLineup.name) {
+    //   if(effect2 && effect1 && !effect2.isCastSkill && !effect1.isCastSkill) {
+    //     const skillUsed = player.heroes.reduce(her => her.skillUsed + acc, 0);
+    //     const sword2 = state2.toalSwordGain();
+    //     console.log(`Compare swap turn with ${sword2} swords and ${skillUsed} skill used`);
+    //     if(skillUsed < 3 && sword2 > 0) {
+    //       return 1;
+    //     }
+    //   }
+    // }
 
     const result = score2 > score1 ? 2 : 1;
     console.log(`Got score gap 2 ${score2} over 1 ${score1} select ${result}`);
