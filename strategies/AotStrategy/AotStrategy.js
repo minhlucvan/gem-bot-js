@@ -1549,56 +1549,56 @@ class AoTStrategy {
       return 2;
     }
 
-    // handle case chossing between cast skill and sword
-    if(effect2 && effect1 && effect2.isCastSkill && !effect1.isCastSkill) {
-      console.log(`Compare score of state effect2 isCastSkill ${effect2.isCastSkill} effect1 isCastSkill ${effect1.isCastSkill}`);
-      const sword1 = state1.toalSwordGain();
-      console.log(`Total sword1 gain ${sword1}`);
-      const damageMetric  = new AttackDamgeMetric();
-      const playerFirstHero = player.firstHeroAlive();
-      const enemyFirstHero = enemy.firstHeroAlive();
-      console.log(`Compare cast skill with sword`);
+    // // handle case chossing between cast skill and sword
+    // if(effect2 && effect1 && effect2.isCastSkill && !effect1.isCastSkill) {
+    //   console.log(`Compare score of state effect2 isCastSkill ${effect2.isCastSkill} effect1 isCastSkill ${effect1.isCastSkill}`);
+    //   const sword1 = state1.toalSwordGain();
+    //   console.log(`Total sword1 gain ${sword1}`);
+    //   const damageMetric  = new AttackDamgeMetric();
+    //   const playerFirstHero = player.firstHeroAlive();
+    //   const enemyFirstHero = enemy.firstHeroAlive();
+    //   console.log(`Compare cast skill with sword`);
 
-      const playerDamage = damageMetric.exec(sword1, playerFirstHero);
-      console.log(`Player damge over enemy hp ${playerDamage}/${enemyFirstHero.hp}`);
-      if(playerDamage/enemyFirstHero.hp >= 0.5) {
-        return 1;
-      } 
+    //   const playerDamage = damageMetric.exec(sword1, playerFirstHero);
+    //   console.log(`Player damge over enemy hp ${playerDamage}/${enemyFirstHero.hp}`);
+    //   if(playerDamage/enemyFirstHero.hp >= 0.5) {
+    //     return 1;
+    //   } 
 
-      const enemyDamage = damageMetric.exec(sword1, playerFirstHero);
-      console.log(`Enemy damge over player hp ${enemyDamage}/${playerFirstHero.hp}`);
-      if(enemyDamage/playerFirstHero.hp >= 0.5) {
-        return 1;
-      }
+    //   const enemyDamage = damageMetric.exec(sword1, playerFirstHero);
+    //   console.log(`Enemy damge over player hp ${enemyDamage}/${playerFirstHero.hp}`);
+    //   if(enemyDamage/playerFirstHero.hp >= 0.5) {
+    //     return 1;
+    //   }
       
-      const enemyFullMana = enemy.anyHeroFullMana();
-      if(!enemyFullMana) {
-        console.log(`Has no enemy hero full mana`);
-        return 1;
-      }
-    }
+    //   const enemyFullMana = enemy.anyHeroFullMana();
+    //   if(!enemyFullMana) {
+    //     console.log(`Has no enemy hero full mana`);
+    //     return 1;
+    //   }
+    // }
 
     const score1 = this.calculateScoreOnStateOf(state1, player);
     const score2 = this.calculateScoreOnStateOf(state2, player);
     
-    if(score1 == score2 ){
-      console.log(`Got same score ${score1}  ${score2}`);
+    // if(score1 == score2 ){
+    //   console.log(`Got same score ${score1}  ${score2}`);
 
-      if(state2.gemDeninedOfPlayer(enemy) > state1.gemDeninedOfPlayer(enemy)) {
-        console.log(`Got total denied ${state2.gemDeninedOfPlayer(enemy)} / ${state1.gemDeninedOfPlayer(enemy)}`);
-        return 2;
-      }
+    //   if(state2.gemDeninedOfPlayer(enemy) > state1.gemDeninedOfPlayer(enemy)) {
+    //     console.log(`Got total denied ${state2.gemDeninedOfPlayer(enemy)} / ${state1.gemDeninedOfPlayer(enemy)}`);
+    //     return 2;
+    //   }
 
-      if (state2.getTotalMatched() > state1.getTotalMatched()) {
-        console.log(`Got total matched ${state2.getTotalMatched()} / ${state1.getTotalMatched()}`);
-        return 2;
-      }
-    }
+    //   if (state2.getTotalMatched() > state1.getTotalMatched()) {
+    //     console.log(`Got total matched ${state2.getTotalMatched()} / ${state1.getTotalMatched()}`);
+    //     return 2;
+    //   }
+    // }
 
     if(player.lineup.name == AotAllInLineup.name) {
       if(effect2 && effect1 && !effect2.isCastSkill && !effect1.isCastSkill) {
         const skillUsed = player.heroes.reduce(her => her.skillUsed + acc, 0);
-        const sword2 = state1.toalSwordGain();
+        const sword2 = state2.toalSwordGain();
         console.log(`Compare swap turn with ${sword2} swords and ${skillUsed} skill used`);
         if(skillUsed < 3 && sword2 > 0) {
           return 1;
