@@ -375,15 +375,18 @@ function StartTurn(param) {
 		}
 
 		if (strategy) {
-			strategy.playTurn();
-			return;
+			try {
+				strategy.playTurn();
+			} catch(e) {
+				let heroFullMana = botPlayer.anyHeroFullMana();
+				if (heroFullMana != null) {
+					SendCastSkill(heroFullMana)
+				} else {
+					SendSwapGem()
+				}
+			}
 		}
-		let heroFullMana = botPlayer.anyHeroFullMana();
-		if (heroFullMana != null) {
-			SendCastSkill(heroFullMana)
-		} else {
-			SendSwapGem()
-		}
+
 
 	}, delaySwapGem);
 }

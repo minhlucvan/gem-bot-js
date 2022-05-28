@@ -493,13 +493,17 @@ class AotVolcanoWrathSkill extends AotCastSkill {
 
   applyToState(state, player, enemy) {
     const caster = player.getHeroById(this.hero.id);
-    const targets = enemy.getHerosAlive();
     const totalRedGem = state.grid.countGemByType(GemType.RED);
-    // caster.burnManaTo(0);
-    for(const enemyHero of targets) {
-      const damage = enemyHero.attack + totalRedGem;
-      enemyHero.takeDamage(damage);
+    const target = player.getHeroById(this.target.id);
+    if(!target) {
+      return;
     }
+    // caster.burnManaTo(0);
+    if(target) {
+      const damage = totalRedGem + target.attack;
+      target.takeDamage(totalRedGem);
+    }
+
   }
 }
 
@@ -657,7 +661,7 @@ class TurnEfect {
 }
 
 class GameSimulator {
-  buffAttackMetric = new LinearScale(2, 0);
+  buffAttackMetric = new LinearScale(3, 0);
   buffHitPointMetric = new LinearScale(3, 0);
   buffManaMetric = new LinearScale(2, 0);
   damgeMetric = new AttackDamgeMetric();
@@ -1419,7 +1423,7 @@ class AoTStrategy {
         console.log(`Turn effect ${futureState.turnEffects.indexOf(effect)}/${futureState.turnEffects.length}`)
         effect.debug();
       }
-      const simulateMoveScore = this.compareScoreOnStates(currentBestState, futureState, currentPlayer, currentEnemyPlayer);
+      const simulateMoveScore = this.compareScoreOnStates(currentBestState, futureState.clone(), currentPlayer, currentEnemyPlayer);
       console.log('State compare', simulateMoveScore);
       if (simulateMoveScore == 2) {
         currentBestMove = move;
