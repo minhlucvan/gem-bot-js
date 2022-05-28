@@ -1521,13 +1521,13 @@ class AoTStrategy {
 
       const playerDamage = damageMetric.exec(sword1, playerFirstHero);
       console.log(`Player damge over enemy hp ${playerDamage}/${enemyFirstHero.hp}`);
-      if(playerDamage/enemyFirstHero.hp >= 1) {
+      if(playerDamage/enemyFirstHero.hp >= 0.5) {
         return 1;
       } 
 
       const enemyDamage = damageMetric.exec(sword1, playerFirstHero);
       console.log(`Enemy damge over player hp ${enemyDamage}/${playerFirstHero.hp}`);
-      if(enemyDamage/playerFirstHero.hp >= 1) {
+      if(enemyDamage/playerFirstHero.hp >= 0.5) {
         return 1;
       }
       
