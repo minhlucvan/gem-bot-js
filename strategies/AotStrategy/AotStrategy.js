@@ -446,7 +446,7 @@ class AotVolcanoWrathSkill extends AotCastSkill {
       }
 
       const skillDamge = targetHero.attack + toalRedGem;
-      if(skillDamge >=  targetHero.hp) {
+      if(skillDamge >=  targetHero.hp && !(targetHero.id == HeroIdEnum.ELIZAH && targetHero.isFullMana())) {
         if(!heroTargetCanKill) {
           heroTargetCanKill = targetHero;
         } else if(targetHero.maxMana - targetHero.mana < 3) {
