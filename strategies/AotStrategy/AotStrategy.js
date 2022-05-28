@@ -251,7 +251,46 @@ class AotDeathTouchSkill extends AotCastSkill {
   }
 
   static fromHeroState(hero, player, enemyPlayer, state) {
-    return enemyPlayer.getHerosAlive().map((heroTarget) => new AotDeathTouchSkill(hero).withTargetHero(heroTarget));
+    const targetPriority = [HeroIdEnum.DISPATER, HeroIdEnum.MERMAID, HeroIdEnum.MONK];
+    const targetBlacklists = [HeroIdEnum.SKELETON, HeroIdEnum.ELIZAH];
+    const enemies = enemyPlayer.getHerosAlive();
+    let heroTargetMaxAttack = null;
+    let heroTargetPriority = null;
+    let currentPriority = null;
+    let targetNotBlackList = null;
+
+    for(const targetHero of enemies) {
+      if(!targetBlacklists.includes(targetHero.id)) {
+        targetNotBlackList = true;
+      }
+
+      if(!heroTargetMaxAttack)  {
+        heroTargetMaxAttack = targetHero;
+      } else if(targetHero.attack > heroTargetMaxAttack.attack) {
+        heroTargetMaxAttack = targetHero;
+      }
+
+      const priority = targetPriority.findIndex(heroId => targetHero.id == heroId);
+      if(priority > -1) {
+        if(!heroTargetPriority) {
+          heroTargetPriority = targetHero;
+          currentPriority = priority;
+        } else if(priority < currentPriority) {
+          heroTargetPriority = targetHero;
+          currentPriority = priority;
+        }
+      }
+    }
+
+    if(targetNotBlackList) {
+      return enemyPlayer.getHerosAlive()
+      .filter(tar => !targetBlacklists.includes(tar.id))
+      .map(targetHero => new AotDeathTouchSkill(hero).withTargetHero(targetHero)) 
+    }
+
+    const target = targets[Math.floor(Math.random()*targets.length)];
+
+    return [new AotDeathTouchSkill(hero).withTargetHero(target)];
   }
 
   applyToState(state, player, enemy) {
@@ -1608,10 +1647,15 @@ class AoTStrategy {
       return focusSkillCasts;
     }
 
-    const belessedCasts = allPossibleCasts.filter(skill => skill.hero.id == HeroIdEnum.MONK);
+    const blessedCasts = allPossibleCasts.filter(skill => skill.hero.id == HeroIdEnum.MONK);
 
-    if(belessedCasts.length > 0) {
-      return belessedCasts;
+    if(blessedCasts.length > 0) {
+      return blessedCasts;
+    }
+
+    const deathCast = allPossibleCasts.filter(skill => skill.hero.id == HeroIdEnum.DISPATER);
+    if(deathCast.length > 0) {
+      return deathCast;
     }
 
     return allPossibleCasts;

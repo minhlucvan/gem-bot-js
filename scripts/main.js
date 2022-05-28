@@ -41,6 +41,8 @@ var params = window.params;
 var strategy = window.strategy;
 visualizer.start();
 
+window.console.log = () => {};
+
 // Connect to Game server
 initConnection();
 
