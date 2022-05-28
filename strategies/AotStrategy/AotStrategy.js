@@ -1648,16 +1648,16 @@ class AoTStrategy {
       return focusSkillCasts;
     }
 
-    const blessedCasts = allPossibleCasts.filter(skill => skill.hero.id == HeroIdEnum.MONK);
+    // const blessedCasts = allPossibleCasts.filter(skill => skill.hero.id == HeroIdEnum.MONK);
 
-    if(blessedCasts.length > 0) {
-      return blessedCasts;
-    }
+    // if(blessedCasts.length > 0) {
+    //   return blessedCasts;
+    // }
 
-    const deathCast = allPossibleCasts.filter(skill => skill.hero.id == HeroIdEnum.DISPATER);
-    if(deathCast.length > 0) {
-      return deathCast;
-    }
+    // const deathCast = allPossibleCasts.filter(skill => skill.hero.id == HeroIdEnum.DISPATER);
+    // if(deathCast.length > 0) {
+    //   return deathCast;
+    // }
 
     return allPossibleCasts;
   }
