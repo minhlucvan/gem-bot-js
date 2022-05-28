@@ -23,7 +23,7 @@ const BATTLE_MODE = "BATTLE_MODE";
 const ENEMY_PLAYER_ID = 0;
 const BOT_PLAYER_ID = 2;
 
-const delaySwapGem = 2000;
+const delaySwapGem = 3000;
 const delayFindGame = 5000;
 
 var sfs;
