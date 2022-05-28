@@ -1155,13 +1155,14 @@ class AotOrthurHeroMetric extends AotHeroMetrics {
   }
 
   skillMetric = new  AotHeroMetricScale((hero, player, enemyPlayer, state) => {
+    const addDamage = hero.attack > 10 ? 2 : 8; 
     const additionalPower = player.getHerosAlive().reduce((acc, curr) => {
       if(curr.id == hero.id) {
-        return acc + 8;
+        return acc + addDamage;
       }
 
       const cloned = curr.clone();
-      cloned.attack += 8;
+      cloned.attack += addDamage;
       const originalPower = curr.metrics.calcScore(curr, player, enemyPlayer, state, true);
       const clonedPower = cloned.metrics.calcScore(cloned, player, enemyPlayer, state, true);
       const powerGap = clonedPower - originalPower;
