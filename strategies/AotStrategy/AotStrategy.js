@@ -150,6 +150,7 @@ class AotGameState {
     const botPlayer = this.botPlayer.clone();
     const enemyPlayer = this.enemyPlayer.clone();
     const state = new AotGameState({ game, grid, botPlayer, enemyPlayer });
+    state.hasExtraTurn = this.hasExtraTurn;
     state.distinctions = [...this.distinctions];
     state.turnEffects = [...this.turnEffects];
     return state;
@@ -1532,8 +1533,8 @@ class AoTStrategy {
       }
       
       const enemyFullMana = enemy.anyHeroFullMana();
-      if(enemyFullMana) {
-        console.log(`Has enemy hero ${enemyFullMana.id}full mana`);
+      if(!enemyFullMana) {
+        console.log(`Has no enemy hero full mana`);
         return 1;
       }
     }
